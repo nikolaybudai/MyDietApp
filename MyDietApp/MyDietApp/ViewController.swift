@@ -16,8 +16,8 @@ class ViewController: UIViewController {
         label.text = "Test text"
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = .Roboto.lightItalic.size(of: 40)
-        label.textColor = .white
+        label.font = .Roboto.bold.size(of: 40)
+        label.textColor = AppColors.highlightYellow
         
         view.addSubview(label)
         
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         
-        view.backgroundColor = .blue
+        view.backgroundColor = AppColors.background
     }
 
 
