@@ -32,6 +32,8 @@
 		ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF3B2BB5AA20000DF11F /* UIColor+Extension.swift */; };
 		ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */; };
 		ED23BF432BB5E2D3000DF11F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF422BB5E2D3000DF11F /* Coordinator.swift */; };
+		ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */; };
+		ED23BF472BB602C1000DF11F /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF462BB602C1000DF11F /* TabBarCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		ED23BF3B2BB5AA20000DF11F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		ED23BF422BB5E2D3000DF11F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		ED23BF462BB602C1000DF11F /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				ED23BF422BB5E2D3000DF11F /* Coordinator.swift */,
+				ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */,
+				ED23BF462BB602C1000DF11F /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -378,6 +384,8 @@
 				ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */,
 				ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */,
 				ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */,
+				ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */,
+				ED23BF472BB602C1000DF11F /* TabBarCoordinator.swift in Sources */,
 				ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */,
 				ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */,
 				ED23BF432BB5E2D3000DF11F /* Coordinator.swift in Sources */,
