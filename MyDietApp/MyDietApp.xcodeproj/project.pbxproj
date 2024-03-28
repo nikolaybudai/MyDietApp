@@ -31,6 +31,7 @@
 		ED23BF3A2BB5A14B000DF11F /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF2D2BB5A14B000DF11F /* Roboto-Black.ttf */; };
 		ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF3B2BB5AA20000DF11F /* UIColor+Extension.swift */; };
 		ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */; };
+		ED23BF432BB5E2D3000DF11F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF422BB5E2D3000DF11F /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		ED23BF2D2BB5A14B000DF11F /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		ED23BF3B2BB5AA20000DF11F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		ED23BF422BB5E2D3000DF11F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		ED23BECF2BB58BB8000DF11F /* MyDietApp */ = {
 			isa = PBXGroup;
 			children = (
+				ED23BF402BB5E288000DF11F /* NavigationLayer */,
 				ED23BF002BB59DCB000DF11F /* Resources */,
 				ED23BED02BB58BB8000DF11F /* AppDelegate.swift */,
 				ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */,
@@ -210,6 +213,22 @@
 				ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		ED23BF402BB5E288000DF11F /* NavigationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BF412BB5E2B9000DF11F /* Coordinators */,
+			);
+			path = NavigationLayer;
+			sourceTree = "<group>";
+		};
+		ED23BF412BB5E2B9000DF11F /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BF422BB5E2D3000DF11F /* Coordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +380,7 @@
 				ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */,
 				ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */,
 				ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */,
+				ED23BF432BB5E2D3000DF11F /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
