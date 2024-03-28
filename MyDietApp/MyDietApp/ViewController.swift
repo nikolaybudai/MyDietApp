@@ -12,7 +12,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .green
+        let label = UILabel()
+        label.text = "Test text"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 40, weight: UIFont.Weight(rawValue: 20))
+        label.textColor = .white
+        
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+        
+        view.backgroundColor = .blue
     }
 
 
