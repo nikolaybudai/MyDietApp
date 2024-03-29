@@ -26,7 +26,7 @@ class ViewController: UIViewController {
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         
-        view.backgroundColor = AppColors.background
+        view.backgroundColor = .white
     }
 
 

@@ -30,21 +30,18 @@ enum Tab {
 
     func getIconName() -> String {
         switch self {
-        case .recipies: return ""
-        case .myRecipies: return ""
-        case .profile: return ""
+        case .recipies: return "fork.knife.circle"
+        case .myRecipies: return "bookmark.circle"
+        case .profile: return "person.crop.circle"
         }
     }
 }
 
 protocol TabBarCoordinatorProtocol: CoordinatorProtocol {
     var tabBarController: UITabBarController { get set }
-//    func selectPage(_ page: Tab)
-//    func setSelectedIndex(_ index: Int)
-//    func currentPage() -> Tab?
 }
 
-class TabBarCoordinator: TabBarCoordinatorProtocol {
+final class TabBarCoordinator: TabBarCoordinatorProtocol {
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     
@@ -71,24 +68,21 @@ private extension TabBarCoordinator {
     func getTabBarController(_ tab: Tab) -> UINavigationController {
         let navigationController = UINavigationController()
         navigationController.tabBarItem = UITabBarItem(title: tab.getTitleName(),
-                                                       image: UIImage(named: tab.getIconName()),
+                                                       image: UIImage(systemName: tab.getIconName()),
                                                        tag: tab.getIndex())
         switch tab {
         case .recipies:
-            break
-//            let coordinator = HomeCoordinator(navController)
-//            coordinator.start()
-//            childCoordinators.append(coordinator)
+            let coordinator = RecipiesCoordinator(navigationController: navigationController)
+            coordinator.start()
+            childCoordinators.append(coordinator)
         case .myRecipies:
-            break
-//            let coordinator = HomeCoordinator(navController)
-//            coordinator.start()
-//            childCoordinators.append(coordinator)
+            let coordinator = MyRecipiesCoordinator(navigationController: navigationController)
+            coordinator.start()
+            childCoordinators.append(coordinator)
         case .profile:
-            break
-//            let coordinator = ProfileCoordinator(navController)
-//            coordinator.start()
-//            childCoordinators.append(coordinator)
+            let coordinator = ProfileCoordinator(navigationController: navigationController)
+            coordinator.start()
+            childCoordinators.append(coordinator)
         }
         
         return navigationController
@@ -97,7 +91,9 @@ private extension TabBarCoordinator {
     func prepareTabBarController(withTabControllers tabBarControllers: [UIViewController]) {
         tabBarController.setViewControllers(tabBarControllers, animated: true)
         tabBarController.selectedIndex = Tab.recipies.getIndex()
-        tabBarController.tabBar.isTranslucent = false
+        tabBarController.tabBar.tintColor = AppColors.highlightYellow
+        tabBarController.tabBar.unselectedItemTintColor = AppColors.baseCyan
+        tabBarController.tabBar.backgroundColor = AppColors.background
         
         navigationController.viewControllers = [tabBarController]
     }
