@@ -141,14 +141,16 @@
 		ED23BECF2BB58BB8000DF11F /* MyDietApp */ = {
 			isa = PBXGroup;
 			children = (
-				ED23BF002BB59DCB000DF11F /* Resources */,
+				EDBD44FF2BB71D3E002F75A4 /* Application */,
 				ED23BF402BB5E288000DF11F /* NavigationLayer */,
-				ED23BED02BB58BB8000DF11F /* AppDelegate.swift */,
-				ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */,
+				EDBD45012BB71DAB002F75A4 /* ServiceLayer */,
+				EDBD45072BB71F33002F75A4 /* Model */,
+				EDBD45022BB71E48002F75A4 /* RecipiesModule */,
+				EDBD45032BB71E52002F75A4 /* MyRecipiesModule */,
+				EDBD45042BB71E66002F75A4 /* ProfileModule */,
+				ED23BF002BB59DCB000DF11F /* Resources */,
 				ED23BED42BB58BB8000DF11F /* ViewController.swift */,
-				ED23BED92BB58BBA000DF11F /* Assets.xcassets */,
-				ED23BEDB2BB58BBA000DF11F /* LaunchScreen.storyboard */,
-				ED23BEDE2BB58BBA000DF11F /* Info.plist */,
+				EDBD45002BB71D96002F75A4 /* SupportingFiles */,
 			);
 			path = MyDietApp;
 			sourceTree = "<group>";
@@ -173,6 +175,7 @@
 		ED23BF002BB59DCB000DF11F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED23BED92BB58BBA000DF11F /* Assets.xcassets */,
 				ED23BF1D2BB59F5C000DF11F /* Extensions */,
 				ED23BF012BB59DD3000DF11F /* Fonts */,
 				ED23BF3D2BB5AA62000DF11F /* Colors */,
@@ -244,6 +247,131 @@
 				EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		EDBD44FF2BB71D3E002F75A4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BED02BB58BB8000DF11F /* AppDelegate.swift */,
+				ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		EDBD45002BB71D96002F75A4 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BEDB2BB58BBA000DF11F /* LaunchScreen.storyboard */,
+				ED23BEDE2BB58BBA000DF11F /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		EDBD45012BB71DAB002F75A4 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		EDBD45022BB71E48002F75A4 /* RecipiesModule */ = {
+			isa = PBXGroup;
+			children = (
+				EDBD450C2BB71F5B002F75A4 /* ViewController */,
+				EDBD45062BB71F2D002F75A4 /* View */,
+				EDBD45052BB71F15002F75A4 /* ViewModel */,
+			);
+			path = RecipiesModule;
+			sourceTree = "<group>";
+		};
+		EDBD45032BB71E52002F75A4 /* MyRecipiesModule */ = {
+			isa = PBXGroup;
+			children = (
+				EDBD450D2BB71F62002F75A4 /* ViewController */,
+				EDBD45092BB71F42002F75A4 /* View */,
+				EDBD45082BB71F3D002F75A4 /* ViewModel */,
+			);
+			path = MyRecipiesModule;
+			sourceTree = "<group>";
+		};
+		EDBD45042BB71E66002F75A4 /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				EDBD450F2BB71F72002F75A4 /* ViewController */,
+				EDBD450E2BB71F6E002F75A4 /* View */,
+				EDBD450A2BB71F4D002F75A4 /* ViewModel */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		EDBD45052BB71F15002F75A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EDBD45062BB71F2D002F75A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EDBD45072BB71F33002F75A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDBD45082BB71F3D002F75A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EDBD45092BB71F42002F75A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EDBD450A2BB71F4D002F75A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EDBD450C2BB71F5B002F75A4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EDBD450D2BB71F62002F75A4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EDBD450E2BB71F6E002F75A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EDBD450F2BB71F72002F75A4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,7 +704,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyDietApp/Info.plist;
+				INFOPLIST_FILE = MyDietApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -608,7 +736,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyDietApp/Info.plist;
+				INFOPLIST_FILE = MyDietApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
