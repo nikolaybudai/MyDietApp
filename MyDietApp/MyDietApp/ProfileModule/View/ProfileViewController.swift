@@ -10,13 +10,15 @@ import PhotosUI
 
 final class ProfileViewController: UIViewController {
     
+    //MARK: Properties
     weak var coordinator: ProfileCoordinator?
     
     let viewModel: ProfileViewModelProtocol
     
     private let avatarImageView = UIImageView()
+    private let nameTextField = UITextField()
     
-    //MARK: - Init
+    //MARK: Init
     init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -26,7 +28,7 @@ final class ProfileViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Lifecycle
+    //MARK: Lifecycle
     override func viewDidLoad() {
         setupViews()
         setupConstraints()
@@ -37,24 +39,32 @@ final class ProfileViewController: UIViewController {
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
     }
     
+    //MARK: Methods
     @objc private func didTapImageView() {
         configureImagePicker()
     }
     
 }
 
+//MARK: - Setup UI
 private extension ProfileViewController {
     func setupViews() {
         view.backgroundColor = AppColors.baseCyan
         setupAvatarImageView()
+        setupNameTextField()
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             avatarImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatarImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
+            
+            nameTextField.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 30),
+            nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            nameTextField.heightAnchor.constraint(equalToConstant: 35),
         ])
         
     }
@@ -64,8 +74,8 @@ private extension ProfileViewController {
         avatarImageView.layer.borderWidth = 1
         avatarImageView.layer.borderColor = UIColor.white.cgColor
         avatarImageView.image = UIImage(systemName: "person.circle")
+        avatarImageView.tintColor = AppColors.baseGray
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        avatarImageView.tintColor = .white
         view.addSubview(avatarImageView)
         
         // Add gesture recognizer
@@ -82,9 +92,19 @@ private extension ProfileViewController {
         pickerViewController.delegate = self
         present(pickerViewController, animated: true)
     }
+    
+    private func setupNameTextField() {
+        nameTextField.backgroundColor = AppColors.baseGray
+        nameTextField.placeholder = " Enter your name"
+        nameTextField.layer.cornerRadius = 5
+        nameTextField.keyboardType = .default
+        nameTextField.delegate = self
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(nameTextField)
+    }
 }
 
-
+//MARK: - PHPickerViewControllerDelegate
 extension ProfileViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
@@ -99,5 +119,12 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
                 }
             }
         }
+    }
+}
+
+//MARK: - UITextFieldDelegate
+extension ProfileViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }
