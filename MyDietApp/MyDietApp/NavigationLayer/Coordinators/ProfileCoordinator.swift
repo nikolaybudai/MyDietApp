@@ -20,8 +20,9 @@ final class ProfileCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        let profileViewController = ViewController()
-        navigationController.pushViewController(profileViewController, animated: true)
+        let viewModel = ProfileViewModel()
+        let viewController = ProfileViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
 }
