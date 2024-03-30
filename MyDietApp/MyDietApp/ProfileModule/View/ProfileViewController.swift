@@ -17,6 +17,8 @@ final class ProfileViewController: UIViewController {
     
     private let avatarImageView = UIImageView()
     private let nameTextField = UITextField()
+    private let dietChoiceButton = UIButton()
+    private let saveButton = UIButton()
     
     //MARK: Init
     init(viewModel: ProfileViewModelProtocol) {
@@ -44,6 +46,10 @@ final class ProfileViewController: UIViewController {
         configureImagePicker()
     }
     
+    @objc private func didTapSaveButton() {
+        viewModel.saveUserData()
+    }
+    
 }
 
 //MARK: - Setup UI
@@ -52,6 +58,8 @@ private extension ProfileViewController {
         view.backgroundColor = AppColors.baseCyan
         setupAvatarImageView()
         setupNameTextField()
+        setupDietChoiceButton()
+        setupSaveButton()
     }
     
     func setupConstraints() {
@@ -64,7 +72,17 @@ private extension ProfileViewController {
             nameTextField.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 30),
             nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            nameTextField.heightAnchor.constraint(equalToConstant: 35),
+            nameTextField.heightAnchor.constraint(equalToConstant: 36),
+            
+            dietChoiceButton.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50),
+            dietChoiceButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dietChoiceButton.widthAnchor.constraint(equalTo: nameTextField.widthAnchor),
+            dietChoiceButton.heightAnchor.constraint(equalToConstant: 44),
+            
+            saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            saveButton.widthAnchor.constraint(equalTo: nameTextField.widthAnchor, multiplier: 0.6),
+            saveButton.heightAnchor.constraint(equalToConstant: 44),
         ])
         
     }
@@ -98,9 +116,46 @@ private extension ProfileViewController {
         nameTextField.placeholder = " Enter your name"
         nameTextField.layer.cornerRadius = 5
         nameTextField.keyboardType = .default
+        nameTextField.font = .Roboto.medium.size(of: 18)
+        nameTextField.textColor = AppColors.secondaryDark
+        nameTextField.textAlignment = .center
         nameTextField.delegate = self
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameTextField)
+    }
+    
+    private func setupDietChoiceButton() {
+        var menuChildren: [UIMenuElement] = []
+        let dataSource = viewModel.dietOptions
+        let handler = viewModel.dietChoiceHandler
+        
+        for fruit in dataSource {
+            menuChildren.append(UIAction(title: fruit, handler: handler))
+        }
+
+        dietChoiceButton.menu = UIMenu(options: .displayInline, children: menuChildren)
+
+        dietChoiceButton.showsMenuAsPrimaryAction = true
+        dietChoiceButton.changesSelectionAsPrimaryAction = true
+        
+        dietChoiceButton.setTitle("Choose your diet", for: .normal)
+        dietChoiceButton.backgroundColor = AppColors.highlightYellow
+        dietChoiceButton.layer.cornerRadius = 7
+        dietChoiceButton.setTitleColor(AppColors.secondaryDark, for: .normal)
+        dietChoiceButton.titleLabel?.font = UIFont.Roboto.medium.size(of: 22)
+        dietChoiceButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(dietChoiceButton)
+    }
+    
+    private func setupSaveButton() {
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.backgroundColor = AppColors.highlightYellow
+        saveButton.layer.cornerRadius = 7
+        saveButton.setTitleColor(AppColors.secondaryDark, for: .normal)
+        saveButton.titleLabel?.font = UIFont.Roboto.bold.size(of: 24)
+        saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(saveButton)
     }
 }
 
