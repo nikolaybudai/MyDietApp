@@ -90,7 +90,7 @@ private extension TabBarCoordinator {
     
     func prepareTabBarController(withTabControllers tabBarControllers: [UIViewController]) {
         tabBarController.setViewControllers(tabBarControllers, animated: true)
-        tabBarController.selectedIndex = Tab.recipies.getIndex()
+        tabBarController.selectedIndex = Tab.profile.getIndex()
         tabBarController.tabBar.tintColor = AppColors.highlightYellow
         tabBarController.tabBar.unselectedItemTintColor = AppColors.baseCyan
         tabBarController.tabBar.backgroundColor = AppColors.background
