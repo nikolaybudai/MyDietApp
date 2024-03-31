@@ -28,7 +28,8 @@ final class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func showMainFlow() {
-        let tabCoordinator = TabBarCoordinator(navigationController: navigationController)
+        let userInfoStorage = UserInfoStorage()
+        let tabCoordinator = TabBarCoordinator(navigationController: navigationController, userInfoStorage: userInfoStorage)
         tabCoordinator.finishDelegate = self
         tabCoordinator.start()
         childCoordinators.append(tabCoordinator)
