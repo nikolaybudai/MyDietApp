@@ -34,6 +34,7 @@
 		ED23BF432BB5E2D3000DF11F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF422BB5E2D3000DF11F /* Coordinator.swift */; };
 		ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */; };
 		ED23BF472BB602C1000DF11F /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF462BB602C1000DF11F /* TabBarCoordinator.swift */; };
+		ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */; };
 		EDAE97652BB7FC160056B33D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97642BB7FC160056B33D /* ProfileViewController.swift */; };
 		EDAE97672BB7FCB80056B33D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97662BB7FCB80056B33D /* ProfileViewModel.swift */; };
 		EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97682BB84DEE0056B33D /* DietOptions.swift */; };
@@ -91,6 +92,7 @@
 		ED23BF422BB5E2D3000DF11F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		ED23BF462BB602C1000DF11F /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorage.swift; sourceTree = "<group>"; };
 		EDAE97642BB7FC160056B33D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EDAE97662BB7FCB80056B33D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		EDAE97682BB84DEE0056B33D /* DietOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietOptions.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 		EDBD45012BB71DAB002F75A4 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */,
 				EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */,
 				ED23BED52BB58BB8000DF11F /* ViewController.swift in Sources */,
 				EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */,

@@ -49,10 +49,12 @@ final class TabBarCoordinator: TabBarCoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] = []
     var type: CoordinatorType { .mainTab }
     var navigationController: UINavigationController
+    let userInfoStorage: UserInfoStorageProtocol
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, userInfoStorage: UserInfoStorageProtocol) {
         self.navigationController = navigationController
         tabBarController = UITabBarController()
+        self.userInfoStorage = userInfoStorage
     }
     
     func start() {
@@ -90,7 +92,13 @@ private extension TabBarCoordinator {
     
     func prepareTabBarController(withTabControllers tabBarControllers: [UIViewController]) {
         tabBarController.setViewControllers(tabBarControllers, animated: true)
-        tabBarController.selectedIndex = Tab.profile.getIndex()
+        
+        if userInfoStorage.hasFilledData {
+            tabBarController.selectedIndex = Tab.recipies.getIndex()
+        } else {
+            tabBarController.selectedIndex = Tab.profile.getIndex()
+        }
+        
         tabBarController.tabBar.tintColor = AppColors.highlightYellow
         tabBarController.tabBar.unselectedItemTintColor = AppColors.baseCyan
         tabBarController.tabBar.backgroundColor = AppColors.background
