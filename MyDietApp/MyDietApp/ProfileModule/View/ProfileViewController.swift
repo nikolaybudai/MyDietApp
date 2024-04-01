@@ -19,6 +19,7 @@ final class ProfileViewController: UIViewController {
     private let nameTextField = UITextField()
     private let dietChoiceButton = UIButton()
     private let saveButton = UIButton()
+    private let stackView = UIStackView()
     
     //MARK: Init
     init(viewModel: ProfileViewModelProtocol) {
@@ -57,7 +58,7 @@ final class ProfileViewController: UIViewController {
         let chosenDiet = dietChoiceButton.titleLabel?.text ?? ""
         viewModel.dietChosen = chosenDiet
         
-        guard diets.contains(chosenDiet), let name = nameTextField.layer.name,
+        guard diets.contains(chosenDiet), let name = nameTextField.text,
               let image = avatarImageView.image else {
             showAlert(title: "Empty fields!", message: "You should feel all the information.")
             return
@@ -84,6 +85,7 @@ private extension ProfileViewController {
         setupNameTextField()
         setupDietChoiceButton()
         setupSaveButton()
+        setupStackView()
     }
     
     func setupConstraints() {
@@ -93,19 +95,13 @@ private extension ProfileViewController {
             avatarImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
             
-            nameTextField.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 30),
-            nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            nameTextField.heightAnchor.constraint(equalToConstant: 36),
+            stackView.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 40),
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             
-            dietChoiceButton.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50),
-            dietChoiceButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dietChoiceButton.widthAnchor.constraint(equalTo: nameTextField.widthAnchor),
+            nameTextField.heightAnchor.constraint(equalToConstant: 40),
             dietChoiceButton.heightAnchor.constraint(equalToConstant: 44),
-            
-            saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            saveButton.widthAnchor.constraint(equalTo: nameTextField.widthAnchor, multiplier: 0.6),
             saveButton.heightAnchor.constraint(equalToConstant: 44),
         ])
         
@@ -144,8 +140,6 @@ private extension ProfileViewController {
         nameTextField.textColor = AppColors.secondaryDark
         nameTextField.textAlignment = .center
         nameTextField.delegate = self
-        nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(nameTextField)
     }
     
     private func setupDietChoiceButton() {
@@ -167,8 +161,6 @@ private extension ProfileViewController {
         dietChoiceButton.layer.cornerRadius = 7
         dietChoiceButton.setTitleColor(AppColors.secondaryDark, for: .normal)
         dietChoiceButton.titleLabel?.font = UIFont.Roboto.medium.size(of: 22)
-        dietChoiceButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(dietChoiceButton)
     }
     
     private func setupSaveButton() {
@@ -178,8 +170,17 @@ private extension ProfileViewController {
         saveButton.setTitleColor(AppColors.secondaryDark, for: .normal)
         saveButton.titleLabel?.font = UIFont.Roboto.bold.size(of: 24)
         saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
-        saveButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(saveButton)
+    }
+    
+    private func setupStackView() {
+        stackView.addArrangedSubview(nameTextField)
+        stackView.addArrangedSubview(dietChoiceButton)
+        stackView.addArrangedSubview(saveButton)
+        
+        stackView.axis = .vertical
+        stackView.distribution = .equalCentering
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
     }
 }
 
