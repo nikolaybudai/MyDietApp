@@ -7,11 +7,7 @@
 
 import UIKit
 
-protocol AppCoordinatorProtocol: CoordinatorProtocol {
-    func showMainFlow()
-}
-
-final class AppCoordinator: AppCoordinatorProtocol {
+final class AppCoordinator: CoordinatorProtocol {
     
     weak var finishDelegate: CoordinatorFinishDelegate? = nil
     
@@ -24,10 +20,6 @@ final class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func start() {
-        showMainFlow()
-    }
-    
-    func showMainFlow() {
         let userInfoStorage = UserInfoStorage()
         let tabCoordinator = TabBarCoordinator(navigationController: navigationController, userInfoStorage: userInfoStorage)
         tabCoordinator.finishDelegate = self
