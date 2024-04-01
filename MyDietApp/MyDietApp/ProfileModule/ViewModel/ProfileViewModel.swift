@@ -10,11 +10,16 @@ import UIKit
 protocol ProfileViewModelProtocol: AnyObject {
     var dietOptions: [String] { get }
     var dietChoiceHandler:  (UIAction) -> Void { get }
+    var dietChosen: String { get set }
+    var name: String { get set }
     
-    func saveUserData()
+    func saveUserData(_ image: UIImage, _ name: String)
+    func loadUserInfo() -> (UIImage?, String?, String?)
 }
 
 final class ProfileViewModel: ProfileViewModelProtocol {
+    
+    let userInfoStorage: UserInfoStorageProtocol
     
     var dietOptions: [String] = {
         var diets: [String] = []
@@ -24,11 +29,28 @@ final class ProfileViewModel: ProfileViewModelProtocol {
         return diets
     }()
     
-    var dietChoiceHandler: (UIAction) -> Void = { action in
-        print(action.title)
+    lazy var dietChoiceHandler: (UIAction) -> Void = { [weak self] action in
+        self?.dietChosen = action.title
+    }
+    var dietChosen: String = ""
+    var name: String = ""
+    
+    init(userInfoStorage: UserInfoStorageProtocol) {
+        self.userInfoStorage = userInfoStorage
     }
     
-    func saveUserData() {
-        print("Save user info")
+    func saveUserData(_ image: UIImage, _ name: String) {
+        print(name, image, dietChosen)
+        userInfoStorage.saveImage(image)
+        userInfoStorage.saveNameAndDiet(name, dietChosen)
+        userInfoStorage.hasFilledData = true
+        self.name = name
+    }
+    
+    func loadUserInfo() -> (UIImage?, String?, String?) {
+        let image = userInfoStorage.loadImage()
+        let name = UserDefaults.standard.value(forKey: "userName") as? String
+        let diet = UserDefaults.standard.value(forKey: "userDiet") as? String
+        return (image, name, diet)
     }
 }

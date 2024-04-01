@@ -41,6 +41,7 @@
 		EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */; };
 		EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */; };
 		EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */; };
+		EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD860362BBABF3100505209 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesCoordinator.swift; sourceTree = "<group>"; };
 		EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipiesCoordinator.swift; sourceTree = "<group>"; };
 		EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		EDD860362BBABF3100505209 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			children = (
 				ED23BF1E2BB59F72000DF11F /* UIFont+Extension.swift */,
 				ED23BF3B2BB5AA20000DF11F /* UIColor+Extension.swift */,
+				EDD860362BBABF3100505209 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */,
 				ED23BED52BB58BB8000DF11F /* ViewController.swift in Sources */,
 				EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */,
+				EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */,
 				ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */,
 				ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */,
 				EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */,

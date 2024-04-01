@@ -34,11 +34,17 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         setupViews()
         setupConstraints()
+        setUserInfo()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     //MARK: Methods
@@ -47,7 +53,28 @@ final class ProfileViewController: UIViewController {
     }
     
     @objc private func didTapSaveButton() {
-        viewModel.saveUserData()
+        let diets = viewModel.dietOptions
+        let chosenDiet = dietChoiceButton.titleLabel?.text ?? ""
+        viewModel.dietChosen = chosenDiet
+        
+        if !diets.contains(chosenDiet) {
+            showAlert(title: "Empty fields!", message: "You should feel all the information.")
+        }
+        
+        if let name = nameTextField.text,
+           let image = avatarImageView.image {
+            viewModel.saveUserData(image, name)
+        } else {
+            showAlert(title: "Empty fields!", message: "You should feel all the information.")
+        }
+    }
+    
+    private func setUserInfo() {
+        let (image, name, diet) = viewModel.loadUserInfo()
+        guard let image, let name, let diet else { return }
+        avatarImageView.image = image
+        nameTextField.text = name
+        dietChoiceButton.setTitle(diet, for: .normal)
     }
     
 }
@@ -129,8 +156,8 @@ private extension ProfileViewController {
         let dataSource = viewModel.dietOptions
         let handler = viewModel.dietChoiceHandler
         
-        for fruit in dataSource {
-            menuChildren.append(UIAction(title: fruit, handler: handler))
+        for diet in dataSource {
+            menuChildren.append(UIAction(title: diet, handler: handler))
         }
 
         dietChoiceButton.menu = UIMenu(options: .displayInline, children: menuChildren)

@@ -20,8 +20,11 @@ final class ProfileCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        let viewModel = ProfileViewModel()
+        let userInfoStorage = UserInfoStorage()
+        let viewModel = ProfileViewModel(userInfoStorage: userInfoStorage)
         let viewController = ProfileViewController(viewModel: viewModel)
+        print("name \(String(describing: UserDefaults.standard.value(forKey: "userName")))")
+        print("diet \(String(describing: UserDefaults.standard.value(forKey: "userDiet")))")
         navigationController.pushViewController(viewController, animated: true)
     }
     
