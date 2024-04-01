@@ -57,16 +57,13 @@ final class ProfileViewController: UIViewController {
         let chosenDiet = dietChoiceButton.titleLabel?.text ?? ""
         viewModel.dietChosen = chosenDiet
         
-        if !diets.contains(chosenDiet) {
+        guard diets.contains(chosenDiet), let name = nameTextField.layer.name,
+              let image = avatarImageView.image else {
             showAlert(title: "Empty fields!", message: "You should feel all the information.")
+            return
         }
         
-        if let name = nameTextField.text,
-           let image = avatarImageView.image {
-            viewModel.saveUserData(image, name)
-        } else {
-            showAlert(title: "Empty fields!", message: "You should feel all the information.")
-        }
+        viewModel.saveUserData(image, name)
     }
     
     private func setUserInfo() {
