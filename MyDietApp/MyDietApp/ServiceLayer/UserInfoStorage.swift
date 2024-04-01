@@ -9,6 +9,7 @@ import UIKit
 
 protocol UserInfoStorageProtocol: AnyObject {
     var hasFilledData: Bool { get set }
+    func saveNameAndDiet(_ name: String, _ diet: String)
     func saveImage(_ image: UIImage)
     func loadImage() -> UIImage?
 }
@@ -22,6 +23,11 @@ final class UserInfoStorage: UserInfoStorageProtocol {
         set {
             UserDefaults.standard.setValue(newValue, forKey: "hasFilledData")
         }
+    }
+    
+    func saveNameAndDiet(_ name: String, _ diet: String) {
+        UserDefaults.standard.setValue(name, forKey: "userName")
+        UserDefaults.standard.setValue(diet, forKey: "userDiet")
     }
     
     func saveImage(_ image: UIImage) {
