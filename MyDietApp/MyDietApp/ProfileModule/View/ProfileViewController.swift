@@ -11,7 +11,7 @@ import PhotosUI
 final class ProfileViewController: UIViewController {
     
     //MARK: Properties
-    weak var coordinator: ProfileCoordinator?
+    weak var coordinator: ProfileCoordinatorProtocol?
     
     let viewModel: ProfileViewModelProtocol
     

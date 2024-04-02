@@ -7,30 +7,64 @@
 
 import UIKit
 
-final class AppCoordinator: CoordinatorProtocol {
+protocol AppCoordinatorProtocol: Coordinator {
+    var tabBarController: UITabBarController { get }
+    var userInfoStorage: UserInfoStorageProtocol { get }
+}
+
+final class AppCoordinator: AppCoordinatorProtocol {
     
-    weak var finishDelegate: CoordinatorFinishDelegate? = nil
-    
-    var childCoordinators = [CoordinatorProtocol]()
-    var type: CoordinatorType { .app }
+    let tabBarController: UITabBarController
+    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    let userInfoStorage: UserInfoStorageProtocol
+    var coordinatorFinishDelegate: CoordinatorFinishDelegate?
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(tabBarController: UITabBarController, userInfoStorage: UserInfoStorageProtocol) {
+        self.tabBarController = tabBarController
+        self.userInfoStorage = userInfoStorage
+        self.navigationController = UINavigationController()
     }
     
     func start() {
-        let userInfoStorage = UserInfoStorage()
-        let tabCoordinator = TabBarCoordinator(navigationController: navigationController, userInfoStorage: userInfoStorage)
-        tabCoordinator.finishDelegate = self
-        tabCoordinator.start()
-        childCoordinators.append(tabCoordinator)
+        let recipiesCoordinator = RecipiesCoordinator(navigationController: UINavigationController())
+        let myRecipiesCoordinator = MyRecipiesCoordinator(navigationController: UINavigationController())
+        let profileCoordinator = ProfileCoordinator(navigationController: UINavigationController())
+        
+        childCoordinators.append(recipiesCoordinator)
+        childCoordinators.append(myRecipiesCoordinator)
+        childCoordinators.append(profileCoordinator)
+        
+        recipiesCoordinator.start()
+        myRecipiesCoordinator.start()
+        profileCoordinator.start()
+        
+        tabBarController.setViewControllers([recipiesCoordinator.navigationController,
+                                             myRecipiesCoordinator.navigationController,
+                                             profileCoordinator.navigationController], animated: false)
+        
+        setupTabBar(tabBarController: tabBarController)
     }
     
 }
 
 extension AppCoordinator: CoordinatorFinishDelegate {
-    func coordinatorDidFinish(childCoordinator: CoordinatorProtocol) {
-        childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
+    func coordinatorDidFinish(coordinator: Coordinator) {
+        childCoordinators.removeAll()
+        tabBarController.viewControllers?.removeAll()
+    }
+}
+
+private extension AppCoordinator {
+    func setupTabBar(tabBarController: UITabBarController) {
+        tabBarController.tabBar.tintColor = AppColors.highlightYellow
+        tabBarController.tabBar.unselectedItemTintColor = AppColors.baseCyan
+        tabBarController.tabBar.backgroundColor = AppColors.background
+        
+        if userInfoStorage.hasFilledData {
+            tabBarController.selectedIndex = Tab.recipies.getIndex()
+        } else {
+            tabBarController.selectedIndex = Tab.profile.getIndex()
+        }
     }
 }

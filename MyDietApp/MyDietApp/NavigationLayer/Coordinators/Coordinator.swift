@@ -7,38 +7,14 @@
 
 import UIKit
 
-enum CoordinatorType {
-    case app
-    case mainTab
-    case tabItem
-}
-
-protocol CoordinatorProtocol: AnyObject {
-    var childCoordinators: [CoordinatorProtocol] { get set }
-    var type: CoordinatorType { get }
+protocol Coordinator: AnyObject {
+    var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
-    var finishDelegate: CoordinatorFinishDelegate? { get set }
-    
+    var coordinatorFinishDelegate: CoordinatorFinishDelegate? { get set }
+        
     func start()
-    func finish()
-}
-
-extension CoordinatorProtocol {
-    func finish() {
-        childCoordinators.removeAll()
-        finishDelegate?.coordinatorDidFinish(childCoordinator: self)
-    }
 }
 
 protocol CoordinatorFinishDelegate: AnyObject {
-    func coordinatorDidFinish(childCoordinator: CoordinatorProtocol)
-}
-
-extension CoordinatorProtocol {
-    func addChildCoordinator(_ childCoordinator: CoordinatorProtocol) {
-        childCoordinators.append(childCoordinator)
-    }
-    func removeChildCoordinator(_ childCoordinator: CoordinatorProtocol) {
-        childCoordinators = childCoordinators.filter { $0 !== childCoordinator }
-    }
+    func coordinatorDidFinish(coordinator: Coordinator)
 }

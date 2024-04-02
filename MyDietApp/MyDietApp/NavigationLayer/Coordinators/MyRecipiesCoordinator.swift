@@ -7,27 +7,35 @@
 
 import UIKit
 
-final class MyRecipiesCoordinator: CoordinatorProtocol {
+protocol MyRecipiesCoordinatorProtocol: Coordinator {
     
-    weak var finishDelegate: CoordinatorFinishDelegate?
+}
+
+final class MyRecipiesCoordinator: MyRecipiesCoordinatorProtocol {
     
-    var childCoordinators: [CoordinatorProtocol] = []
-    var type: CoordinatorType = .tabItem
     var navigationController: UINavigationController
+    var childCoordinators  = [Coordinator]()
+    var coordinatorFinishDelegate: CoordinatorFinishDelegate?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let myRecipiesViewController = ViewController()
-        navigationController.pushViewController(myRecipiesViewController, animated: true)
+        let viewController = ViewController()
+        viewController.tabBarItem = UITabBarItem(title: Tab.myRecipies.getTitleName(),
+                                                 image: UIImage(systemName: Tab.myRecipies.getIconName()),
+                                                 tag: Tab.myRecipies.getIndex())
+//        viewController.coordinator = self
+        coordinatorFinishDelegate = self
+        navigationController.pushViewController(viewController, animated: true)
     }
     
 }
 
 extension MyRecipiesCoordinator: CoordinatorFinishDelegate {
-    func coordinatorDidFinish(childCoordinator: CoordinatorProtocol) {
-        childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
+    func coordinatorDidFinish(coordinator: Coordinator) {
+        childCoordinators.removeAll()
+        navigationController.viewControllers.removeAll()
     }
 }
