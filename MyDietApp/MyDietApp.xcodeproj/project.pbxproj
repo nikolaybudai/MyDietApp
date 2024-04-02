@@ -33,8 +33,8 @@
 		ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */; };
 		ED23BF432BB5E2D3000DF11F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF422BB5E2D3000DF11F /* Coordinator.swift */; };
 		ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */; };
-		ED23BF472BB602C1000DF11F /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF462BB602C1000DF11F /* TabBarCoordinator.swift */; };
 		ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */; };
+		ED47A40A2BBCA6EF00C7F84B /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47A4092BBCA6EF00C7F84B /* Tab.swift */; };
 		EDAE97652BB7FC160056B33D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97642BB7FC160056B33D /* ProfileViewController.swift */; };
 		EDAE97672BB7FCB80056B33D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97662BB7FCB80056B33D /* ProfileViewModel.swift */; };
 		EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97682BB84DEE0056B33D /* DietOptions.swift */; };
@@ -92,8 +92,8 @@
 		ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		ED23BF422BB5E2D3000DF11F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		ED23BF462BB602C1000DF11F /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorage.swift; sourceTree = "<group>"; };
+		ED47A4092BBCA6EF00C7F84B /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		EDAE97642BB7FC160056B33D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EDAE97662BB7FCB80056B33D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		EDAE97682BB84DEE0056B33D /* DietOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietOptions.swift; sourceTree = "<group>"; };
@@ -242,6 +242,7 @@
 		ED23BF402BB5E288000DF11F /* NavigationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				ED47A4092BBCA6EF00C7F84B /* Tab.swift */,
 				ED23BF412BB5E2B9000DF11F /* Coordinators */,
 			);
 			path = NavigationLayer;
@@ -252,7 +253,6 @@
 			children = (
 				ED23BF422BB5E2D3000DF11F /* Coordinator.swift */,
 				ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */,
-				ED23BF462BB602C1000DF11F /* TabBarCoordinator.swift */,
 				EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */,
 				EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */,
 				EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */,
@@ -513,6 +513,7 @@
 				ED23BED52BB58BB8000DF11F /* ViewController.swift in Sources */,
 				EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */,
 				EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */,
+				ED47A40A2BBCA6EF00C7F84B /* Tab.swift in Sources */,
 				ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */,
 				ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */,
 				EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */,
@@ -520,7 +521,6 @@
 				EDAE97672BB7FCB80056B33D /* ProfileViewModel.swift in Sources */,
 				ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */,
 				ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */,
-				ED23BF472BB602C1000DF11F /* TabBarCoordinator.swift in Sources */,
 				ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */,
 				EDAE97652BB7FC160056B33D /* ProfileViewController.swift in Sources */,
 				ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */,
