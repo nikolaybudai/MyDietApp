@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED114C912BC04BD300026F18 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C902BC04BD300026F18 /* Endpoint.swift */; };
+		ED114C932BC04BFE00026F18 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C922BC04BFE00026F18 /* NetworkClient.swift */; };
+		ED114C952BC04C1E00026F18 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C942BC04C1E00026F18 /* RequestMethod.swift */; };
+		ED114C972BC04C2A00026F18 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C962BC04C2A00026F18 /* RequestError.swift */; };
 		ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BED02BB58BB8000DF11F /* AppDelegate.swift */; };
 		ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */; };
 		ED23BED52BB58BB8000DF11F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BED42BB58BB8000DF11F /* ViewController.swift */; };
@@ -62,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED114C902BC04BD300026F18 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		ED114C922BC04BFE00026F18 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		ED114C942BC04C1E00026F18 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		ED114C962BC04C2A00026F18 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		ED23BECD2BB58BB8000DF11F /* MyDietApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDietApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED23BED02BB58BB8000DF11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +136,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED114C8D2BC04BA200026F18 /* UserDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */,
+			);
+			path = UserDataStorage;
+			sourceTree = "<group>";
+		};
+		ED114C8E2BC04BB300026F18 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				ED114C8F2BC04BBA00026F18 /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		ED114C8F2BC04BBA00026F18 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				ED114C902BC04BD300026F18 /* Endpoint.swift */,
+				ED114C922BC04BFE00026F18 /* NetworkClient.swift */,
+				ED114C942BC04C1E00026F18 /* RequestMethod.swift */,
+				ED114C962BC04C2A00026F18 /* RequestError.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		ED23BEC42BB58BB8000DF11F = {
 			isa = PBXGroup;
 			children = (
@@ -281,7 +316,8 @@
 		EDBD45012BB71DAB002F75A4 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
-				ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */,
+				ED114C8E2BC04BB300026F18 /* Network */,
+				ED114C8D2BC04BA200026F18 /* UserDataStorage */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -508,6 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED114C932BC04BFE00026F18 /* NetworkClient.swift in Sources */,
 				ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */,
 				EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */,
 				ED23BED52BB58BB8000DF11F /* ViewController.swift in Sources */,
@@ -515,10 +552,13 @@
 				EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */,
 				ED47A40A2BBCA6EF00C7F84B /* Tab.swift in Sources */,
 				ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */,
+				ED114C952BC04C1E00026F18 /* RequestMethod.swift in Sources */,
 				ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */,
 				EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */,
 				EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */,
+				ED114C912BC04BD300026F18 /* Endpoint.swift in Sources */,
 				EDAE97672BB7FCB80056B33D /* ProfileViewModel.swift in Sources */,
+				ED114C972BC04C2A00026F18 /* RequestError.swift in Sources */,
 				ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */,
 				ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */,
 				ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */,
