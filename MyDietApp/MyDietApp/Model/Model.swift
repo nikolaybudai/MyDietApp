@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Response
-struct Response: Decodable {
+struct RecipesResponse: Decodable {
     let from, to, count: Int
     let links: ResponseLinks
     let hits: [Hit]
