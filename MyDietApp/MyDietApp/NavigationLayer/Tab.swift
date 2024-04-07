@@ -22,8 +22,8 @@ enum Tab {
 
     func getTitleName() -> String {
         switch self {
-        case .recipies: return "Recipies"
-        case .myRecipies: return "My Recipies"
+        case .recipies: return "Recipes"
+        case .myRecipies: return "My Recipes"
         case .profile: return "Profile"
         }
     }
