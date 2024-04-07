@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RecipiesCoordinatorProtocol: Coordinator {
-    
+    func showRecipeDetail(recipe: Recipe)
 }
 
 final class RecipiesCoordinator: RecipiesCoordinatorProtocol {
@@ -22,13 +22,20 @@ final class RecipiesCoordinator: RecipiesCoordinatorProtocol {
     }
     
     func start() {
-        let viewController = ViewController()
+        let userInfoStorage = UserInfoStorage()
+        let service = RecipesService()
+        let viewModel = RecipesViewModel(userInfoStorage: userInfoStorage, recipesService: service)
+        let viewController = RecipesViewController(viewModel: viewModel)
+        viewController.coordinator = self
         viewController.tabBarItem = UITabBarItem(title: Tab.recipies.getTitleName(),
                                                  image: UIImage(systemName: Tab.recipies.getIconName()),
                                                  tag: Tab.recipies.getIndex())
-//        viewController.coordinator = self
         coordinatorFinishDelegate = self
         navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func showRecipeDetail(recipe: Recipe) {
+        
     }
     
 }
