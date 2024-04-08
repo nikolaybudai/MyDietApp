@@ -23,21 +23,21 @@ class ViewController: UIViewController {
             let result = await service.getRecipes(with: endpoint)
             switch result {
             case .success(let response):
-                print(response.hits.first?.recipe.cuisineType)
+                print(response.hits.first?.recipe.cuisineType ?? "no cuisine")
             case .failure(let failure):
                 print(String(describing: failure))
+                print("error")
             }
         }
         
         
         let label = UILabel()
         label.text = "Test text"
-        label.translatesAutoresizingMaskIntoConstraints = false
         
         label.font = .Roboto.bold.size(of: 40)
         label.textColor = AppColors.highlightYellow
         
-        view.addSubview(label)
+        view.addView(label)
         
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),

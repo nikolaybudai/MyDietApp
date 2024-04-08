@@ -43,11 +43,6 @@ final class ProfileViewController: UIViewController {
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
     //MARK: Methods
     @objc private func didTapImageView() {
         configureImagePicker()
@@ -113,8 +108,7 @@ private extension ProfileViewController {
         avatarImageView.layer.borderColor = UIColor.white.cgColor
         avatarImageView.image = UIImage(systemName: "person.circle")
         avatarImageView.tintColor = AppColors.baseGray
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(avatarImageView)
+        view.addView(avatarImageView)
         
         // Add gesture recognizer
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView))
@@ -179,8 +173,7 @@ private extension ProfileViewController {
         
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stackView)
+        view.addView(stackView)
     }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MealType: String, Codable {
-    case lunchDinner = "lunch/dinner"
-    case snack = "snack"
-}
+//enum MealType: String, Codable {
+//    case lunchDinner = "lunch/dinner"
+//    case snack = "snack"
+//}

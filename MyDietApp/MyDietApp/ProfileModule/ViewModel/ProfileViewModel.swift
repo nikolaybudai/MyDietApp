@@ -19,6 +19,7 @@ protocol ProfileViewModelProtocol: AnyObject {
 
 final class ProfileViewModel: ProfileViewModelProtocol {
     
+    //MARK: Properties
     let userInfoStorage: UserInfoStorageProtocol
     
     var dietOptions: [String] = {
@@ -35,12 +36,13 @@ final class ProfileViewModel: ProfileViewModelProtocol {
     var dietChosen: String = ""
     var name: String = ""
     
+    //MARK: Init
     init(userInfoStorage: UserInfoStorageProtocol) {
         self.userInfoStorage = userInfoStorage
     }
     
+    //MARK: Methods
     func saveUserData(_ image: UIImage, _ name: String) {
-        print(name, image, dietChosen)
         userInfoStorage.saveImage(image)
         userInfoStorage.saveNameAndDiet(name, dietChosen)
         userInfoStorage.hasFilledData = true

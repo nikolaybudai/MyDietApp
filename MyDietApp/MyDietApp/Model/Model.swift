@@ -34,8 +34,8 @@ struct Next: Decodable {
 struct Recipe: Decodable {
     let image: String
     let calories: Double
-    let cuisineType: [CuisineType]
-    let mealType: [MealType]
+    let cuisineType: [String]
+    let mealType: [String]
 }
 
 // MARK: - ResultsLinks

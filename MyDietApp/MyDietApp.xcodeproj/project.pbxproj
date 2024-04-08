@@ -53,6 +53,8 @@
 		EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */; };
 		EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */; };
 		EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */; };
+		EDD4477D2BC456C1008B7EEF /* CuisineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */; };
+		EDD4477F2BC45989008B7EEF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */; };
 		EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD860362BBABF3100505209 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +126,8 @@
 		EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesCoordinator.swift; sourceTree = "<group>"; };
 		EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipiesCoordinator.swift; sourceTree = "<group>"; };
 		EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineSegmentedControl.swift; sourceTree = "<group>"; };
+		EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		EDD860362BBABF3100505209 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,6 +280,7 @@
 				ED23BF1E2BB59F72000DF11F /* UIFont+Extension.swift */,
 				ED23BF3B2BB5AA20000DF11F /* UIColor+Extension.swift */,
 				EDD860362BBABF3100505209 /* UIViewController+Extension.swift */,
+				EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,7 +364,7 @@
 		EDBD45022BB71E48002F75A4 /* RecipesModule */ = {
 			isa = PBXGroup;
 			children = (
-				EDBD45062BB71F2D002F75A4 /* View */,
+				EDBD45062BB71F2D002F75A4 /* Views */,
 				EDBD45052BB71F15002F75A4 /* ViewModel */,
 			);
 			path = RecipesModule;
@@ -377,7 +382,7 @@
 		EDBD45042BB71E66002F75A4 /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
-				EDBD450E2BB71F6E002F75A4 /* View */,
+				EDBD450E2BB71F6E002F75A4 /* Views */,
 				EDBD450A2BB71F4D002F75A4 /* ViewModel */,
 			);
 			path = ProfileModule;
@@ -391,13 +396,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EDBD45062BB71F2D002F75A4 /* View */ = {
+		EDBD45062BB71F2D002F75A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */,
 				ED03211E2BC30F4F00FD8D5A /* RecipesViewController+TableView.swift */,
+				EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EDBD45072BB71F33002F75A4 /* Model */ = {
@@ -433,12 +439,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EDBD450E2BB71F6E002F75A4 /* View */ = {
+		EDBD450E2BB71F6E002F75A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				EDAE97642BB7FC160056B33D /* ProfileViewController.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -590,6 +596,7 @@
 				ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */,
 				EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */,
 				ED23BED52BB58BB8000DF11F /* ViewController.swift in Sources */,
+				EDD4477D2BC456C1008B7EEF /* CuisineSegmentedControl.swift in Sources */,
 				ED114C9A2BC0638400026F18 /* RecipesEndpoint.swift in Sources */,
 				EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */,
 				EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */,
@@ -609,6 +616,7 @@
 				ED114C972BC04C2A00026F18 /* RequestError.swift in Sources */,
 				ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */,
 				ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */,
+				EDD4477F2BC45989008B7EEF /* UIView+Extension.swift in Sources */,
 				ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */,
 				EDAE97652BB7FC160056B33D /* ProfileViewController.swift in Sources */,
 				ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */,
