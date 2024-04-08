@@ -55,6 +55,8 @@
 		EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */; };
 		EDD4477D2BC456C1008B7EEF /* CuisineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */; };
 		EDD4477F2BC45989008B7EEF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */; };
+		EDD447832BC463A8008B7EEF /* RecipesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD447822BC463A8008B7EEF /* RecipesTableView.swift */; };
+		EDD447852BC465DE008B7EEF /* RecipesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD447842BC465DE008B7EEF /* RecipesTableViewDataSource.swift */; };
 		EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD860362BBABF3100505209 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +130,8 @@
 		EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineSegmentedControl.swift; sourceTree = "<group>"; };
 		EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		EDD447822BC463A8008B7EEF /* RecipesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableView.swift; sourceTree = "<group>"; };
+		EDD447842BC465DE008B7EEF /* RecipesTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewDataSource.swift; sourceTree = "<group>"; };
 		EDD860362BBABF3100505209 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -364,6 +368,7 @@
 		EDBD45022BB71E48002F75A4 /* RecipesModule */ = {
 			isa = PBXGroup;
 			children = (
+				EDD447812BC4638D008B7EEF /* SecondaryViews */,
 				EDBD45062BB71F2D002F75A4 /* Views */,
 				EDBD45052BB71F15002F75A4 /* ViewModel */,
 			);
@@ -401,7 +406,6 @@
 			children = (
 				ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */,
 				ED03211E2BC30F4F00FD8D5A /* RecipesViewController+TableView.swift */,
-				EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -445,6 +449,16 @@
 				EDAE97642BB7FC160056B33D /* ProfileViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EDD447812BC4638D008B7EEF /* SecondaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */,
+				EDD447822BC463A8008B7EEF /* RecipesTableView.swift */,
+				EDD447842BC465DE008B7EEF /* RecipesTableViewDataSource.swift */,
+			);
+			path = SecondaryViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -606,6 +620,7 @@
 				ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */,
 				ED03211D2BC30D8B00FD8D5A /* RecipesViewModel.swift in Sources */,
 				ED114C952BC04C1E00026F18 /* RequestMethod.swift in Sources */,
+				EDD447852BC465DE008B7EEF /* RecipesTableViewDataSource.swift in Sources */,
 				ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */,
 				EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */,
 				EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */,
@@ -621,6 +636,7 @@
 				EDAE97652BB7FC160056B33D /* ProfileViewController.swift in Sources */,
 				ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */,
 				ED23BF432BB5E2D3000DF11F /* Coordinator.swift in Sources */,
+				EDD447832BC463A8008B7EEF /* RecipesTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
