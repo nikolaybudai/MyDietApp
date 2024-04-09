@@ -41,7 +41,7 @@ final class RecipeTableViewCell: UITableViewCell {
     func configure(_ model: Recipe) {
         backgroundColor = .clear
         // set image
-        recipeImageView.backgroundColor = .blue
+        recipeImageView.backgroundColor = .white
         nameLabel.text = model.label
         mealTypeLabel.text = model.mealType.first
     }
@@ -61,6 +61,7 @@ private extension RecipeTableViewCell {
         setupMealTypeLabel()
         setupLabelsStackView()
         setupFavouritesButton()
+        contentView.isUserInteractionEnabled = false
     }
     
     func setupConstraints() {
@@ -107,15 +108,12 @@ private extension RecipeTableViewCell {
         labelsStackView.axis = .vertical
         labelsStackView.alignment = .leading
         labelsStackView.distribution = .fillProportionally
-        labelsStackView.backgroundColor = .red
         addView(labelsStackView)
     }
     
     func setupFavouritesButton() {
         favouritesButton.setImage(UIImage(systemName: "star"), for: .normal)
         favouritesButton.tintColor = AppColors.highlightYellow
-        favouritesButton.isUserInteractionEnabled = true
-        favouritesButton.backgroundColor = .orange
         favouritesButton.addTarget(self, action: #selector(didTapFavouritesButton), for: .touchUpInside)
         addView(favouritesButton)
     }
