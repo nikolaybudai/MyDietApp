@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - Protocol
 protocol ProfileViewModelProtocol: AnyObject {
     var dietOptions: [String] { get }
     var dietChoiceHandler:  (UIAction) -> Void { get }
@@ -17,6 +18,7 @@ protocol ProfileViewModelProtocol: AnyObject {
     func loadUserInfo() -> (UIImage?, String?, String?)
 }
 
+//MARK: - Implementation
 final class ProfileViewModel: ProfileViewModelProtocol {
     
     //MARK: Properties

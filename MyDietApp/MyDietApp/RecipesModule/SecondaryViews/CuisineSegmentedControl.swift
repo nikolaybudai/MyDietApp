@@ -6,8 +6,11 @@
 //
 
 import UIKit
+//import Combine
 
 final class CuisineSegmentedControl: UIView {
+    
+//    var chosenIndex = CurrentValueSubject<Int, Never>(0)
     
     //MARK: Properties
     private lazy var segmentedControl: UISegmentedControl = {
@@ -58,9 +61,11 @@ final class CuisineSegmentedControl: UIView {
     
     //MARK: Methods
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        let segmentIndex = CGFloat(segmentedControl.selectedSegmentIndex)
-        let segmentWidth = segmentedControl.frame.width / CGFloat(segmentedControl.numberOfSegments)
-        let leadingDistance = segmentWidth * segmentIndex
+        let segmentIndex = segmentedControl.selectedSegmentIndex
+//        chosenIndex.send(segmentIndex)
+        
+        let segmentWidth = CGFloat(segmentedControl.frame.width) / CGFloat(segmentedControl.numberOfSegments)
+        let leadingDistance = segmentWidth * CGFloat(segmentIndex)
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             self?.leadingDistanceConstraint.constant = leadingDistance
             self?.layoutIfNeeded()

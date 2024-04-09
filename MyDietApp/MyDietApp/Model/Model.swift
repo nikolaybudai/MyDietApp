@@ -33,6 +33,7 @@ struct Next: Decodable {
 // MARK: - Recipe
 struct Recipe: Decodable, Hashable {
     let image: String
+    let label: String
     let calories: Double
     let cuisineType: [String]
     let mealType: [String]

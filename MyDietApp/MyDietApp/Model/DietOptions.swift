@@ -8,10 +8,11 @@
 import Foundation
 
 enum DietOptions: String, CaseIterable {
-    case balanced = "Balanced Diet"
-    case highFiber = "High Fiber Diet"
-    case highProtein = "High Protein Diet"
-    case lowCarb = "Low Carbon Diet"
-    case lowFat = "Low Fat Diet"
-    case lowSodium = "Low Sodium Diet"
+    
+    case balanced = "balanced"
+    case highFiber = "high-fiber"
+    case highProtein = "high-protein"
+    case lowCarb = "low-carbon"
+    case lowFat = "low-fat"
+    case lowSodium = "low-sodium"
 }

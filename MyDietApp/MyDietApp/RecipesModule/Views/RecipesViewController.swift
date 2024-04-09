@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class RecipesViewController: UIViewController {
     
@@ -16,6 +17,9 @@ final class RecipesViewController: UIViewController {
     
     private let cuisineTypeLabel = UILabel()
     private let cuisineSegmentedControl = CuisineSegmentedControl(frame: .zero)
+    private let recipesTableView = RecipesTableView()
+    
+    var subscriptions = Set<AnyCancellable>()
     
     //MARK: Init
     init(viewModel: RecipesViewModelProtocol) {
@@ -32,6 +36,30 @@ final class RecipesViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        setupTableViewDataSource()
+        setupSubscriptions()
+        
+        viewModel.fetchRecipes()
+    }
+    
+    //MARK: Methods
+    private func setupSubscriptions() {
+        viewModel.hasFailure.sink { value in
+            if value == true {
+                self.showAlert(title: "Error", message: "Coludn't load recipes. Please, try again later.")
+            }
+        }.store(in: &subscriptions)
+    }
+    
+    private func setupTableViewDataSource() {
+        viewModel.recipesDiffableDataSource = RecipesTableViewDiffableDataSource(tableView: recipesTableView) { (tableView, indexPath, recipe) -> UITableViewCell? in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTableViewCell.cellID,
+                                                           for: indexPath) as? RecipeTableViewCell
+                    else { return UITableViewCell() }
+                    
+            cell.configure(recipe)
+            return cell
+        }
     }
     
 }
@@ -44,6 +72,7 @@ private extension RecipesViewController {
         setupNavigationBar()
         setupCuisineTypeLabel()
         view.addView(cuisineSegmentedControl)
+        view.addView(recipesTableView)
     }
     
     func setupConstraints() {
@@ -58,6 +87,11 @@ private extension RecipesViewController {
             cuisineSegmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             cuisineSegmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
             cuisineSegmentedControl.heightAnchor.constraint(equalToConstant: 40),
+            
+            recipesTableView.topAnchor.constraint(equalTo: cuisineSegmentedControl.bottomAnchor, constant: 10),
+            recipesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            recipesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            recipesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     

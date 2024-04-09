@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		ED03211B2BC30D6F00FD8D5A /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */; };
 		ED03211D2BC30D8B00FD8D5A /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03211C2BC30D8B00FD8D5A /* RecipesViewModel.swift */; };
-		ED03211F2BC30F4F00FD8D5A /* RecipesViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03211E2BC30F4F00FD8D5A /* RecipesViewController+TableView.swift */; };
 		ED114C912BC04BD300026F18 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C902BC04BD300026F18 /* Endpoint.swift */; };
 		ED114C932BC04BFE00026F18 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C922BC04BFE00026F18 /* NetworkClient.swift */; };
 		ED114C952BC04C1E00026F18 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C942BC04C1E00026F18 /* RequestMethod.swift */; };
@@ -56,8 +55,8 @@
 		EDD4477D2BC456C1008B7EEF /* CuisineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */; };
 		EDD4477F2BC45989008B7EEF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */; };
 		EDD447832BC463A8008B7EEF /* RecipesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD447822BC463A8008B7EEF /* RecipesTableView.swift */; };
-		EDD447852BC465DE008B7EEF /* RecipesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD447842BC465DE008B7EEF /* RecipesTableViewDataSource.swift */; };
 		EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD860362BBABF3100505209 /* UIViewController+Extension.swift */; };
+		EDFC51FE2BC542E4009A57C1 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFC51FD2BC542E4009A57C1 /* RecipeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +79,6 @@
 /* Begin PBXFileReference section */
 		ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		ED03211C2BC30D8B00FD8D5A /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
-		ED03211E2BC30F4F00FD8D5A /* RecipesViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesViewController+TableView.swift"; sourceTree = "<group>"; };
 		ED114C902BC04BD300026F18 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		ED114C922BC04BFE00026F18 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		ED114C942BC04C1E00026F18 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
@@ -131,8 +129,8 @@
 		EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineSegmentedControl.swift; sourceTree = "<group>"; };
 		EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		EDD447822BC463A8008B7EEF /* RecipesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableView.swift; sourceTree = "<group>"; };
-		EDD447842BC465DE008B7EEF /* RecipesTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewDataSource.swift; sourceTree = "<group>"; };
 		EDD860362BBABF3100505209 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		EDFC51FD2BC542E4009A57C1 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,8 +402,9 @@
 		EDBD45062BB71F2D002F75A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EDFC51FD2BC542E4009A57C1 /* RecipeTableViewCell.swift */,
+				EDD447822BC463A8008B7EEF /* RecipesTableView.swift */,
 				ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */,
-				ED03211E2BC30F4F00FD8D5A /* RecipesViewController+TableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -455,8 +454,6 @@
 			isa = PBXGroup;
 			children = (
 				EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */,
-				EDD447822BC463A8008B7EEF /* RecipesTableView.swift */,
-				EDD447842BC465DE008B7EEF /* RecipesTableViewDataSource.swift */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
@@ -605,9 +602,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED114C932BC04BFE00026F18 /* NetworkClient.swift in Sources */,
-				ED03211F2BC30F4F00FD8D5A /* RecipesViewController+TableView.swift in Sources */,
 				ED03211B2BC30D6F00FD8D5A /* RecipesViewController.swift in Sources */,
 				ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */,
+				EDFC51FE2BC542E4009A57C1 /* RecipeTableViewCell.swift in Sources */,
 				EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */,
 				ED23BED52BB58BB8000DF11F /* ViewController.swift in Sources */,
 				EDD4477D2BC456C1008B7EEF /* CuisineSegmentedControl.swift in Sources */,
@@ -620,7 +617,6 @@
 				ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */,
 				ED03211D2BC30D8B00FD8D5A /* RecipesViewModel.swift in Sources */,
 				ED114C952BC04C1E00026F18 /* RequestMethod.swift in Sources */,
-				EDD447852BC465DE008B7EEF /* RecipesTableViewDataSource.swift in Sources */,
 				ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */,
 				EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */,
 				EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */,

@@ -60,6 +60,7 @@ final class ProfileViewController: UIViewController {
         }
         
         viewModel.saveUserData(image, name)
+        showAlert(title: "Done", message: "Your data was saved.")
     }
     
     private func setUserInfo() {
@@ -67,7 +68,7 @@ final class ProfileViewController: UIViewController {
         guard let image, let name, let diet else { return }
         avatarImageView.image = image
         nameTextField.text = name
-        dietChoiceButton.setTitle(diet, for: .normal)
+        dietChoiceButton.setTitle(diet.uppercased() + " diet".uppercased(), for: .normal)
     }
     
 }

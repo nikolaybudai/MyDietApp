@@ -8,18 +8,12 @@
 import UIKit
 
 final class RecipesTableView: UITableView {
-//    private var subscribeTypes: [ExampleRow] = [.subscribeType(SubscribeModel.betaSubs),
-//                                                .subscribeType(SubscribeModel.juniorSubs)]
-//    private var payment: [ExampleRow] = []
-//    private var discount: [ExampleRow] = []
-//    
-//    private lazy var exampleDataSource = ExampleDataSource(tableView: self)
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
+        setup()
         registerCells()
-        applySnapshot()
         setDelegate()
     }
     
@@ -27,15 +21,17 @@ final class RecipesTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setup() {
+        separatorStyle = .none
+        backgroundColor = .clear
+    }
+    
     private func setDelegate() {
         delegate = self
     }
     
     private func registerCells() {
-
-    }
-    
-    func applySnapshot() {
+        register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.cellID)
     }
 }
 
@@ -46,7 +42,7 @@ extension RecipesTableView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        40
+        120
     }
     
 }

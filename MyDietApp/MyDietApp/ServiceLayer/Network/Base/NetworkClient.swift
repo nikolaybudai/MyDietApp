@@ -25,7 +25,6 @@ extension NetworkClient {
         guard let url = urlComponents.url else {
             return .failure(.invalidURL)
         }
-        print(url)
         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
