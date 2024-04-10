@@ -6,14 +6,14 @@
 //
 
 import UIKit
-//import Combine
+import Combine
 
 final class CuisineSegmentedControl: UIView {
     
-//    var chosenIndex = CurrentValueSubject<Int, Never>(0)
+    var selectedCuisineIndex = CurrentValueSubject<Int, Never>(0)
     
     //MARK: Properties
-    private lazy var segmentedControl: UISegmentedControl = {
+    lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl()
         
         segmentedControl.selectedSegmentTintColor = .clear
@@ -62,7 +62,7 @@ final class CuisineSegmentedControl: UIView {
     //MARK: Methods
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         let segmentIndex = segmentedControl.selectedSegmentIndex
-//        chosenIndex.send(segmentIndex)
+        selectedCuisineIndex.send(segmentIndex)
         
         let segmentWidth = CGFloat(segmentedControl.frame.width) / CGFloat(segmentedControl.numberOfSegments)
         let leadingDistance = segmentWidth * CGFloat(segmentIndex)

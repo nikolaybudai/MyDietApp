@@ -39,15 +39,19 @@ final class RecipesViewController: UIViewController {
         setupTableViewDataSource()
         setupSubscriptions()
         
-        viewModel.fetchRecipes()
+        viewModel.fetchRecipes(with: viewModel.currentCuisineTypeIndex)
     }
     
     //MARK: Methods
     private func setupSubscriptions() {
-        viewModel.hasFailure.sink { value in
+        viewModel.hasFailure.sink { [weak self] value in
             if value == true {
-                self.showAlert(title: "Error", message: "Coludn't load recipes. Please, try again later.")
+                self?.showAlert(title: "Error", message: "Coludn't load recipes. Please, try again later.")
             }
+        }.store(in: &subscriptions)
+        
+        cuisineSegmentedControl.selectedCuisineIndex.sink { [weak self] index in
+            self?.viewModel.fetchRecipes(with: index)
         }.store(in: &subscriptions)
     }
     
