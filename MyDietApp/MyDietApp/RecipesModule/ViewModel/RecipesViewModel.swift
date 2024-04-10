@@ -65,6 +65,8 @@ final class RecipesViewModel: RecipesViewModelProtocol {
             case .failure(_):
                 hasFailure.send(true)
             }
+            
+            currentCuisineTypeIndex = cuisineTypeIndex
         }
     }
     
