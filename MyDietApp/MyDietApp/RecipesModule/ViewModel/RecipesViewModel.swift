@@ -8,12 +8,14 @@
 import UIKit
 import Combine
 
-final class RecipesTableViewDiffableDataSource: UITableViewDiffableDataSource<String?, Recipe> {}
+enum Section {
+    case recipe
+}
 
 //MARK: - Protocol
 protocol RecipesViewModelProtocol: AnyObject {
     var hasFailure: CurrentValueSubject<Bool, Never> { get }
-    var recipesDiffableDataSource: RecipesTableViewDiffableDataSource? { get set }
+    var recipesDiffableDataSource: UITableViewDiffableDataSource<Section, Recipe>? { get set }
     var currentCuisineTypeIndex: Int { get set }
     
     func fetchRecipes(with cuisineTypeIndex: Int)
@@ -26,8 +28,8 @@ final class RecipesViewModel: RecipesViewModelProtocol {
     let userInfoStorage: UserInfoStorageProtocol
     let recipesService: RecipesServiceProtocol
     
-    var recipesDiffableDataSource: RecipesTableViewDiffableDataSource?
-    private var snapshot = NSDiffableDataSourceSnapshot<String?, Recipe>()
+    var recipesDiffableDataSource:  UITableViewDiffableDataSource<Section, Recipe>?
+    private var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
     
     var hasFailure = CurrentValueSubject<Bool, Never>(false)
     var currentCuisineTypeIndex = 0
@@ -55,11 +57,11 @@ final class RecipesViewModel: RecipesViewModelProtocol {
                     snapshot.deleteAllItems()
                 }
                 if snapshot.numberOfSections == 0 {
-                    snapshot.appendSections([""])
+                    snapshot.appendSections([.recipe])
                 }
                 
                 response.hits.forEach { hit in
-                    snapshot.appendItems([hit.recipe], toSection: "")
+                    snapshot.appendItems([hit.recipe], toSection: .recipe)
                 }
                 await recipesDiffableDataSource?.apply(snapshot, animatingDifferences: false)
             case .failure(_):

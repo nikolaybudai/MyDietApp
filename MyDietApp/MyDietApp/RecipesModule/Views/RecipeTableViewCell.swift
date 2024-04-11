@@ -12,7 +12,7 @@ final class RecipeTableViewCell: UITableViewCell {
     //MARK: Properties
     static let cellID = "RecipeTableViewCell"
     
-    private let recipeImageView = UIImageView()
+    private let recipeImageView = MyImageView()
     private let nameLabel = UILabel()
     private let mealTypeLabel = UILabel()
     private let favouritesButton = UIButton()
@@ -31,19 +31,16 @@ final class RecipeTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15))
-    }
-    
     //MARK: Methods
     func configure(_ model: Recipe) {
         backgroundColor = .clear
-        // set image
         recipeImageView.backgroundColor = .white
         nameLabel.text = model.label
         mealTypeLabel.text = model.mealType.first
+        
+        if let imageURL = URL(string: model.image) {
+            recipeImageView.loadImageWithUrl(imageURL)
+        }
     }
     
     @objc private func didTapFavouritesButton() {

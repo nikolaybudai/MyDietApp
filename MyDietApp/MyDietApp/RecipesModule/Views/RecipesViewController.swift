@@ -56,7 +56,7 @@ final class RecipesViewController: UIViewController {
     }
     
     private func setupTableViewDataSource() {
-        viewModel.recipesDiffableDataSource = RecipesTableViewDiffableDataSource(tableView: recipesTableView) { (tableView, indexPath, recipe) -> UITableViewCell? in
+        viewModel.recipesDiffableDataSource = UITableViewDiffableDataSource(tableView: recipesTableView) { (tableView, indexPath, recipe) -> UITableViewCell? in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTableViewCell.cellID,
                                                            for: indexPath) as? RecipeTableViewCell
                     else { return UITableViewCell() }
