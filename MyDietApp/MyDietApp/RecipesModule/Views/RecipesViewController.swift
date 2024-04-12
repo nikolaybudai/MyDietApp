@@ -17,7 +17,8 @@ final class RecipesViewController: UIViewController {
     
     private let cuisineTypeLabel = UILabel()
     private let cuisineSegmentedControl = CuisineSegmentedControl(frame: .zero)
-    private let recipesTableView = RecipesTableView()
+//    private let recipesTableView = RecipesTableView()
+    private let recipesTableView = UITableView()
     
     var subscriptions = Set<AnyCancellable>()
     
@@ -75,8 +76,8 @@ private extension RecipesViewController {
         title = "Recipes"
         setupNavigationBar()
         setupCuisineTypeLabel()
+        setupTableView()
         view.addView(cuisineSegmentedControl)
-        view.addView(recipesTableView)
     }
     
     func setupConstraints() {
@@ -117,6 +118,14 @@ private extension RecipesViewController {
         cuisineTypeLabel.textAlignment = .center
         cuisineTypeLabel.textColor = AppColors.secondaryDark
         view.addView(cuisineTypeLabel)
+    }
+    
+    private func setupTableView() {
+        recipesTableView.separatorStyle = .none
+        recipesTableView.backgroundColor = .clear
+        recipesTableView.delegate = viewModel
+        recipesTableView.register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.cellID)
+        view.addView(recipesTableView)
     }
     
 }

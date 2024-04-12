@@ -13,7 +13,7 @@ enum Section {
 }
 
 //MARK: - Protocol
-protocol RecipesViewModelProtocol: AnyObject {
+protocol RecipesViewModelProtocol: AnyObject, UITableViewDelegate {
     var hasFailure: CurrentValueSubject<Bool, Never> { get }
     var recipesDiffableDataSource: UITableViewDiffableDataSource<Section, Recipe>? { get set }
     var currentCuisineTypeIndex: Int { get set }
@@ -22,7 +22,7 @@ protocol RecipesViewModelProtocol: AnyObject {
 }
 
 //MARK: - Implementation
-final class RecipesViewModel: RecipesViewModelProtocol {
+final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     
     //MARK: Properties
     let userInfoStorage: UserInfoStorageProtocol
@@ -32,8 +32,9 @@ final class RecipesViewModel: RecipesViewModelProtocol {
     private var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
     
     var hasFailure = CurrentValueSubject<Bool, Never>(false)
-    var currentCuisineTypeIndex = 0
+    var currentCuisineTypeIndex: Int = 0
     private var currentNextEndpoint: RecipesEndpoint?
+    private var isLoadingMoreRecipes = false
     
     private var subscriptions = Set<AnyCancellable>()
 
@@ -77,18 +78,32 @@ final class RecipesViewModel: RecipesViewModelProtocol {
         }
     }
     
-    func fetchMoreRecipes(with nextStringURL: String) {
-        guard let nextEndpoint = currentNextEndpoint else { return }
+    func fetchMoreRecipes(with newEndpoint: RecipesEndpoint) {
+        guard !isLoadingMoreRecipes else { return }
+        guard let nextEndpoint = currentNextEndpoint else {
+            isLoadingMoreRecipes = false
+            return
+        }
+        isLoadingMoreRecipes = true
+        
         Task {
             let newResponse = await recipesService.getRecipes(with: nextEndpoint)
             switch newResponse {
             case .success(let response):
+                print(response.hits.first?.recipe.label ?? "")
                 response.hits.forEach { hit in
                     snapshot.appendItems([hit.recipe], toSection: .recipe)
                 }
                 await recipesDiffableDataSource?.apply(snapshot, animatingDifferences: false)
+                isLoadingMoreRecipes = false
+                
+                let newUrl = response.links.next.href
+                print(newUrl)
+                guard let url = URL(string: newUrl) else { return }
+                currentNextEndpoint = nextEndpoint.nextURL(url)
             case .failure(_):
                 hasFailure.send(true)
+                isLoadingMoreRecipes = false
             }
         }
     }
@@ -100,6 +115,35 @@ final class RecipesViewModel: RecipesViewModelProtocol {
         case 2: return CuisineType.chinese.rawValue
         default: return CuisineType.american.rawValue
         }
+    }
+    
+}
+
+extension RecipesViewModel: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard !isLoadingMoreRecipes else { return }
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [weak self] timer in
+            let offset = scrollView.contentOffset.y
+            let totalContentheight = scrollView.contentSize.height
+            let totalScrollViewFixedHeight = scrollView.frame.size.height
+
+            if offset >= (totalContentheight - totalScrollViewFixedHeight - 120) {
+                guard let newEnpoint = self?.currentNextEndpoint else { return }
+                self?.fetchMoreRecipes(with: newEnpoint)
+            }
+            timer.invalidate()
+        }
+    }
+}
+
+extension RecipesViewModel: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        120
     }
     
 }
