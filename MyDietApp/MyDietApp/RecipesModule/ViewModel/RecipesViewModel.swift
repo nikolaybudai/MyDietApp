@@ -33,6 +33,7 @@ final class RecipesViewModel: RecipesViewModelProtocol {
     
     var hasFailure = CurrentValueSubject<Bool, Never>(false)
     var currentCuisineTypeIndex = 0
+    private var currentNextEndpoint: RecipesEndpoint?
     
     private var subscriptions = Set<AnyCancellable>()
 
@@ -64,11 +65,31 @@ final class RecipesViewModel: RecipesViewModelProtocol {
                     snapshot.appendItems([hit.recipe], toSection: .recipe)
                 }
                 await recipesDiffableDataSource?.apply(snapshot, animatingDifferences: false)
+                
+                let newUrl = response.links.next.href
+                guard let url = URL(string: newUrl) else { return }
+                currentNextEndpoint = endpoint.nextURL(url)
             case .failure(_):
                 hasFailure.send(true)
             }
             
             currentCuisineTypeIndex = cuisineTypeIndex
+        }
+    }
+    
+    func fetchMoreRecipes(with nextStringURL: String) {
+        guard let nextEndpoint = currentNextEndpoint else { return }
+        Task {
+            let newResponse = await recipesService.getRecipes(with: nextEndpoint)
+            switch newResponse {
+            case .success(let response):
+                response.hits.forEach { hit in
+                    snapshot.appendItems([hit.recipe], toSection: .recipe)
+                }
+                await recipesDiffableDataSource?.apply(snapshot, animatingDifferences: false)
+            case .failure(_):
+                hasFailure.send(true)
+            }
         }
     }
     

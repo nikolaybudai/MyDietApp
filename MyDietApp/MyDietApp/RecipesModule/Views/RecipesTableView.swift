@@ -46,3 +46,18 @@ extension RecipesTableView: UITableViewDelegate {
     }
     
 }
+
+//extension RecipesTableView: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { [weak self] timer in
+//            let offset = scrollView.contentOffset.y
+//            let totalContentheight = scrollView.contentSize.height
+//            let totalScrollViewFixedHeight = scrollView.frame.size.height
+//            
+//            if offset >= (totalContentheight - totalScrollViewFixedHeight - 120) {
+//                self?.
+//            }
+//            timer.invalidate()
+//        }
+//    }
+//}
