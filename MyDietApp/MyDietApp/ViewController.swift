@@ -26,7 +26,6 @@ class ViewController: UIViewController {
                 print(response.hits.first?.recipe.cuisineType ?? "no cuisine")
             case .failure(let failure):
                 print(String(describing: failure))
-                print("error")
             }
         }
         

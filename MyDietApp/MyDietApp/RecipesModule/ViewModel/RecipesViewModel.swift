@@ -15,6 +15,7 @@ enum Section {
 //MARK: - Protocol
 protocol RecipesViewModelProtocol: AnyObject, UITableViewDelegate {
     var hasFailure: CurrentValueSubject<Bool, Never> { get }
+    var isLoading: CurrentValueSubject<Bool, Never> { get }
     var recipesDiffableDataSource: UITableViewDiffableDataSource<Section, Recipe>? { get set }
     var currentCuisineTypeIndex: Int { get set }
     
@@ -32,6 +33,7 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     private var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
     
     var hasFailure = CurrentValueSubject<Bool, Never>(false)
+    var isLoading = CurrentValueSubject<Bool, Never>(false)
     var currentCuisineTypeIndex: Int = 0
     private var currentNextEndpoint: RecipesEndpoint?
     private var isLoadingMoreRecipes = false
@@ -46,6 +48,7 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     
     //MARK: Methods
     func fetchRecipes(with cuisineTypeIndex: Int) {
+        isLoading.send(true)
         Task {
             var endpoint = RecipesEndpoint()
             let cuisineType = getCuisineType(for: cuisineTypeIndex)
@@ -70,8 +73,11 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
                 let newUrl = response.links.next.href
                 guard let url = URL(string: newUrl) else { return }
                 currentNextEndpoint = endpoint.nextURL(url)
+                
+                isLoading.send(false)
             case .failure(_):
                 hasFailure.send(true)
+                isLoading.send(false)
             }
             
             currentCuisineTypeIndex = cuisineTypeIndex
@@ -85,12 +91,12 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
             return
         }
         isLoadingMoreRecipes = true
+        isLoading.send(true)
         
         Task {
             let newResponse = await recipesService.getRecipes(with: nextEndpoint)
             switch newResponse {
             case .success(let response):
-                print(response.hits.first?.recipe.label ?? "")
                 response.hits.forEach { hit in
                     snapshot.appendItems([hit.recipe], toSection: .recipe)
                 }
@@ -98,12 +104,14 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
                 isLoadingMoreRecipes = false
                 
                 let newUrl = response.links.next.href
-                print(newUrl)
                 guard let url = URL(string: newUrl) else { return }
                 currentNextEndpoint = nextEndpoint.nextURL(url)
+                
+                isLoading.send(false)
             case .failure(_):
                 hasFailure.send(true)
                 isLoadingMoreRecipes = false
+                isLoading.send(false)
             }
         }
     }
@@ -122,7 +130,7 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
 extension RecipesViewModel: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard !isLoadingMoreRecipes else { return }
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [weak self] timer in
+        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] timer in
             let offset = scrollView.contentOffset.y
             let totalContentheight = scrollView.contentSize.height
             let totalScrollViewFixedHeight = scrollView.frame.size.height

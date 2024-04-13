@@ -17,8 +17,10 @@ final class RecipesViewController: UIViewController {
     
     private let cuisineTypeLabel = UILabel()
     private let cuisineSegmentedControl = CuisineSegmentedControl(frame: .zero)
-//    private let recipesTableView = RecipesTableView()
     private let recipesTableView = UITableView()
+    private lazy var tableViewFooter = RecipesTableViewFooter(frame: CGRect(x: 0, y: 0,
+                                                                       width: view.frame.width,
+                                                                       height: 200))
     
     var subscriptions = Set<AnyCancellable>()
     
@@ -53,6 +55,16 @@ final class RecipesViewController: UIViewController {
         
         cuisineSegmentedControl.selectedCuisineIndex.sink { [weak self] index in
             self?.viewModel.fetchRecipes(with: index)
+        }.store(in: &subscriptions)
+        
+        viewModel.isLoading
+            .receive(on: RunLoop.main)
+            .sink { [weak self] isLoading in
+            if isLoading {
+                self?.tableViewFooter.updateProgress(to: 1, animated: true)
+            } else {
+                self?.tableViewFooter.resetProgress(to: 0, animated: false)
+            }
         }.store(in: &subscriptions)
     }
     
@@ -125,6 +137,8 @@ private extension RecipesViewController {
         recipesTableView.backgroundColor = .clear
         recipesTableView.delegate = viewModel
         recipesTableView.register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.cellID)
+        recipesTableView.tableFooterView = tableViewFooter
+        
         view.addView(recipesTableView)
     }
     
