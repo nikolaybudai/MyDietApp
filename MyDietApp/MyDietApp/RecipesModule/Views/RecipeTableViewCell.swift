@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol RecipeTableViewCellDelegate: AnyObject {
+    func recipeTableViewCellDidTapFavouritesButton(_ cell: RecipeTableViewCell)
+}
+
 final class RecipeTableViewCell: UITableViewCell {
     
     //MARK: Properties
     static let cellID = "RecipeTableViewCell"
     
-    private let recipeImageView = MyImageView()
+    weak private var delegate: RecipeTableViewCellDelegate?
+    
+    let recipeImageView = MyImageView()
     private let nameLabel = UILabel()
     private let mealTypeLabel = UILabel()
     private let favouritesButton = UIButton()
@@ -32,7 +38,8 @@ final class RecipeTableViewCell: UITableViewCell {
     }
     
     //MARK: Methods
-    func configure(_ model: Recipe) {
+    func configure(with model: Recipe, delegate: RecipeTableViewCellDelegate?) {
+        self.delegate = delegate
         backgroundColor = .clear
         recipeImageView.backgroundColor = .white
         nameLabel.text = model.label
@@ -46,7 +53,7 @@ final class RecipeTableViewCell: UITableViewCell {
     @objc private func didTapFavouritesButton() {
         favouritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         favouritesButton.tintColor = AppColors.highlightYellow
-        print("tapped star")
+        delegate?.recipeTableViewCellDidTapFavouritesButton(self)
     }
 }
 

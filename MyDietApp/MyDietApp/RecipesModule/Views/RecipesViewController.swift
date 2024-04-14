@@ -74,11 +74,41 @@ final class RecipesViewController: UIViewController {
                                                            for: indexPath) as? RecipeTableViewCell
                     else { return UITableViewCell() }
                     
-            cell.configure(recipe)
+            cell.configure(with: recipe, delegate: self)
             return cell
         }
     }
     
+}
+
+//MARK: - RecipeTableViewCellDelegate
+extension RecipesViewController: RecipeTableViewCellDelegate {
+    func recipeTableViewCellDidTapFavouritesButton(_ cell: RecipeTableViewCell) {
+//        guard let indexPath = recipesTableView.indexPath(for: cell)
+//              let recipe = viewModel.recipesDiffableDataSource?.itemIdentifier(for: indexPath)
+//        else {
+//            return
+//        }
+
+        let cellImageViewFrame = cell.convert(cell.recipeImageView.frame, to: nil)
+        
+        let snapshotImageView = UIImageView(image: cell.recipeImageView.image)
+        snapshotImageView.frame = cellImageViewFrame
+        view.addSubview(snapshotImageView)
+        
+        guard let tabBarFrame = tabBarController?.tabBar.frame,
+              let window = view.window else {
+            return
+        }
+        let tabBarPosition = window.convert(tabBarFrame, from: tabBarController?.tabBar.superview)
+        
+        UIView.animate(withDuration: 1, animations: {
+            snapshotImageView.frame = CGRect(x: tabBarPosition.midX - 15, y: tabBarPosition.midY - 15, width: 30, height: 30)
+            snapshotImageView.alpha = 0.0
+        }) { _ in
+            snapshotImageView.removeFromSuperview()
+        }
+    }
 }
 
 //MARK: - Setup UI
