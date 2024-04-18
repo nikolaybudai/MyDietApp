@@ -45,6 +45,9 @@
 		ED3053232BC85E50005A9899 /* MyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3053222BC85E50005A9899 /* MyImageView.swift */; };
 		ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */; };
 		ED47A40A2BBCA6EF00C7F84B /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47A4092BBCA6EF00C7F84B /* Tab.swift */; };
+		ED55951D2BD123C600305ED4 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */; };
+		ED5595212BD1244B00305ED4 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */; };
+		ED5595232BD128AB00305ED4 /* RecipesViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */; };
 		ED622AEB2BCAC462000EFF13 /* RecipesTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */; };
 		ED9514642BC172BD00B5A8B0 /* CuisineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9514632BC172BD00B5A8B0 /* CuisineType.swift */; };
 		ED9514662BC172CD00B5A8B0 /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9514652BC172CD00B5A8B0 /* MealType.swift */; };
@@ -120,6 +123,9 @@
 		ED3053222BC85E50005A9899 /* MyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageView.swift; sourceTree = "<group>"; };
 		ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorage.swift; sourceTree = "<group>"; };
 		ED47A4092BBCA6EF00C7F84B /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
+		ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesViewController+TableView.swift"; sourceTree = "<group>"; };
 		ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewFooter.swift; sourceTree = "<group>"; };
 		ED9514632BC172BD00B5A8B0 /* CuisineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineType.swift; sourceTree = "<group>"; };
 		ED9514652BC172CD00B5A8B0 /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
@@ -347,6 +353,41 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		ED55951A2BD123A300305ED4 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */,
+				ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */,
+				EDFC51FD2BC542E4009A57C1 /* RecipeTableViewCell.swift */,
+				ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		ED55951B2BD123B200305ED4 /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */,
+			);
+			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
+		ED55951E2BD1243300305ED4 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				ED03211C2BC30D8B00FD8D5A /* RecipesViewModel.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		ED55951F2BD1243B00305ED4 /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */,
+			);
+			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
 		EDBD44FF2BB71D3E002F75A4 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,7 +446,8 @@
 		EDBD45052BB71F15002F75A4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				ED03211C2BC30D8B00FD8D5A /* RecipesViewModel.swift */,
+				ED55951F2BD1243B00305ED4 /* RecipeDetail */,
+				ED55951E2BD1243300305ED4 /* Recipes */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -413,9 +455,8 @@
 		EDBD45062BB71F2D002F75A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */,
-				EDFC51FD2BC542E4009A57C1 /* RecipeTableViewCell.swift */,
-				ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */,
+				ED55951B2BD123B200305ED4 /* RecipeDetail */,
+				ED55951A2BD123A300305ED4 /* Recipes */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -620,12 +661,15 @@
 				ED23BED52BB58BB8000DF11F /* ViewController.swift in Sources */,
 				ED622AEB2BCAC462000EFF13 /* RecipesTableViewFooter.swift in Sources */,
 				EDD4477D2BC456C1008B7EEF /* CuisineSegmentedControl.swift in Sources */,
+				ED5595212BD1244B00305ED4 /* RecipeDetailViewModel.swift in Sources */,
 				ED114C9A2BC0638400026F18 /* RecipesEndpoint.swift in Sources */,
 				EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */,
 				EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */,
+				ED5595232BD128AB00305ED4 /* RecipesViewController+TableView.swift in Sources */,
 				ED9514642BC172BD00B5A8B0 /* CuisineType.swift in Sources */,
 				ED9514662BC172CD00B5A8B0 /* MealType.swift in Sources */,
 				ED47A40A2BBCA6EF00C7F84B /* Tab.swift in Sources */,
+				ED55951D2BD123C600305ED4 /* RecipeDetailViewController.swift in Sources */,
 				ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */,
 				ED03211D2BC30D8B00FD8D5A /* RecipesViewModel.swift in Sources */,
 				ED114C952BC04C1E00026F18 /* RequestMethod.swift in Sources */,

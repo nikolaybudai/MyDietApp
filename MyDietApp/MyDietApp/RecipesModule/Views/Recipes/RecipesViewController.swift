@@ -17,8 +17,8 @@ final class RecipesViewController: UIViewController {
     
     private let cuisineTypeLabel = UILabel()
     private let cuisineSegmentedControl = CuisineSegmentedControl(frame: .zero)
-    private let recipesTableView = UITableView()
-    private lazy var tableViewFooter = RecipesTableViewFooter(frame: CGRect(x: 0, y: 0,
+    let recipesTableView = UITableView()
+    lazy var tableViewFooter = RecipesTableViewFooter(frame: CGRect(x: 0, y: 0,
                                                                        width: view.frame.width,
                                                                        height: 200))
     
@@ -41,8 +41,6 @@ final class RecipesViewController: UIViewController {
         setupConstraints()
         setupTableViewDataSource()
         setupSubscriptions()
-        
-        viewModel.fetchRecipes(with: viewModel.currentCuisineTypeIndex)
     }
     
     //MARK: Methods
@@ -160,16 +158,6 @@ private extension RecipesViewController {
         cuisineTypeLabel.textAlignment = .center
         cuisineTypeLabel.textColor = AppColors.secondaryDark
         view.addView(cuisineTypeLabel)
-    }
-    
-    private func setupTableView() {
-        recipesTableView.separatorStyle = .none
-        recipesTableView.backgroundColor = .clear
-        recipesTableView.delegate = viewModel
-        recipesTableView.register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.cellID)
-        recipesTableView.tableFooterView = tableViewFooter
-        
-        view.addView(recipesTableView)
     }
     
 }

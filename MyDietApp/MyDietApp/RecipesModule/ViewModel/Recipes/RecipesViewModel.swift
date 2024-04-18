@@ -18,8 +18,11 @@ protocol RecipesViewModelProtocol: AnyObject, UITableViewDelegate {
     var isLoading: CurrentValueSubject<Bool, Never> { get }
     var recipesDiffableDataSource: UITableViewDiffableDataSource<Section, Recipe>? { get set }
     var currentCuisineTypeIndex: Int { get set }
+    var isLoadingMoreRecipes: Bool { get set }
+    var currentNextEndpoint: RecipesEndpoint? { get set }
     
     func fetchRecipes(with cuisineTypeIndex: Int)
+    func fetchMoreRecipes(with newEndpoint: RecipesEndpoint)
 }
 
 //MARK: - Implementation
@@ -35,8 +38,8 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     var hasFailure = CurrentValueSubject<Bool, Never>(false)
     var isLoading = CurrentValueSubject<Bool, Never>(false)
     var currentCuisineTypeIndex: Int = 0
-    private var currentNextEndpoint: RecipesEndpoint?
-    private var isLoadingMoreRecipes = false
+    var currentNextEndpoint: RecipesEndpoint?
+    var isLoadingMoreRecipes = false
     
     private var subscriptions = Set<AnyCancellable>()
 
@@ -127,31 +130,19 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     
 }
 
-extension RecipesViewModel: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard !isLoadingMoreRecipes else { return }
-        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] timer in
-            let offset = scrollView.contentOffset.y
-            let totalContentheight = scrollView.contentSize.height
-            let totalScrollViewFixedHeight = scrollView.frame.size.height
-
-            if offset >= (totalContentheight - totalScrollViewFixedHeight - 120) {
-                guard let newEnpoint = self?.currentNextEndpoint else { return }
-                self?.fetchMoreRecipes(with: newEnpoint)
-            }
-            timer.invalidate()
-        }
-    }
-}
-
-extension RecipesViewModel: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
-    }
-    
-}
+//extension RecipesViewModel: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        guard !isLoadingMoreRecipes else { return }
+//        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] timer in
+//            let offset = scrollView.contentOffset.y
+//            let totalContentheight = scrollView.contentSize.height
+//            let totalScrollViewFixedHeight = scrollView.frame.size.height
+//
+//            if offset >= (totalContentheight - totalScrollViewFixedHeight - 120) {
+//                guard let newEnpoint = self?.currentNextEndpoint else { return }
+//                self?.fetchMoreRecipes(with: newEnpoint)
+//            }
+//            timer.invalidate()
+//        }
+//    }
+//}

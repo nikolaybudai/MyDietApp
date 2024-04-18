@@ -35,7 +35,10 @@ final class RecipiesCoordinator: RecipiesCoordinatorProtocol {
     }
     
     func showRecipeDetail(recipe: Recipe) {
-        
+        let viewModel = RecipeDetailViewModel(recipe: recipe)
+        let viewController = RecipeDetailViewController(viewModel: viewModel)
+        viewController.coordinator = self
+        navigationController.pushViewController(viewController, animated: true)
     }
     
 }
