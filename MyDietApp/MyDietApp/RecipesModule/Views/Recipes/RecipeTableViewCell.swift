@@ -18,7 +18,7 @@ final class RecipeTableViewCell: UITableViewCell {
     
     weak private var delegate: RecipeTableViewCellDelegate?
     
-    let recipeImageView = MyImageView()
+    let recipeImageView = CustomImageView()
     private let nameLabel = UILabel()
     private let mealTypeLabel = UILabel()
     private let favouritesButton = UIButton()

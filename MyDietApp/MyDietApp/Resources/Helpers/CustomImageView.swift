@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyImageView: UIImageView {
+class CustomImageView: UIImageView {
     
     //MARK: Properties
     var imageURL: URL?
@@ -58,7 +58,7 @@ class MyImageView: UIImageView {
 }
 
 //MARK: - Setup UI
-private extension MyImageView {
+private extension CustomImageView {
     func setupActivityIndicator() {
         activityIndicator.color = .darkGray
 
