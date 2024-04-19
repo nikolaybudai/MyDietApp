@@ -20,6 +20,7 @@ final class RecipeDetailViewController: UIViewController {
     private let cuisineTypeLabel = UILabel()
     private let mealTypeLabel = UILabel()
     private let labelsStackView = UIStackView()
+    private let backgroundView = UIView()
     
     //MARK: Init
     init(viewModel: RecipeDetailViewModelProtocol) {
@@ -46,6 +47,7 @@ private extension RecipeDetailViewController {
         setupRecipesLabel()
         setupRecipeImageView()
         setupLabelsStackView()
+        setupBackgroundView()
     }
     
     func setupContraints() {
@@ -60,10 +62,15 @@ private extension RecipeDetailViewController {
             recipeImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             recipeImageView.heightAnchor.constraint(equalTo: recipeImageView.widthAnchor),
             
-            labelsStackView.topAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: 15),
-            labelsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            labelsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            labelsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            backgroundView.topAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: 15),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            backgroundView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            
+            labelsStackView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 10),
+            labelsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            labelsStackView.widthAnchor.constraint(equalTo: recipeImageView.widthAnchor),
+            labelsStackView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -10),
         ])
     }
     
@@ -89,23 +96,23 @@ private extension RecipeDetailViewController {
     
     func setupCaloriesLabel() {
         caloriesLabel.textAlignment = .center
-        caloriesLabel.font = .Roboto.medium.size(of: 22)
+        caloriesLabel.font = .Roboto.medium.size(of: 24)
         caloriesLabel.textColor = AppColors.highlightYellow
         caloriesLabel.text = String(viewModel.calories.rounded()) + " kcal"
     }
     
     func setupCuisineTypeLabel() {
         cuisineTypeLabel.textAlignment = .center
-        cuisineTypeLabel.font = .Roboto.medium.size(of: 20)
+        cuisineTypeLabel.font = .Roboto.medium.size(of: 22)
         cuisineTypeLabel.textColor = AppColors.secondaryDark
         cuisineTypeLabel.text = (viewModel.cuisineType.first?.capitalized ?? "") + " cuisine"
     }
     
     func setupMealTypeLabel() {
         mealTypeLabel.textAlignment = .center
-        mealTypeLabel.font = .Roboto.medium.size(of: 22)
+        mealTypeLabel.font = .Roboto.mediumItalic.size(of: 20)
         mealTypeLabel.textColor = AppColors.secondaryDark
-        mealTypeLabel.text = "Meal: " + (viewModel.mealType.first ?? "")
+        mealTypeLabel.text = (viewModel.mealType.first ?? "")
     }
     
     func setupLabelsStackView() {
@@ -120,7 +127,13 @@ private extension RecipeDetailViewController {
         setupCuisineTypeLabel()
         setupMealTypeLabel()
         
-        view.addView(labelsStackView)
+    }
+    
+    func setupBackgroundView() {
+        backgroundView.backgroundColor = AppColors.background
+        backgroundView.layer.cornerRadius = 8
+        backgroundView.addView(labelsStackView)
+        view.addView(backgroundView)
     }
     
 }
