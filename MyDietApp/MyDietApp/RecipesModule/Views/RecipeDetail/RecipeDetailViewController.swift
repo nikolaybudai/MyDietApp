@@ -69,7 +69,7 @@ private extension RecipeDetailViewController {
             
             labelsStackView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 10),
             labelsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            labelsStackView.widthAnchor.constraint(equalTo: recipeImageView.widthAnchor),
+            labelsStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75),
             labelsStackView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -10),
         ])
     }
