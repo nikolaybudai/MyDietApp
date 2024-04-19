@@ -23,7 +23,7 @@ class ViewController: UIViewController {
             let result = await service.getRecipes(with: endpoint)
             switch result {
             case .success(let response):
-                print(response.hits.first?.recipe.cuisineType ?? "no cuisine")
+                print(response.hits.first?.recipe.isFavourite ?? "nil")
             case .failure(let failure):
                 print(String(describing: failure))
             }
