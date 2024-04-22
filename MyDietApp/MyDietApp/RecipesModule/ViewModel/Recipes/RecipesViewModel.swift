@@ -129,20 +129,3 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     }
     
 }
-
-//extension RecipesViewModel: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        guard !isLoadingMoreRecipes else { return }
-//        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] timer in
-//            let offset = scrollView.contentOffset.y
-//            let totalContentheight = scrollView.contentSize.height
-//            let totalScrollViewFixedHeight = scrollView.frame.size.height
-//
-//            if offset >= (totalContentheight - totalScrollViewFixedHeight - 120) {
-//                guard let newEnpoint = self?.currentNextEndpoint else { return }
-//                self?.fetchMoreRecipes(with: newEnpoint)
-//            }
-//            timer.invalidate()
-//        }
-//    }
-//}
