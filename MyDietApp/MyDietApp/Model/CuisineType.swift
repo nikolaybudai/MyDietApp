@@ -8,5 +8,7 @@
 import Foundation
 
 enum CuisineType: String, Decodable {
-    case italian = "italian"
+    case american = "American"
+    case italian = "Italian"
+    case chinese = "Chinese"
 }

@@ -43,11 +43,6 @@ final class ProfileViewController: UIViewController {
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
     //MARK: Methods
     @objc private func didTapImageView() {
         configureImagePicker()
@@ -65,6 +60,7 @@ final class ProfileViewController: UIViewController {
         }
         
         viewModel.saveUserData(image, name)
+        showAlert(title: "Done", message: "Your data was saved.")
     }
     
     private func setUserInfo() {
@@ -72,7 +68,7 @@ final class ProfileViewController: UIViewController {
         guard let image, let name, let diet else { return }
         avatarImageView.image = image
         nameTextField.text = name
-        dietChoiceButton.setTitle(diet, for: .normal)
+        dietChoiceButton.setTitle(diet.uppercased() + " diet".uppercased(), for: .normal)
     }
     
 }
@@ -113,8 +109,7 @@ private extension ProfileViewController {
         avatarImageView.layer.borderColor = UIColor.white.cgColor
         avatarImageView.image = UIImage(systemName: "person.circle")
         avatarImageView.tintColor = AppColors.baseGray
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(avatarImageView)
+        view.addView(avatarImageView)
         
         // Add gesture recognizer
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView))
@@ -179,8 +174,7 @@ private extension ProfileViewController {
         
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stackView)
+        view.addView(stackView)
     }
 }
 

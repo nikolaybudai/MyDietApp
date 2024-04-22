@@ -22,11 +22,12 @@ final class MyRecipiesCoordinator: MyRecipiesCoordinatorProtocol {
     }
     
     func start() {
-        let viewController = ViewController()
+        let viewModel = MyRecipesViewModel()
+        let viewController = MyRecipesViewController(viewModel: viewModel)
         viewController.tabBarItem = UITabBarItem(title: Tab.myRecipies.getTitleName(),
                                                  image: UIImage(systemName: Tab.myRecipies.getIconName()),
                                                  tag: Tab.myRecipies.getIndex())
-//        viewController.coordinator = self
+        viewController.coordinator = self
         coordinatorFinishDelegate = self
         navigationController.pushViewController(viewController, animated: true)
     }

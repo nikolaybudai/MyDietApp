@@ -31,11 +31,27 @@ struct Next: Decodable {
 }
 
 // MARK: - Recipe
-struct Recipe: Decodable {
+struct Recipe: Decodable, Hashable {
     let image: String
+    let label: String
     let calories: Double
-    let cuisineType: [CuisineType]
-    let mealType: [MealType]
+    let cuisineType: [String]
+    let mealType: [String]
+    var isFavourite: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case image, label, calories, cuisineType, mealType
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.image = try container.decode(String.self, forKey: .image)
+        self.label = try container.decode(String.self, forKey: .label)
+        self.calories = try container.decode(Double.self, forKey: .calories)
+        self.cuisineType = try container.decode([String].self, forKey: .cuisineType)
+        self.mealType = try container.decode([String].self, forKey: .mealType)
+        self.isFavourite = false 
+    }
 }
 
 // MARK: - ResultsLinks
