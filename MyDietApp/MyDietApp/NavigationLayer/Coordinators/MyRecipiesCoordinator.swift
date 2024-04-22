@@ -22,7 +22,8 @@ final class MyRecipiesCoordinator: MyRecipiesCoordinatorProtocol {
     }
     
     func start() {
-        let viewModel = MyRecipesViewModel()
+        let coreDataManager = CoreDataManager()
+        let viewModel = MyRecipesViewModel(coreDataManager: coreDataManager)
         let viewController = MyRecipesViewController(viewModel: viewModel)
         viewController.tabBarItem = UITabBarItem(title: Tab.myRecipies.getTitleName(),
                                                  image: UIImage(systemName: Tab.myRecipies.getIconName()),
