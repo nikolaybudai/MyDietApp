@@ -24,7 +24,10 @@ final class RecipiesCoordinator: RecipiesCoordinatorProtocol {
     func start() {
         let userInfoStorage = UserInfoStorage()
         let service = RecipesService()
-        let viewModel = RecipesViewModel(userInfoStorage: userInfoStorage, recipesService: service)
+        let coreDataManager = CoreDataManager()
+        let viewModel = RecipesViewModel(userInfoStorage: userInfoStorage,
+                                         recipesService: service,
+                                         coreDataManager: coreDataManager)
         let viewController = RecipesViewController(viewModel: viewModel)
         viewController.coordinator = self
         viewController.tabBarItem = UITabBarItem(title: Tab.recipies.getTitleName(),

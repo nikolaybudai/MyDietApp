@@ -47,6 +47,8 @@
 		ED55951D2BD123C600305ED4 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */; };
 		ED5595212BD1244B00305ED4 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */; };
 		ED5595232BD128AB00305ED4 /* RecipesViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */; };
+		ED573AEF2BD6BB2F0063334A /* RecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED573AED2BD6BB2F0063334A /* RecipeModel.xcdatamodeld */; };
+		ED573AF22BD6C3EE0063334A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED573AF12BD6C3EE0063334A /* CoreDataManager.swift */; };
 		ED622AEB2BCAC462000EFF13 /* RecipesTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */; };
 		ED9514642BC172BD00B5A8B0 /* CuisineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9514632BC172BD00B5A8B0 /* CuisineType.swift */; };
 		ED9514662BC172CD00B5A8B0 /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9514652BC172CD00B5A8B0 /* MealType.swift */; };
@@ -126,6 +128,8 @@
 		ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
 		ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesViewController+TableView.swift"; sourceTree = "<group>"; };
+		ED573AEE2BD6BB2F0063334A /* RecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeModel.xcdatamodel; sourceTree = "<group>"; };
+		ED573AF12BD6C3EE0063334A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewFooter.swift; sourceTree = "<group>"; };
 		ED9514632BC172BD00B5A8B0 /* CuisineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineType.swift; sourceTree = "<group>"; };
 		ED9514652BC172CD00B5A8B0 /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
@@ -389,6 +393,23 @@
 			path = RecipeDetail;
 			sourceTree = "<group>";
 		};
+		ED573AE62BD6B9050063334A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				ED573AF12BD6C3EE0063334A /* CoreDataManager.swift */,
+				ED573AF02BD6BCFA0063334A /* Model */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		ED573AF02BD6BCFA0063334A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED573AED2BD6BB2F0063334A /* RecipeModel.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EDBD44FF2BB71D3E002F75A4 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +431,7 @@
 		EDBD45012BB71DAB002F75A4 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				ED573AE62BD6B9050063334A /* CoreData */,
 				ED114C8E2BC04BB300026F18 /* Network */,
 				ED114C8D2BC04BA200026F18 /* UserDataStorage */,
 			);
@@ -675,6 +697,7 @@
 				ED114C932BC04BFE00026F18 /* NetworkClient.swift in Sources */,
 				ED03211B2BC30D6F00FD8D5A /* RecipesViewController.swift in Sources */,
 				ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */,
+				ED573AEF2BD6BB2F0063334A /* RecipeModel.xcdatamodeld in Sources */,
 				EDFC51FE2BC542E4009A57C1 /* RecipeTableViewCell.swift in Sources */,
 				EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */,
 				EDC100A22BD277C700DC5721 /* MyRecipesViewController.swift in Sources */,
@@ -704,6 +727,7 @@
 				ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */,
 				ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */,
 				EDD4477F2BC45989008B7EEF /* UIView+Extension.swift in Sources */,
+				ED573AF22BD6C3EE0063334A /* CoreDataManager.swift in Sources */,
 				ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */,
 				EDAE97652BB7FC160056B33D /* ProfileViewController.swift in Sources */,
 				ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */,
@@ -1053,6 +1077,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED573AED2BD6BB2F0063334A /* RecipeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED573AEE2BD6BB2F0063334A /* RecipeModel.xcdatamodel */,
+			);
+			currentVersion = ED573AEE2BD6BB2F0063334A /* RecipeModel.xcdatamodel */;
+			path = RecipeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ED23BEC52BB58BB8000DF11F /* Project object */;
 }
