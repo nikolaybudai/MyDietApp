@@ -52,6 +52,15 @@ struct Recipe: Decodable, Hashable {
         self.mealType = try container.decode([String].self, forKey: .mealType)
         self.isFavourite = false 
     }
+    
+    init(from recipeEntity: RecipeEntity) {
+        self.image = recipeEntity.image ?? ""
+        self.label = recipeEntity.label ?? ""
+        self.calories = recipeEntity.calories
+        self.cuisineType = recipeEntity.cuisineType?.components(separatedBy: ",") ?? []
+        self.mealType = recipeEntity.mealType?.components(separatedBy: ",") ?? []
+        self.isFavourite = true
+    }
 }
 
 // MARK: - ResultsLinks
