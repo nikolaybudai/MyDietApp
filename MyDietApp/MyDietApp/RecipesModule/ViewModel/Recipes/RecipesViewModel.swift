@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import CoreData
 
 enum Section {
     case recipe
@@ -23,6 +24,8 @@ protocol RecipesViewModelProtocol: AnyObject, UITableViewDelegate {
     
     func fetchRecipes(with cuisineTypeIndex: Int)
     func fetchMoreRecipes(with newEndpoint: RecipesEndpoint)
+    func saveRecipe(_ recipe: Recipe)
+    func deleteRecipe(_ recipe: Recipe)
 }
 
 //MARK: - Implementation
@@ -31,6 +34,7 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     //MARK: Properties
     let userInfoStorage: UserInfoStorageProtocol
     let recipesService: RecipesServiceProtocol
+    let coreDataManager: CoreDataManagerProtocol
     
     var recipesDiffableDataSource:  UITableViewDiffableDataSource<Section, Recipe>?
     private var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
@@ -44,9 +48,12 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     private var subscriptions = Set<AnyCancellable>()
 
     //MARK: Init
-    init(userInfoStorage: UserInfoStorageProtocol, recipesService: RecipesServiceProtocol) {
+    init(userInfoStorage: UserInfoStorageProtocol, 
+         recipesService: RecipesServiceProtocol,
+         coreDataManager: CoreDataManagerProtocol) {
         self.userInfoStorage = userInfoStorage
         self.recipesService = recipesService
+        self.coreDataManager = coreDataManager
     }
     
     //MARK: Methods
@@ -116,6 +123,40 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
                 isLoadingMoreRecipes = false
                 isLoading.send(false)
             }
+        }
+    }
+    
+    func saveRecipe(_ recipe: Recipe) {
+        guard let context = coreDataManager.managedObjectContext else {
+            return
+        }
+        let recipeEntity = RecipeEntity(context: context)
+        
+        recipeEntity.label = recipe.label
+        recipeEntity.image = recipe.image
+        recipeEntity.calories = recipe.calories
+        recipeEntity.cuisineType = recipe.cuisineType.joined(separator: ", ")
+        recipeEntity.mealType = recipe.mealType.joined(separator: ", ")
+        recipeEntity.isFavourite = true
+        
+        coreDataManager.saveObject(object: recipeEntity)
+    }
+    
+    func deleteRecipe(_ recipe: Recipe) {
+        guard let context = coreDataManager.managedObjectContext else {
+            return
+        }
+        
+        let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "label == %@", recipe.label)
+        
+        do {
+            let fetchedRecipes = try context.fetch(fetchRequest) as [RecipeEntity]
+            for fetchedRecipe in fetchedRecipes {
+                coreDataManager.deleteObject(object: fetchedRecipe)
+            }
+        } catch {
+            hasFailure.send(true)
         }
     }
     
