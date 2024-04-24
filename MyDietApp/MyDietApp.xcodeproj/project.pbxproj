@@ -16,6 +16,7 @@
 		ED114C9A2BC0638400026F18 /* RecipesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C992BC0638400026F18 /* RecipesEndpoint.swift */; };
 		ED114C9D2BC0662A00026F18 /* RecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C9C2BC0662A00026F18 /* RecipesService.swift */; };
 		ED114CA22BC079DC00026F18 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114CA12BC079DC00026F18 /* Model.swift */; };
+		ED164EDF2BD9080F003302A3 /* RecipeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED164EDE2BD9080F003302A3 /* RecipeCellViewModel.swift */; };
 		ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BED02BB58BB8000DF11F /* AppDelegate.swift */; };
 		ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */; };
 		ED23BEDA2BB58BBA000DF11F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED23BED92BB58BBA000DF11F /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		ED114C992BC0638400026F18 /* RecipesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesEndpoint.swift; sourceTree = "<group>"; };
 		ED114C9C2BC0662A00026F18 /* RecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesService.swift; sourceTree = "<group>"; };
 		ED114CA12BC079DC00026F18 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		ED164EDE2BD9080F003302A3 /* RecipeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellViewModel.swift; sourceTree = "<group>"; };
 		ED23BECD2BB58BB8000DF11F /* MyDietApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDietApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED23BED02BB58BB8000DF11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				ED03211C2BC30D8B00FD8D5A /* RecipesViewModel.swift */,
+				ED164EDE2BD9080F003302A3 /* RecipeCellViewModel.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 				ED114C972BC04C2A00026F18 /* RequestError.swift in Sources */,
 				ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */,
 				ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */,
+				ED164EDF2BD9080F003302A3 /* RecipeCellViewModel.swift in Sources */,
 				EDD4477F2BC45989008B7EEF /* UIView+Extension.swift in Sources */,
 				ED573AF22BD6C3EE0063334A /* CoreDataManager.swift in Sources */,
 				ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */,

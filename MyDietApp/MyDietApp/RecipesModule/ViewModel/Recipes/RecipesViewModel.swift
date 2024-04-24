@@ -24,8 +24,6 @@ protocol RecipesViewModelProtocol: AnyObject, UITableViewDelegate {
     
     func fetchRecipes(with cuisineTypeIndex: Int)
     func fetchMoreRecipes(with newEndpoint: RecipesEndpoint)
-    func saveRecipe(_ recipe: Recipe)
-    func deleteRecipe(_ recipe: Recipe)
 }
 
 //MARK: - Implementation
@@ -44,8 +42,6 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     var currentCuisineTypeIndex: Int = 0
     var currentNextEndpoint: RecipesEndpoint?
     var isLoadingMoreRecipes = false
-    
-    private var subscriptions = Set<AnyCancellable>()
 
     //MARK: Init
     init(userInfoStorage: UserInfoStorageProtocol, 
@@ -123,40 +119,6 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
                 isLoadingMoreRecipes = false
                 isLoading.send(false)
             }
-        }
-    }
-    
-    func saveRecipe(_ recipe: Recipe) {
-        guard let context = coreDataManager.managedObjectContext else {
-            return
-        }
-        let recipeEntity = RecipeEntity(context: context)
-        
-        recipeEntity.label = recipe.label
-        recipeEntity.image = recipe.image
-        recipeEntity.calories = recipe.calories
-        recipeEntity.cuisineType = recipe.cuisineType.joined(separator: ", ")
-        recipeEntity.mealType = recipe.mealType.joined(separator: ", ")
-        recipeEntity.isFavourite = true
-        
-        coreDataManager.saveObject(object: recipeEntity)
-    }
-    
-    func deleteRecipe(_ recipe: Recipe) {
-        guard let context = coreDataManager.managedObjectContext else {
-            return
-        }
-        
-        let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "label == %@", recipe.label)
-        
-        do {
-            let fetchedRecipes = try context.fetch(fetchRequest) as [RecipeEntity]
-            for fetchedRecipe in fetchedRecipes {
-                coreDataManager.deleteObject(object: fetchedRecipe)
-            }
-        } catch {
-            hasFailure.send(true)
         }
     }
     

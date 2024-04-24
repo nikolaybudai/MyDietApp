@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol RecipeTableViewCellDelegate: AnyObject {
     func recipeTableViewCellDidTapFavouritesButton(_ cell: RecipeTableViewCell)
@@ -18,12 +19,15 @@ final class RecipeTableViewCell: UITableViewCell {
     
     weak private var delegate: RecipeTableViewCellDelegate?
     
+    var viewModel: RecipeCellViewModelProtocol?
+    
     let recipeImageView = CustomImageView()
     private let nameLabel = UILabel()
     private let mealTypeLabel = UILabel()
-    private let favouritesButton = UIButton()
-    
+    let favouritesButton = UIButton()
     private let labelsStackView = UIStackView()
+    
+    private var subscriptions = Set<AnyCancellable>()
     
     //MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -38,21 +42,36 @@ final class RecipeTableViewCell: UITableViewCell {
     }
     
     //MARK: Methods
-    func configure(with model: Recipe, delegate: RecipeTableViewCellDelegate?) {
+    private func setupSubscriptions() {
+        viewModel?.isFavourite.sink { [weak self] isFavourite in
+            print("isFavourite changed to: \(isFavourite)")
+            if !isFavourite {
+                self?.favouritesButton.setImage(UIImage(systemName: "star"), for: .normal)
+            } else {
+                self?.favouritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            }
+        }.store(in: &subscriptions)
+    }
+    
+    func configure(with viewModel: RecipeCellViewModelProtocol,
+                   delegate: RecipeTableViewCellDelegate?) {
         self.delegate = delegate
         backgroundColor = .clear
-        recipeImageView.backgroundColor = .white
-        nameLabel.text = model.label
-        mealTypeLabel.text = model.mealType.first
+        self.viewModel = viewModel
         
-        if let imageURL = URL(string: model.image) {
+        recipeImageView.backgroundColor = .white
+        nameLabel.text = viewModel.recipeLabel
+        mealTypeLabel.text = viewModel.mealType
+        
+        if let imageURL = URL(string: viewModel.image) {
             recipeImageView.loadImageWithUrl(imageURL)
         }
+        
+        setupSubscriptions()
     }
     
     @objc private func didTapFavouritesButton() {
-        favouritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        favouritesButton.tintColor = AppColors.highlightYellow
+        viewModel?.handleIsFavouriteButton()
         delegate?.recipeTableViewCellDidTapFavouritesButton(self)
     }
 }

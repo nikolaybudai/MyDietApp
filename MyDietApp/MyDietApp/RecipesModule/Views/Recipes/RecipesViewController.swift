@@ -22,7 +22,7 @@ final class RecipesViewController: UIViewController {
                                                                        width: view.frame.width,
                                                                        height: 200))
     
-    var subscriptions = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     //MARK: Init
     init(viewModel: RecipesViewModelProtocol) {
@@ -72,7 +72,9 @@ final class RecipesViewController: UIViewController {
                                                            for: indexPath) as? RecipeTableViewCell
                     else { return UITableViewCell() }
                     
-            cell.configure(with: recipe, delegate: self)
+            let coreDataManager = CoreDataManager()
+            let cellViewModel = RecipeCellViewModel(recipe: recipe, coreDataManager: coreDataManager)
+            cell.configure(with: cellViewModel, delegate: self)
             return cell
         }
     }
@@ -82,12 +84,8 @@ final class RecipesViewController: UIViewController {
 //MARK: - RecipeTableViewCellDelegate
 extension RecipesViewController: RecipeTableViewCellDelegate {
     func recipeTableViewCellDidTapFavouritesButton(_ cell: RecipeTableViewCell) {
-//        guard let indexPath = recipesTableView.indexPath(for: cell)
-//              let recipe = viewModel.recipesDiffableDataSource?.itemIdentifier(for: indexPath)
-//        else {
-//            return
-//        }
-
+        guard (cell.viewModel?.isFavourite.value ?? false) else { return }
+        
         let cellImageViewFrame = cell.convert(cell.recipeImageView.frame, to: nil)
         
         let snapshotImageView = UIImageView(image: cell.recipeImageView.image)
