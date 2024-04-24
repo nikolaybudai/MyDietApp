@@ -19,7 +19,7 @@ final class RecipeTableViewCell: UITableViewCell {
     
     weak private var delegate: RecipeTableViewCellDelegate?
     
-    private var viewModel: RecipeCellViewModelProtocol?
+    var viewModel: RecipeCellViewModelProtocol?
     
     let recipeImageView = CustomImageView()
     private let nameLabel = UILabel()
@@ -34,7 +34,6 @@ final class RecipeTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupConstraints()
-        setupSubscriptions()
         selectionStyle = .none
     }
     
@@ -45,7 +44,8 @@ final class RecipeTableViewCell: UITableViewCell {
     //MARK: Methods
     private func setupSubscriptions() {
         viewModel?.isFavourite.sink { [weak self] isFavourite in
-            if isFavourite {
+            print("isFavourite changed to: \(isFavourite)")
+            if !isFavourite {
                 self?.favouritesButton.setImage(UIImage(systemName: "star"), for: .normal)
             } else {
                 self?.favouritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
@@ -66,11 +66,13 @@ final class RecipeTableViewCell: UITableViewCell {
         if let imageURL = URL(string: viewModel.image) {
             recipeImageView.loadImageWithUrl(imageURL)
         }
+        
+        setupSubscriptions()
     }
     
     @objc private func didTapFavouritesButton() {
+        viewModel?.handleIsFavouriteButton()
         delegate?.recipeTableViewCellDidTapFavouritesButton(self)
-        favouritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
     }
 }
 

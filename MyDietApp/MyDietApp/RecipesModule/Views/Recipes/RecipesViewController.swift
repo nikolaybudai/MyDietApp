@@ -22,7 +22,7 @@ final class RecipesViewController: UIViewController {
                                                                        width: view.frame.width,
                                                                        height: 200))
     
-    var subscriptions = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     //MARK: Init
     init(viewModel: RecipesViewModelProtocol) {
@@ -84,9 +84,7 @@ final class RecipesViewController: UIViewController {
 //MARK: - RecipeTableViewCellDelegate
 extension RecipesViewController: RecipeTableViewCellDelegate {
     func recipeTableViewCellDidTapFavouritesButton(_ cell: RecipeTableViewCell) {
-        guard cell.favouritesButton.currentImage == UIImage(systemName: "star") else {
-            return
-        }
+        guard (cell.viewModel?.isFavourite.value ?? false) else { return }
         
         let cellImageViewFrame = cell.convert(cell.recipeImageView.frame, to: nil)
         
