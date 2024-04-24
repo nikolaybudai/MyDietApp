@@ -44,8 +44,6 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     var currentCuisineTypeIndex: Int = 0
     var currentNextEndpoint: RecipesEndpoint?
     var isLoadingMoreRecipes = false
-    
-    private var subscriptions = Set<AnyCancellable>()
 
     //MARK: Init
     init(userInfoStorage: UserInfoStorageProtocol, 

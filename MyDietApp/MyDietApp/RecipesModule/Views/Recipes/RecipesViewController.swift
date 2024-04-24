@@ -72,7 +72,8 @@ final class RecipesViewController: UIViewController {
                                                            for: indexPath) as? RecipeTableViewCell
                     else { return UITableViewCell() }
                     
-            let cellViewModel = RecipeCellViewModel(recipe: recipe)
+            let coreDataManager = CoreDataManager()
+            let cellViewModel = RecipeCellViewModel(recipe: recipe, coreDataManager: coreDataManager)
             cell.configure(with: cellViewModel, delegate: self)
             return cell
         }
@@ -83,12 +84,10 @@ final class RecipesViewController: UIViewController {
 //MARK: - RecipeTableViewCellDelegate
 extension RecipesViewController: RecipeTableViewCellDelegate {
     func recipeTableViewCellDidTapFavouritesButton(_ cell: RecipeTableViewCell) {
-//        guard let indexPath = recipesTableView.indexPath(for: cell)
-//              let recipe = viewModel.recipesDiffableDataSource?.itemIdentifier(for: indexPath)
-//        else {
-//            return
-//        }
-
+        guard cell.favouritesButton.currentImage == UIImage(systemName: "star") else {
+            return
+        }
+        
         let cellImageViewFrame = cell.convert(cell.recipeImageView.frame, to: nil)
         
         let snapshotImageView = UIImageView(image: cell.recipeImageView.image)

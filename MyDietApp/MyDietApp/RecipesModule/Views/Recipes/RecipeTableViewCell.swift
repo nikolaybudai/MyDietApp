@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol RecipeTableViewCellDelegate: AnyObject {
     func recipeTableViewCellDidTapFavouritesButton(_ cell: RecipeTableViewCell)
@@ -23,15 +24,17 @@ final class RecipeTableViewCell: UITableViewCell {
     let recipeImageView = CustomImageView()
     private let nameLabel = UILabel()
     private let mealTypeLabel = UILabel()
-    private let favouritesButton = UIButton()
-    
+    let favouritesButton = UIButton()
     private let labelsStackView = UIStackView()
+    
+    private var subscriptions = Set<AnyCancellable>()
     
     //MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupConstraints()
+        setupSubscriptions()
         selectionStyle = .none
     }
     
@@ -40,6 +43,16 @@ final class RecipeTableViewCell: UITableViewCell {
     }
     
     //MARK: Methods
+    private func setupSubscriptions() {
+        viewModel?.isFavourite.sink { [weak self] isFavourite in
+            if isFavourite {
+                self?.favouritesButton.setImage(UIImage(systemName: "star"), for: .normal)
+            } else {
+                self?.favouritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            }
+        }.store(in: &subscriptions)
+    }
+    
     func configure(with viewModel: RecipeCellViewModelProtocol,
                    delegate: RecipeTableViewCellDelegate?) {
         self.delegate = delegate
@@ -56,9 +69,8 @@ final class RecipeTableViewCell: UITableViewCell {
     }
     
     @objc private func didTapFavouritesButton() {
-        favouritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        favouritesButton.tintColor = AppColors.highlightYellow
         delegate?.recipeTableViewCellDidTapFavouritesButton(self)
+        favouritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
     }
 }
 
