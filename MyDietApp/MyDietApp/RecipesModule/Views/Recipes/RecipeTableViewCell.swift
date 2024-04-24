@@ -18,6 +18,8 @@ final class RecipeTableViewCell: UITableViewCell {
     
     weak private var delegate: RecipeTableViewCellDelegate?
     
+    private var viewModel: RecipeCellViewModelProtocol?
+    
     let recipeImageView = CustomImageView()
     private let nameLabel = UILabel()
     private let mealTypeLabel = UILabel()
@@ -38,14 +40,17 @@ final class RecipeTableViewCell: UITableViewCell {
     }
     
     //MARK: Methods
-    func configure(with model: Recipe, delegate: RecipeTableViewCellDelegate?) {
+    func configure(with viewModel: RecipeCellViewModelProtocol,
+                   delegate: RecipeTableViewCellDelegate?) {
         self.delegate = delegate
         backgroundColor = .clear
-        recipeImageView.backgroundColor = .white
-        nameLabel.text = model.label
-        mealTypeLabel.text = model.mealType.first
+        self.viewModel = viewModel
         
-        if let imageURL = URL(string: model.image) {
+        recipeImageView.backgroundColor = .white
+        nameLabel.text = viewModel.recipeLabel
+        mealTypeLabel.text = viewModel.mealType
+        
+        if let imageURL = URL(string: viewModel.image) {
             recipeImageView.loadImageWithUrl(imageURL)
         }
     }

@@ -72,7 +72,8 @@ final class RecipesViewController: UIViewController {
                                                            for: indexPath) as? RecipeTableViewCell
                     else { return UITableViewCell() }
                     
-            cell.configure(with: recipe, delegate: self)
+            let cellViewModel = RecipeCellViewModel(recipe: recipe)
+            cell.configure(with: cellViewModel, delegate: self)
             return cell
         }
     }
