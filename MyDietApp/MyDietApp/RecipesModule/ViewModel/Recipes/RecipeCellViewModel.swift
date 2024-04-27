@@ -34,28 +34,45 @@ final class RecipeCellViewModel: RecipeCellViewModelProtocol {
     var image: String
     var isFavourite = CurrentValueSubject<Bool, Never>(false)
     
+    private let favouriteRecipes: [Recipe]?
+    
     private let coreDataManager: CoreDataManagerProtocol
 
     //MARK: Init
-    init(recipe: Recipe, coreDataManager: CoreDataManagerProtocol) {
+    init(recipe: Recipe,
+         coreDataManager: CoreDataManagerProtocol,
+         favouriteRecipes: [Recipe]) {
         self.recipe = recipe
         self.coreDataManager = coreDataManager
+        self.favouriteRecipes = favouriteRecipes
         
         recipeLabel = recipe.label
         mealType = recipe.mealType.joined(separator: ",")
         cuisineType = recipe.cuisineType.joined(separator: ",")
         image = recipe.image
+
+        checkFavourite(recipe: self.recipe)
     }
     
     //MARK: Methods
     func handleIsFavouriteButton() {
         recipe.isFavourite.toggle()
-        isFavourite.value = recipe.isFavourite
+        isFavourite.send(recipe.isFavourite)
         
         if recipe.isFavourite {
             saveRecipe(recipe)
         } else {
             deleteRecipe(recipe)
+        }
+    }
+    
+    private func checkFavourite(recipe: Recipe) {
+        guard let favouriteRecipes else { return }
+        favouriteRecipes.forEach { item in
+            if recipe.label == item.label {
+                isFavourite.send(true)
+                self.recipe.isFavourite.toggle()
+            }
         }
     }
     

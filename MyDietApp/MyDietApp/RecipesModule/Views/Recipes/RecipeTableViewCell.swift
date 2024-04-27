@@ -44,7 +44,6 @@ final class RecipeTableViewCell: UITableViewCell {
     //MARK: Methods
     private func setupSubscriptions() {
         viewModel?.isFavourite.sink { [weak self] isFavourite in
-            print("isFavourite changed to: \(isFavourite)")
             if !isFavourite {
                 self?.favouritesButton.setImage(UIImage(systemName: "star"), for: .normal)
             } else {

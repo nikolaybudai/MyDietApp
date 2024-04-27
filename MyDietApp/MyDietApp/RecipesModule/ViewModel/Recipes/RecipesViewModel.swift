@@ -21,6 +21,7 @@ protocol RecipesViewModelProtocol: AnyObject, UITableViewDelegate {
     var currentCuisineTypeIndex: Int { get set }
     var isLoadingMoreRecipes: Bool { get set }
     var currentNextEndpoint: RecipesEndpoint? { get set }
+    var favouriteRecipes: [Recipe]? { get }
     
     func fetchRecipes(with cuisineTypeIndex: Int)
     func fetchMoreRecipes(with newEndpoint: RecipesEndpoint)
@@ -42,6 +43,10 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     var currentCuisineTypeIndex: Int = 0
     var currentNextEndpoint: RecipesEndpoint?
     var isLoadingMoreRecipes = false
+    
+    lazy var favouriteRecipes: [Recipe]? = {
+        coreDataManager.fetchFavouriteRecipes()
+    }()
 
     //MARK: Init
     init(userInfoStorage: UserInfoStorageProtocol, 
