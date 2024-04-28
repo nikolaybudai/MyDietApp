@@ -13,7 +13,23 @@ protocol CoreDataManagerProtocol: AnyObject {
     var managedObjectContext: NSManagedObjectContext? { get }
     func saveObject<T: NSManagedObject>(object: T)
     func deleteObject<T: NSManagedObject>(object: T)
-    func fetchFavouriteRecipes() -> [Recipe]
+}
+
+extension CoreDataManagerProtocol {
+    func fetchFavouriteRecipes() -> [Recipe] {
+        guard let context = managedObjectContext else { return [] }
+
+        let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "isFavourite == true")
+
+        do {
+            let favoriteRecipeEntities = try context.fetch(fetchRequest)
+            let favoriteRecipes = favoriteRecipeEntities.map { Recipe(from: $0) }
+            return favoriteRecipes
+        } catch {
+            return []
+        }
+    }
 }
 
 //MARK: - Implementation
@@ -37,7 +53,6 @@ final class CoreDataManager: CoreDataManagerProtocol {
             self.managedObjectContext?.insert(object)
             self.saveChanges()
         }
-        print("saved object")
     }
 
     func deleteObject<T: NSManagedObject>(object: T) {
@@ -47,22 +62,6 @@ final class CoreDataManager: CoreDataManagerProtocol {
                 self.managedObjectContext?.delete(objectInContext)
             }
             self.saveChanges()
-        }
-        print("deleted object")
-    }
-    
-    func fetchFavouriteRecipes() -> [Recipe] {
-        guard let context = managedObjectContext else { return [] }
-
-        let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "isFavourite == true")
-
-        do {
-            let favoriteRecipeEntities = try context.fetch(fetchRequest)
-            let favoriteRecipes = favoriteRecipeEntities.map { Recipe(from: $0) }
-            return favoriteRecipes
-        } catch {
-            return []
         }
     }
     
