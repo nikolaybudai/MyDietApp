@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CuisineType: String, Decodable {
+enum CuisineType: String, CaseIterable {
     case american = "American"
     case italian = "Italian"
     case chinese = "Chinese"

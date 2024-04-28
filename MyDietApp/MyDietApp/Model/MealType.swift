@@ -7,7 +7,10 @@
 
 import Foundation
 
-//enum MealType: String, Codable {
-//    case lunchDinner = "lunch/dinner"
-//    case snack = "snack"
-//}
+enum MealType: String, CaseIterable {
+    case breakfast = "Breakfast"
+    case dinner = "Dinner"
+    case lunch = "Lunch"
+    case snack = "Snack"
+    case teatime = "Teatime"
+}

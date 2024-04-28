@@ -16,11 +16,11 @@ protocol CoreDataManagerProtocol: AnyObject {
 }
 
 extension CoreDataManagerProtocol {
-    func fetchFavouriteRecipes() -> [Recipe] {
+    func fetchRecipes(with predicate: NSPredicate) -> [Recipe] {
         guard let context = managedObjectContext else { return [] }
 
         let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "isFavourite == true")
+        fetchRequest.predicate = predicate
 
         do {
             let favoriteRecipeEntities = try context.fetch(fetchRequest)

@@ -14,6 +14,10 @@ final class MyRecipesViewController: UIViewController {
     
     private let viewModel: MyRecipesViewModelProtocol
     
+    private let mealTypeChoiceButton = UIButton()
+    private let cuisineTypeChoiceButton = UIButton()
+    private let buttonsStackView = UIStackView()
+    
     //MARK: Init
     init(viewModel: MyRecipesViewModelProtocol) {
         self.viewModel = viewModel
@@ -38,6 +42,9 @@ private extension MyRecipesViewController {
         title = "My Recipes"
         view.backgroundColor = AppColors.baseCyan
         setupNavigationBar()
+        setupMealTypeChoiceButton()
+        setupCuisineTypeChoiceButton()
+        setupButtonsStackView()
     }
     
     func setupContraints() {
@@ -58,5 +65,16 @@ private extension MyRecipesViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
+    private func setupMealTypeChoiceButton() {
+        
+    }
+    
+    private func setupCuisineTypeChoiceButton() {
+        
+    }
+    
+    private func setupButtonsStackView() {
+        
+    }
 }
 

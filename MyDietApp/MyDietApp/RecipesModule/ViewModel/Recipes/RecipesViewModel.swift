@@ -45,7 +45,8 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     var isLoadingMoreRecipes = false
     
     lazy var favouriteRecipes: [Recipe]? = {
-        coreDataManager.fetchFavouriteRecipes()
+        let predicate = NSPredicate(format: "isFavourite == true")
+        return coreDataManager.fetchRecipes(with: predicate)
     }()
 
     //MARK: Init
