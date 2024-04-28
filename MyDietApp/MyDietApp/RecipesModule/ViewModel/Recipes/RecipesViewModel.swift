@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import CoreData
 
-enum Section {
+enum RecipesSection {
     case recipe
 }
 
@@ -17,7 +17,7 @@ enum Section {
 protocol RecipesViewModelProtocol: AnyObject, UITableViewDelegate {
     var hasFailure: CurrentValueSubject<Bool, Never> { get }
     var isLoading: CurrentValueSubject<Bool, Never> { get }
-    var recipesDiffableDataSource: UITableViewDiffableDataSource<Section, Recipe>? { get set }
+    var recipesDiffableDataSource: UITableViewDiffableDataSource<RecipesSection, Recipe>? { get set }
     var currentCuisineTypeIndex: Int { get set }
     var isLoadingMoreRecipes: Bool { get set }
     var currentNextEndpoint: RecipesEndpoint? { get set }
@@ -35,8 +35,8 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     let recipesService: RecipesServiceProtocol
     let coreDataManager: CoreDataManagerProtocol
     
-    var recipesDiffableDataSource:  UITableViewDiffableDataSource<Section, Recipe>?
-    private var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
+    var recipesDiffableDataSource:  UITableViewDiffableDataSource<RecipesSection, Recipe>?
+    private var snapshot = NSDiffableDataSourceSnapshot<RecipesSection, Recipe>()
     
     var hasFailure = CurrentValueSubject<Bool, Never>(false)
     var isLoading = CurrentValueSubject<Bool, Never>(false)
@@ -45,8 +45,7 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     var isLoadingMoreRecipes = false
     
     lazy var favouriteRecipes: [Recipe]? = {
-        let predicate = NSPredicate(format: "isFavourite == true")
-        return coreDataManager.fetchRecipes(with: predicate)
+        fetchFavouriteRecipes()
     }()
 
     //MARK: Init
@@ -125,6 +124,18 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
                 isLoadingMoreRecipes = false
                 isLoading.send(false)
             }
+        }
+    }
+    
+    private func fetchFavouriteRecipes() -> [Recipe]? {
+        let predicate = NSPredicate(format: "isFavourite == true")
+        let result = coreDataManager.fetchRecipes(with: predicate)
+        switch result {
+        case .success(let recipes):
+            return recipes
+        case .failure(_):
+            hasFailure.send(true)
+            return nil
         }
     }
     

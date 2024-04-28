@@ -16,18 +16,23 @@ protocol CoreDataManagerProtocol: AnyObject {
 }
 
 extension CoreDataManagerProtocol {
-    func fetchRecipes(with predicate: NSPredicate) -> [Recipe] {
-        guard let context = managedObjectContext else { return [] }
+    func fetchRecipes(with predicate: NSPredicate) -> Result<[Recipe], DataBaseError> {
+        guard let context = managedObjectContext else {
+            return .failure(.couldNotLoadFromDatabase)
+        }
 
         let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         fetchRequest.predicate = predicate
 
         do {
-            let favoriteRecipeEntities = try context.fetch(fetchRequest)
-            let favoriteRecipes = favoriteRecipeEntities.map { Recipe(from: $0) }
-            return favoriteRecipes
+            let recipeEntities = try context.fetch(fetchRequest)
+            let recipes = recipeEntities.map { Recipe(from: $0) }
+//            recipes.forEach {
+//                print($0.mealType)
+//            }
+            return .success(recipes)
         } catch {
-            return []
+            return .failure(.couldNotLoadFromDatabase)
         }
     }
 }
