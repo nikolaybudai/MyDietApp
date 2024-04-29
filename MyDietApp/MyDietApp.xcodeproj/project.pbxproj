@@ -61,6 +61,8 @@
 		EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */; };
 		EDC100A22BD277C700DC5721 /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC100A12BD277C700DC5721 /* MyRecipesViewController.swift */; };
 		EDC100A62BD2782C00DC5721 /* MyRecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC100A52BD2782C00DC5721 /* MyRecipesViewModel.swift */; };
+		EDD17DED2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD17DEC2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift */; };
+		EDD17DEF2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD17DEE2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift */; };
 		EDD4477D2BC456C1008B7EEF /* CuisineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */; };
 		EDD4477F2BC45989008B7EEF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */; };
 		EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD860362BBABF3100505209 /* UIViewController+Extension.swift */; };
@@ -145,6 +147,8 @@
 		EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		EDC100A12BD277C700DC5721 /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
 		EDC100A52BD2782C00DC5721 /* MyRecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewModel.swift; sourceTree = "<group>"; };
+		EDD17DEC2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		EDD17DEE2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeCellViewModel.swift; sourceTree = "<group>"; };
 		EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineSegmentedControl.swift; sourceTree = "<group>"; };
 		EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		EDD860362BBABF3100505209 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -540,6 +544,7 @@
 			children = (
 				EDC100A12BD277C700DC5721 /* MyRecipesViewController.swift */,
 				EDFB32A52BDEB9220032CD02 /* MyRecipesViewController+TableView.swift */,
+				EDD17DEC2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift */,
 			);
 			path = MyRecipes;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC100A52BD2782C00DC5721 /* MyRecipesViewModel.swift */,
+				EDD17DEE2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift */,
 			);
 			path = MyRecipes;
 			sourceTree = "<group>";
@@ -723,10 +729,12 @@
 				ED47A40A2BBCA6EF00C7F84B /* Tab.swift in Sources */,
 				ED55951D2BD123C600305ED4 /* RecipeDetailViewController.swift in Sources */,
 				ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */,
+				EDD17DEF2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift in Sources */,
 				ED03211D2BC30D8B00FD8D5A /* RecipesViewModel.swift in Sources */,
 				ED114C952BC04C1E00026F18 /* RequestMethod.swift in Sources */,
 				ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */,
 				EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */,
+				EDD17DED2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift in Sources */,
 				ED3053232BC85E50005A9899 /* CustomImageView.swift in Sources */,
 				EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */,
 				ED114C9D2BC0662A00026F18 /* RecipesService.swift in Sources */,

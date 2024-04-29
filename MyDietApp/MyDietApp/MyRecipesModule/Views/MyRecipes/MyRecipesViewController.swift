@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class MyRecipesViewController: UIViewController {
     
@@ -18,6 +19,8 @@ final class MyRecipesViewController: UIViewController {
     private let cuisineTypeChoiceButton = UIButton()
     private let buttonsStackView = UIStackView()
     let myRecipesTableView = UITableView()
+    
+    private var subscriptions = Set<AnyCancellable>()
     
     //MARK: Init
     init(viewModel: MyRecipesViewModelProtocol) {
@@ -34,6 +37,31 @@ final class MyRecipesViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupContraints()
+        setupSubscriptions()
+    }
+    
+    //MARK: Methods
+    private func setupSubscriptions() {
+        viewModel.hasFailure.sink { [weak self] value in
+            if value == true {
+                self?.showAlert(title: "Error", message: "Coludn't fetch recipes from the database. Please, try again.")
+            }
+        }.store(in: &subscriptions)
+    }
+    
+    private func setupTableViewDataSource() {
+//        viewModel.myRecipesDiffableDataSource = UITableViewDiffableDataSource(tableView: recipesTableView) { [weak self] (tableView, indexPath, recipe) -> UITableViewCell? in
+//            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTableViewCell.cellID,
+//                                                           for: indexPath) as? RecipeTableViewCell
+//                    else { return UITableViewCell() }
+                    
+//            let coreDataManager = CoreDataManager()
+//            let favouriteRecipes = self?.viewModel.favouriteRecipes
+//            let cellViewModel = RecipeCellViewModel(recipe: recipe,
+//                                                    coreDataManager: coreDataManager,
+//                                                    favouriteRecipes: favouriteRecipes ?? [])
+//            cell.configure(with: cellViewModel, delegate: self)
+//            return cell
     }
 }
 
