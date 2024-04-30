@@ -10,13 +10,15 @@ import UIKit
 final class MyRecipeTableViewCell: UITableViewCell {
     
     //MARK: Properties
+    static let cellID = "RecipeTableViewCell"
+    
     private let recipeImageView = CustomImageView()
     private let nameLabel = UILabel()
     private let mealTypeLabel = UILabel()
     private let cuisineTypeLabel = UILabel()
     private let labelsStackView = UIStackView()
     
-    private var viewModel: MyRecipesViewModelProtocol?
+    private var viewModel: MyRecipeCellViewModelProtocol?
     
     //MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -31,25 +33,25 @@ final class MyRecipeTableViewCell: UITableViewCell {
     }
     
     //MARK: methods
-    func configure(with viewModel: MyRecipesViewModelProtocol) {
+    func configure(with viewModel: MyRecipeCellViewModelProtocol) {
         backgroundColor = .clear
         self.viewModel = viewModel
         
-//        recipeImageView.backgroundColor = .white
-//        nameLabel.text = viewModel.recipeLabel
-//        mealTypeLabel.text = viewModel.mealType
-//        
-//        if let imageURL = URL(string: viewModel.image) {
-//            recipeImageView.loadImageWithUrl(imageURL)
-//        }
+        recipeImageView.backgroundColor = .white
+        nameLabel.text = viewModel.recipeLabel
+        mealTypeLabel.text = viewModel.mealType
+        cuisineTypeLabel.text = viewModel.cuisineType
         
-//        setupSubscriptions()
+        if let imageURL = URL(string: viewModel.image) {
+            recipeImageView.loadImageWithUrl(imageURL)
+        }
     }
 }
 
 //MARK: - Setup UI
 private extension MyRecipeTableViewCell {
     func setupViews() {
+        setupRecipeImageView()
         setupNameLabel()
         setupMealTypelabel()
         setupCuisineTypeLabel()
@@ -57,22 +59,49 @@ private extension MyRecipeTableViewCell {
     }
     
     func setupConstraints() {
-        
+        NSLayoutConstraint.activate([
+            recipeImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            recipeImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            recipeImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            recipeImageView.widthAnchor.constraint(equalTo: recipeImageView.heightAnchor),
+            
+            labelsStackView.leadingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: 10),
+            labelsStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            labelsStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            labelsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+        ])
     }
     
-    private func setupNameLabel() {
-        
+    func setupRecipeImageView() {
+        recipeImageView.contentMode = .scaleAspectFit
+        recipeImageView.clipsToBounds = true
+        addView(recipeImageView)
     }
     
-    private func setupMealTypelabel() {
-        
+    func setupNameLabel() {
+        nameLabel.font = .Roboto.regular.size(of: 16)
+        nameLabel.numberOfLines = 0
+        nameLabel.textAlignment = .left
+        nameLabel.textColor = AppColors.secondaryDark
     }
     
-    private func setupCuisineTypeLabel() {
-        
+    func setupMealTypelabel() {
+        mealTypeLabel.font = .Roboto.regular.size(of: 14)
+        mealTypeLabel.textAlignment = .left
+        mealTypeLabel.textColor = AppColors.secondaryDark
     }
     
-    private func setupLabelsStackView() {
+    func setupCuisineTypeLabel() {
+        mealTypeLabel.font = .Roboto.italic.size(of: 14)
+        mealTypeLabel.textAlignment = .left
+        mealTypeLabel.textColor = AppColors.secondaryDark
+    }
+    
+    func setupLabelsStackView() {
+        labelsStackView.axis = .vertical
+        labelsStackView.distribution = .fillProportionally
+        labelsStackView.spacing = 5
+        
         labelsStackView.addArrangedSubview(nameLabel)
         labelsStackView.addArrangedSubview(mealTypeLabel)
         labelsStackView.addArrangedSubview(cuisineTypeLabel)

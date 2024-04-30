@@ -31,9 +31,9 @@ protocol RecipesViewModelProtocol: AnyObject, UITableViewDelegate {
 final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
     
     //MARK: Properties
-    let userInfoStorage: UserInfoStorageProtocol
-    let recipesService: RecipesServiceProtocol
-    let coreDataManager: CoreDataManagerProtocol
+    private let userInfoStorage: UserInfoStorageProtocol
+    private let recipesService: RecipesServiceProtocol
+    private let coreDataManager: CoreDataManagerProtocol
     
     var recipesDiffableDataSource:  UITableViewDiffableDataSource<RecipesSection, Recipe>?
     private var snapshot = NSDiffableDataSourceSnapshot<RecipesSection, Recipe>()

@@ -38,6 +38,8 @@ final class MyRecipesViewController: UIViewController {
         setupViews()
         setupContraints()
         setupSubscriptions()
+        
+        viewModel.fetchInitialRecipes()
     }
     
     //MARK: Methods
@@ -50,18 +52,16 @@ final class MyRecipesViewController: UIViewController {
     }
     
     private func setupTableViewDataSource() {
-//        viewModel.myRecipesDiffableDataSource = UITableViewDiffableDataSource(tableView: recipesTableView) { [weak self] (tableView, indexPath, recipe) -> UITableViewCell? in
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTableViewCell.cellID,
-//                                                           for: indexPath) as? RecipeTableViewCell
-//                    else { return UITableViewCell() }
-                    
-//            let coreDataManager = CoreDataManager()
-//            let favouriteRecipes = self?.viewModel.favouriteRecipes
-//            let cellViewModel = RecipeCellViewModel(recipe: recipe,
-//                                                    coreDataManager: coreDataManager,
-//                                                    favouriteRecipes: favouriteRecipes ?? [])
-//            cell.configure(with: cellViewModel, delegate: self)
-//            return cell
+        viewModel.myRecipesDiffableDataSource = UITableViewDiffableDataSource(tableView: myRecipesTableView) { (tableView, indexPath, recipe) -> UITableViewCell? in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyRecipeTableViewCell.cellID,
+                                                           for: indexPath) as? MyRecipeTableViewCell
+            else { return UITableViewCell() }
+            
+            let coreDataManager = CoreDataManager()
+            let cellViewModel = MyRecipeCellViewModel(recipe: recipe, coreDataManager: coreDataManager)
+            cell.configure(with: cellViewModel)
+            return cell
+        }
     }
 }
 

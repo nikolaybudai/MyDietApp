@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 enum MyRecipesSection {
-    case recipe
+    case myRecipe
 }
 
 //MARK: - Protocol
@@ -22,6 +22,8 @@ protocol MyRecipesViewModelProtocol: AnyObject {
     var cuisineTypeChoiceHandler: (UIAction) -> Void { get }
     var cuisineChosen: String { get set }
     var myRecipesDiffableDataSource: UITableViewDiffableDataSource<MyRecipesSection, Recipe>? { get set }
+    
+    func fetchInitialRecipes()
 }
 
 //MARK: - Implementation
@@ -33,6 +35,7 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
     var hasFailure = CurrentValueSubject<Bool, Never>(false)
     
     var myRecipesDiffableDataSource: UITableViewDiffableDataSource<MyRecipesSection, Recipe>?
+    private var snapshot = NSDiffableDataSourceSnapshot<MyRecipesSection, Recipe>()
     
     var mealTypeOptions: [String] = {
         var meals: [String] = []
@@ -42,13 +45,6 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         return meals
     }()
     
-    lazy var mealTypeChoiceHandler: (UIAction) -> Void = { [weak self] action in
-        let meal = action.title
-        self?.mealChosen = meal
-        self?.fetchRecipesWithMealType(meal)
-    }
-    var mealChosen: String = ""
-    
     var cuisineTypeOptions: [String] = {
         var cuisines: [String] = []
         CuisineType.allCases.forEach { cuisine in
@@ -57,10 +53,20 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         return cuisines
     }()
     
+    lazy var mealTypeChoiceHandler: (UIAction) -> Void = { [weak self] action in
+        let meal = action.title
+        self?.mealChosen = meal
+        self?.fetchRecipesWithMealType(meal)
+    }
+    
     lazy var cuisineTypeChoiceHandler: (UIAction) -> Void = { [weak self] action in
         self?.cuisineChosen = action.title
     }
+    
     var cuisineChosen: String = ""
+    var mealChosen: String = ""
+    
+//    private var favouriteRecipes: [Recipe]?
     
     //MARK: Init
     init(coreDataManager: CoreDataManagerProtocol) {
@@ -68,13 +74,23 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
     }
     
     //MARK: Methods
+    func fetchInitialRecipes() {
+        let predicate = NSPredicate(format: "isFavourite == true")
+        let result = coreDataManager.fetchRecipes(with: predicate)
+        switch result {
+        case .success(let recipes):
+            updateSnapshot(with: recipes)
+        case .failure(_):
+            hasFailure.send(true)
+        }
+    }
+    
     private func fetchRecipesWithMealType(_ mealType: String) {
         let predicate = NSPredicate(format: "mealType CONTAINS %@", mealType)
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
-        case .success(_):
-            // update data source with recipes
-            break
+        case .success(let recipes):
+            updateSnapshot(with: recipes)
         case .failure(_):
             hasFailure.send(true)
         }
@@ -84,12 +100,20 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let predicate = NSPredicate(format: "cuisineType CONTAINS %@", cuisine)
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
-        case .success(_):
-            // update data source with recipes
-            break
+        case .success(let recipes):
+            updateSnapshot(with: recipes)
         case .failure(_):
             hasFailure.send(true)
         }
+    }
+    
+    private func updateSnapshot(with recipes: [Recipe]) {
+        snapshot.deleteAllItems()
+        if snapshot.numberOfSections == 0 {
+            snapshot.appendSections([.myRecipe])
+        }
+        snapshot.appendItems(recipes, toSection: .myRecipe)
+        myRecipesDiffableDataSource?.apply(snapshot, animatingDifferences: false)
     }
     
 }
