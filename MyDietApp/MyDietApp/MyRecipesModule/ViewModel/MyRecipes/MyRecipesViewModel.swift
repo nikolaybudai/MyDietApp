@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import CoreData
 
 enum MyRecipesSection {
     case myRecipe
@@ -79,7 +80,7 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipes):
-            updateSnapshot(with: recipes)
+            updateDataSource(with: recipes)
         case .failure(_):
             hasFailure.send(true)
         }
@@ -90,7 +91,7 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipes):
-            updateSnapshot(with: recipes)
+            updateDataSource(with: recipes)
         case .failure(_):
             hasFailure.send(true)
         }
@@ -101,13 +102,13 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipes):
-            updateSnapshot(with: recipes)
+            updateDataSource(with: recipes)
         case .failure(_):
             hasFailure.send(true)
         }
     }
     
-    private func updateSnapshot(with recipes: [Recipe]) {
+    private func updateDataSource(with recipes: [Recipe]) {
         snapshot.deleteAllItems()
         if snapshot.numberOfSections == 0 {
             snapshot.appendSections([.myRecipe])

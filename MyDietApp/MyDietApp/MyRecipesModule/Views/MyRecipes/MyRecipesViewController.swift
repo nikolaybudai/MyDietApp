@@ -37,6 +37,7 @@ final class MyRecipesViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupContraints()
+        setupTableViewDataSource()
         setupSubscriptions()
         
         viewModel.fetchInitialRecipes()
@@ -83,6 +84,11 @@ private extension MyRecipesViewController {
             buttonsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             buttonsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             buttonsStackView.heightAnchor.constraint(equalToConstant: 40),
+            
+            myRecipesTableView.topAnchor.constraint(equalTo: buttonsStackView.bottomAnchor, constant: 15),
+            myRecipesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            myRecipesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            myRecipesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     

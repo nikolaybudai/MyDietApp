@@ -12,7 +12,7 @@ extension MyRecipesViewController {
         myRecipesTableView.separatorStyle = .none
         myRecipesTableView.backgroundColor = .clear
         myRecipesTableView.delegate = self
-        myRecipesTableView.register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.cellID)
+        myRecipesTableView.register(MyRecipeTableViewCell.self, forCellReuseIdentifier: MyRecipeTableViewCell.cellID)
         
         view.addView(myRecipesTableView)
     }

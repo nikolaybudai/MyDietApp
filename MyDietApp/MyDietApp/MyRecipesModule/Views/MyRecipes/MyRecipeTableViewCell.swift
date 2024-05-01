@@ -10,7 +10,7 @@ import UIKit
 final class MyRecipeTableViewCell: UITableViewCell {
     
     //MARK: Properties
-    static let cellID = "RecipeTableViewCell"
+    static let cellID = "MyRecipeTableViewCell"
     
     private let recipeImageView = CustomImageView()
     private let nameLabel = UILabel()
