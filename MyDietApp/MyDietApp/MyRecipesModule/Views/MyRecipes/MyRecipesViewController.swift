@@ -50,6 +50,14 @@ final class MyRecipesViewController: UIViewController {
                 self?.showAlert(title: "Error", message: "Coludn't fetch recipes from the database. Please, try again.")
             }
         }.store(in: &subscriptions)
+        
+        viewModel.mealChosen.sink { [weak self] meal in
+            self?.viewModel.fetchRecipesWithMealType(meal)
+        }.store(in: &subscriptions)
+        
+        viewModel.cuisineChosen.sink { [weak self] cuisine in
+            self?.viewModel.fetchRecipesWithCuisine(cuisine)
+        }.store(in: &subscriptions)
     }
     
     private func setupTableViewDataSource() {
