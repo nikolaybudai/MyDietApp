@@ -21,8 +21,8 @@ protocol MyRecipesViewModelProtocol: AnyObject {
     var cuisineTypeOptions: [String] { get }
     var cuisineTypeChoiceHandler: (UIAction) -> Void { get }
     var myRecipesDiffableDataSource: UITableViewDiffableDataSource<MyRecipesSection, Recipe>? { get set }
-    var cuisineChosen: CurrentValueSubject<String, Never> { get set }
-    var mealChosen: CurrentValueSubject<String, Never> { get set }
+    var cuisineChosen: PassthroughSubject<String, Never> { get set }
+    var mealChosen: PassthroughSubject<String, Never> { get set }
     
     func fetchInitialRecipes()
     func fetchRecipesWithMealType(_ mealType: String)
@@ -58,16 +58,16 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
     
     lazy var mealTypeChoiceHandler: (UIAction) -> Void = { [weak self] action in
         let meal = action.title
-        self?.mealChosen.value = meal
-        self?.fetchRecipesWithMealType(meal)
+        self?.mealChosen.send(meal)
     }
     
     lazy var cuisineTypeChoiceHandler: (UIAction) -> Void = { [weak self] action in
-        self?.cuisineChosen.value = action.title
+        let cuisine = action.title
+        self?.cuisineChosen.send(action.title)
     }
     
-    var cuisineChosen = CurrentValueSubject<String, Never>("")
-    var mealChosen = CurrentValueSubject<String, Never>("")
+    var cuisineChosen = PassthroughSubject<String, Never>()
+    var mealChosen = PassthroughSubject<String, Never>()
     
 //    private var favouriteRecipes: [Recipe]?
     
@@ -83,17 +83,13 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         switch result {
         case .success(let recipes):
             updateDataSource(with: recipes)
-            recipes.forEach {
-                print($0.mealType)
-                print($0.cuisineType)
-            }
         case .failure(_):
             hasFailure.send(true)
         }
     }
     
     func fetchRecipesWithMealType(_ mealType: String) {
-        let predicate = NSPredicate(format: "mealType CONTAINS %@", mealType)
+        let predicate = NSPredicate(format: "mealType CONTAINS %@", mealType.lowercased())
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipes):
@@ -104,7 +100,7 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
     }
     
     func fetchRecipesWithCuisine(_ cuisine: String) {
-        let predicate = NSPredicate(format: "cuisineType CONTAINS %@", cuisine)
+        let predicate = NSPredicate(format: "cuisineType CONTAINS %@", cuisine.lowercased())
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipes):
