@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MyRecipiesCoordinatorProtocol: Coordinator {
-    
+    func showRecipeDetail(recipe: Recipe)
 }
 
 final class MyRecipiesCoordinator: MyRecipiesCoordinatorProtocol {
@@ -30,6 +30,12 @@ final class MyRecipiesCoordinator: MyRecipiesCoordinatorProtocol {
                                                  tag: Tab.myRecipies.getIndex())
         viewController.coordinator = self
         coordinatorFinishDelegate = self
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func showRecipeDetail(recipe: Recipe) {
+        let viewModel = RecipeDetailViewModel(recipe: recipe)
+        let viewController = RecipeDetailViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
     

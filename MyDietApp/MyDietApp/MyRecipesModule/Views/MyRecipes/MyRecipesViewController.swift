@@ -13,7 +13,7 @@ final class MyRecipesViewController: UIViewController {
     //MARK: Properties
     weak var coordinator: MyRecipiesCoordinatorProtocol?
     
-    private let viewModel: MyRecipesViewModelProtocol
+    let viewModel: MyRecipesViewModelProtocol
     
     private let mealTypeChoiceButton = UIButton()
     private let cuisineTypeChoiceButton = UIButton()

@@ -10,8 +10,6 @@ import UIKit
 final class RecipeDetailViewController: UIViewController {
     
     //MARK: Properties
-    weak var coordinator: RecipiesCoordinatorProtocol?
-    
     private let viewModel: RecipeDetailViewModelProtocol
     
     private let recipeLabel = UILabel()

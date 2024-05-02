@@ -250,6 +250,7 @@
 		ED23BECF2BB58BB8000DF11F /* MyDietApp */ = {
 			isa = PBXGroup;
 			children = (
+				EDCEA0272BE4057100C53738 /* RecipeDetail */,
 				EDBD44FF2BB71D3E002F75A4 /* Application */,
 				ED23BF402BB5E288000DF11F /* NavigationLayer */,
 				EDBD45012BB71DAB002F75A4 /* ServiceLayer */,
@@ -379,14 +380,6 @@
 			path = Recipes;
 			sourceTree = "<group>";
 		};
-		ED55951B2BD123B200305ED4 /* RecipeDetail */ = {
-			isa = PBXGroup;
-			children = (
-				ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */,
-			);
-			path = RecipeDetail;
-			sourceTree = "<group>";
-		};
 		ED55951E2BD1243300305ED4 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,14 +387,6 @@
 				ED164EDE2BD9080F003302A3 /* RecipeCellViewModel.swift */,
 			);
 			path = Recipes;
-			sourceTree = "<group>";
-		};
-		ED55951F2BD1243B00305ED4 /* RecipeDetail */ = {
-			isa = PBXGroup;
-			children = (
-				ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */,
-			);
-			path = RecipeDetail;
 			sourceTree = "<group>";
 		};
 		ED573AE62BD6B9050063334A /* CoreData */ = {
@@ -481,7 +466,6 @@
 		EDBD45052BB71F15002F75A4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				ED55951F2BD1243B00305ED4 /* RecipeDetail */,
 				ED55951E2BD1243300305ED4 /* Recipes */,
 			);
 			path = ViewModel;
@@ -490,7 +474,6 @@
 		EDBD45062BB71F2D002F75A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ED55951B2BD123B200305ED4 /* RecipeDetail */,
 				ED55951A2BD123A300305ED4 /* Recipes */,
 			);
 			path = Views;
@@ -556,6 +539,31 @@
 				EDD17DEE2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift */,
 			);
 			path = MyRecipes;
+			sourceTree = "<group>";
+		};
+		EDCEA0272BE4057100C53738 /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EDCEA0292BE4058900C53738 /* ViewModel */,
+				EDCEA0282BE4058000C53738 /* Views */,
+			);
+			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
+		EDCEA0282BE4058000C53738 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDCEA0292BE4058900C53738 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EDD447812BC4638D008B7EEF /* SecondaryViews */ = {

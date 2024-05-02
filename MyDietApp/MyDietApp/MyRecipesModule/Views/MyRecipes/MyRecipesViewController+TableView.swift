@@ -24,7 +24,7 @@ extension MyRecipesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let recipe = viewModel.recipesDiffableDataSource?.itemIdentifier(for: indexPath) else { return }
-//        coordinator?.showRecipeDetail(recipe: recipe)
+        guard let recipe = viewModel.myRecipesDiffableDataSource?.itemIdentifier(for: indexPath) else { return }
+        coordinator?.showRecipeDetail(recipe: recipe)
     }
 }
