@@ -21,9 +21,6 @@
 		ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */; };
 		ED23BEDA2BB58BBA000DF11F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED23BED92BB58BBA000DF11F /* Assets.xcassets */; };
 		ED23BEDD2BB58BBA000DF11F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED23BEDB2BB58BBA000DF11F /* LaunchScreen.storyboard */; };
-		ED23BEE82BB58BBA000DF11F /* MyDietAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BEE72BB58BBA000DF11F /* MyDietAppTests.swift */; };
-		ED23BEF22BB58BBA000DF11F /* MyDietAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BEF12BB58BBA000DF11F /* MyDietAppUITests.swift */; };
-		ED23BEF42BB58BBA000DF11F /* MyDietAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BEF32BB58BBA000DF11F /* MyDietAppUITestsLaunchTests.swift */; };
 		ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF1E2BB59F72000DF11F /* UIFont+Extension.swift */; };
 		ED23BF2E2BB5A14B000DF11F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF212BB5A14B000DF11F /* Roboto-Medium.ttf */; };
 		ED23BF2F2BB5A14B000DF11F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF222BB5A14B000DF11F /* Roboto-Light.ttf */; };
@@ -50,6 +47,8 @@
 		ED5595232BD128AB00305ED4 /* RecipesViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */; };
 		ED573AEF2BD6BB2F0063334A /* RecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED573AED2BD6BB2F0063334A /* RecipeModel.xcdatamodeld */; };
 		ED573AF22BD6C3EE0063334A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED573AF12BD6C3EE0063334A /* CoreDataManager.swift */; };
+		ED61C5542BE94DDA00D6410F /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61C5532BE94DDA00D6410F /* CoreDataTests.swift */; };
+		ED61C5582BE94E5600D6410F /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61C5572BE94E5600D6410F /* UITests.swift */; };
 		ED622AEB2BCAC462000EFF13 /* RecipesTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */; };
 		ED9514642BC172BD00B5A8B0 /* CuisineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9514632BC172BD00B5A8B0 /* CuisineType.swift */; };
 		ED9514662BC172CD00B5A8B0 /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9514652BC172CD00B5A8B0 /* MealType.swift */; };
@@ -106,10 +105,7 @@
 		ED23BEDC2BB58BBA000DF11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED23BEDE2BB58BBA000DF11F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED23BEE32BB58BBA000DF11F /* MyDietAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDietAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED23BEE72BB58BBA000DF11F /* MyDietAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDietAppTests.swift; sourceTree = "<group>"; };
 		ED23BEED2BB58BBA000DF11F /* MyDietAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDietAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED23BEF12BB58BBA000DF11F /* MyDietAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDietAppUITests.swift; sourceTree = "<group>"; };
-		ED23BEF32BB58BBA000DF11F /* MyDietAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDietAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ED23BF1E2BB59F72000DF11F /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		ED23BF212BB5A14B000DF11F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		ED23BF222BB5A14B000DF11F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -136,6 +132,10 @@
 		ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesViewController+TableView.swift"; sourceTree = "<group>"; };
 		ED573AEE2BD6BB2F0063334A /* RecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeModel.xcdatamodel; sourceTree = "<group>"; };
 		ED573AF12BD6C3EE0063334A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		ED61C5532BE94DDA00D6410F /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		ED61C5572BE94E5600D6410F /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
+		ED61C5592BE9500D00D6410F /* MyDietAppUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDietAppUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED61C55A2BE9505100D6410F /* MyDietAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDietAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewFooter.swift; sourceTree = "<group>"; };
 		ED9514632BC172BD00B5A8B0 /* CuisineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineType.swift; sourceTree = "<group>"; };
 		ED9514652BC172CD00B5A8B0 /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
@@ -231,8 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				ED23BECF2BB58BB8000DF11F /* MyDietApp */,
-				ED23BEE62BB58BBA000DF11F /* MyDietAppTests */,
-				ED23BEF02BB58BBA000DF11F /* MyDietAppUITests */,
+				ED61C5522BE94D7E00D6410F /* MyDietAppTests */,
+				ED61C5552BE94E3400D6410F /* MyDietAppUITests */,
 				ED23BECE2BB58BB8000DF11F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -262,23 +262,6 @@
 				EDBD45002BB71D96002F75A4 /* SupportingFiles */,
 			);
 			path = MyDietApp;
-			sourceTree = "<group>";
-		};
-		ED23BEE62BB58BBA000DF11F /* MyDietAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				ED23BEE72BB58BBA000DF11F /* MyDietAppTests.swift */,
-			);
-			path = MyDietAppTests;
-			sourceTree = "<group>";
-		};
-		ED23BEF02BB58BBA000DF11F /* MyDietAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				ED23BEF12BB58BBA000DF11F /* MyDietAppUITests.swift */,
-				ED23BEF32BB58BBA000DF11F /* MyDietAppUITestsLaunchTests.swift */,
-			);
-			path = MyDietAppUITests;
 			sourceTree = "<group>";
 		};
 		ED23BF002BB59DCB000DF11F /* Resources */ = {
@@ -405,6 +388,24 @@
 				ED573AED2BD6BB2F0063334A /* RecipeModel.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ED61C5522BE94D7E00D6410F /* MyDietAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED61C5532BE94DDA00D6410F /* CoreDataTests.swift */,
+				ED61C55A2BE9505100D6410F /* MyDietAppTests-Bridging-Header.h */,
+			);
+			path = MyDietAppTests;
+			sourceTree = "<group>";
+		};
+		ED61C5552BE94E3400D6410F /* MyDietAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ED61C5572BE94E5600D6410F /* UITests.swift */,
+				ED61C5592BE9500D00D6410F /* MyDietAppUITests-Bridging-Header.h */,
+			);
+			path = MyDietAppUITests;
 			sourceTree = "<group>";
 		};
 		EDBD44FF2BB71D3E002F75A4 /* Application */ = {
@@ -645,10 +646,12 @@
 					};
 					ED23BEE22BB58BBA000DF11F = {
 						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
 						TestTargetID = ED23BECC2BB58BB8000DF11F;
 					};
 					ED23BEEC2BB58BBA000DF11F = {
 						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
 						TestTargetID = ED23BECC2BB58BB8000DF11F;
 					};
 				};
@@ -768,7 +771,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED23BEE82BB58BBA000DF11F /* MyDietAppTests.swift in Sources */,
+				ED61C5542BE94DDA00D6410F /* CoreDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,8 +779,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED23BEF42BB58BBA000DF11F /* MyDietAppUITestsLaunchTests.swift in Sources */,
-				ED23BEF22BB58BBA000DF11F /* MyDietAppUITests.swift in Sources */,
+				ED61C5582BE94E5600D6410F /* UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,15 +996,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDietAppTests/MyDietAppTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDietApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyDietApp";
@@ -1014,15 +1019,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDietAppTests/MyDietAppTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDietApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyDietApp";
@@ -1033,14 +1040,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDietAppUITests/MyDietAppUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MyDietApp;
@@ -1051,14 +1063,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDietAppUITests/MyDietAppUITests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MyDietApp;

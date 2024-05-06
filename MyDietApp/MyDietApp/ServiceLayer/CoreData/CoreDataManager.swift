@@ -27,9 +27,6 @@ extension CoreDataManagerProtocol {
         do {
             let recipeEntities = try context.fetch(fetchRequest)
             let recipes = recipeEntities.map { Recipe(from: $0) }
-//            recipes.forEach {
-//                print($0.mealType)
-//            }
             return .success(recipes)
         } catch {
             return .failure(.couldNotLoadFromDatabase)
@@ -47,11 +44,6 @@ final class CoreDataManager: CoreDataManagerProtocol {
     }
 
     //MARK: Methods
-    func getMainManagedObjectContext() -> NSManagedObjectContext? {
-        guard let mainContext = managedObjectContext else { return nil }
-        return mainContext
-    }
-    
     func saveObject<T: NSManagedObject>(object: T) {
         managedObjectContext?.perform { [weak self] in
             guard let self = self else { return }
