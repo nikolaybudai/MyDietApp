@@ -17,7 +17,7 @@ class UserInfoStorageMock: UserInfoStorageProtocol {
     
     var saveNameAndDietCalled = false
     var savedName: String?
-    var diet: String = ""
+    var diet: String = "aaa"
 
     func saveNameAndDiet(_ name: String, _ diet: String) {
         saveNameAndDietCalled = true
@@ -31,7 +31,7 @@ class UserInfoStorageMock: UserInfoStorageProtocol {
     }
 
     func loadImage() -> UIImage? {
-        return nil
+        return savedImage
     }
     
     func getNameAndDiet() -> (String?, String?) {

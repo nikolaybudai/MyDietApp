@@ -42,4 +42,16 @@ class ProfileViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.name, testName)
     }
     
+    func testLoadUserData() {
+        let testImage = UIImage(systemName: "person.fill")!
+        let testName = "Mike"
+        
+        viewModel.saveUserData(testImage, testName)
+        XCTAssertTrue(mockUserInfoStorage.saveNameAndDietCalled)
+        let (loadedImage, loadedName, loadedDiet) = viewModel.loadUserInfo()
+        
+        XCTAssertEqual(loadedImage, testImage)
+        XCTAssertEqual(loadedName, testName)
+    }
+    
 }
