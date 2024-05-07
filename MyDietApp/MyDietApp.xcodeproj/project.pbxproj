@@ -55,6 +55,9 @@
 		EDAE97652BB7FC160056B33D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97642BB7FC160056B33D /* ProfileViewController.swift */; };
 		EDAE97672BB7FCB80056B33D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97662BB7FCB80056B33D /* ProfileViewModel.swift */; };
 		EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97682BB84DEE0056B33D /* DietOptions.swift */; };
+		EDB242992BEA831300B9E835 /* UserInfoStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB242982BEA831300B9E835 /* UserInfoStorageTests.swift */; };
+		EDB2429B2BEA8C8B00B9E835 /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB2429A2BEA8C8B00B9E835 /* ProfileViewModelTests.swift */; };
+		EDB2429E2BEA8FFF00B9E835 /* UserInfoStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB2429D2BEA8FFF00B9E835 /* UserInfoStorageMock.swift */; };
 		EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */; };
 		EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */; };
 		EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */; };
@@ -142,6 +145,9 @@
 		EDAE97642BB7FC160056B33D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EDAE97662BB7FCB80056B33D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		EDAE97682BB84DEE0056B33D /* DietOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietOptions.swift; sourceTree = "<group>"; };
+		EDB242982BEA831300B9E835 /* UserInfoStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorageTests.swift; sourceTree = "<group>"; };
+		EDB2429A2BEA8C8B00B9E835 /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
+		EDB2429D2BEA8FFF00B9E835 /* UserInfoStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorageMock.swift; sourceTree = "<group>"; };
 		EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesCoordinator.swift; sourceTree = "<group>"; };
 		EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipiesCoordinator.swift; sourceTree = "<group>"; };
 		EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
@@ -393,7 +399,10 @@
 		ED61C5522BE94D7E00D6410F /* MyDietAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				EDB2429C2BEA8F7600B9E835 /* MockObjects */,
 				ED61C5532BE94DDA00D6410F /* CoreDataTests.swift */,
+				EDB242982BEA831300B9E835 /* UserInfoStorageTests.swift */,
+				EDB2429A2BEA8C8B00B9E835 /* ProfileViewModelTests.swift */,
 				ED61C55A2BE9505100D6410F /* MyDietAppTests-Bridging-Header.h */,
 			);
 			path = MyDietAppTests;
@@ -406,6 +415,14 @@
 				ED61C5592BE9500D00D6410F /* MyDietAppUITests-Bridging-Header.h */,
 			);
 			path = MyDietAppUITests;
+			sourceTree = "<group>";
+		};
+		EDB2429C2BEA8F7600B9E835 /* MockObjects */ = {
+			isa = PBXGroup;
+			children = (
+				EDB2429D2BEA8FFF00B9E835 /* UserInfoStorageMock.swift */,
+			);
+			path = MockObjects;
 			sourceTree = "<group>";
 		};
 		EDBD44FF2BB71D3E002F75A4 /* Application */ = {
@@ -771,6 +788,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB242992BEA831300B9E835 /* UserInfoStorageTests.swift in Sources */,
+				EDB2429B2BEA8C8B00B9E835 /* ProfileViewModelTests.swift in Sources */,
+				EDB2429E2BEA8FFF00B9E835 /* UserInfoStorageMock.swift in Sources */,
 				ED61C5542BE94DDA00D6410F /* CoreDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

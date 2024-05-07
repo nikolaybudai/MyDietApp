@@ -53,8 +53,7 @@ final class ProfileViewModel: ProfileViewModelProtocol {
     
     func loadUserInfo() -> (UIImage?, String?, String?) {
         let image = userInfoStorage.loadImage()
-        let name = UserDefaults.standard.value(forKey: "userName") as? String
-        let diet = UserDefaults.standard.value(forKey: "userDiet") as? String
+        let (name, diet) = userInfoStorage.getNameAndDiet()
         return (image, name, diet)
     }
 }

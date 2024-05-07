@@ -14,6 +14,7 @@ protocol UserInfoStorageProtocol: AnyObject {
     func saveNameAndDiet(_ name: String, _ diet: String)
     func saveImage(_ image: UIImage)
     func loadImage() -> UIImage?
+    func getNameAndDiet() -> (String?, String?)
 }
 
 final class UserInfoStorage: UserInfoStorageProtocol {
@@ -51,5 +52,10 @@ final class UserInfoStorage: UserInfoStorageProtocol {
         return image
     }
     
+    func getNameAndDiet() -> (String?, String?) {
+        let name = UserDefaults.standard.value(forKey: "userName") as? String
+        let diet = UserDefaults.standard.value(forKey: "userDiet") as? String
+        return (name, diet)
+    }
     
 }

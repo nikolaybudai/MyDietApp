@@ -69,8 +69,6 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
     var cuisineChosen = PassthroughSubject<String, Never>()
     var mealChosen = PassthroughSubject<String, Never>()
     
-//    private var favouriteRecipes: [Recipe]?
-    
     //MARK: Init
     init(coreDataManager: CoreDataManagerProtocol) {
         self.coreDataManager = coreDataManager
