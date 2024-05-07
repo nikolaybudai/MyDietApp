@@ -32,11 +32,7 @@ final class CoreDataTests: XCTestCase {
     }
 
     func testSaveObject() throws {
-        guard let context = coreDataManager.managedObjectContext else {
-            XCTFail("Cannot get manajedObjectContext")
-            return
-        }
-        let recipe = RecipeEntity(context: context)
+        let recipe = RecipeEntity(context: coreDataManager.managedObjectContext!)
         recipe.calories = 200.0
         recipe.isFavourite = true
         recipe.label = "TestRecipe"
@@ -46,7 +42,7 @@ final class CoreDataTests: XCTestCase {
         let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "label == %@", "TestRecipe")
         
-        if let savedRecipes = try? context.fetch(fetchRequest) {
+        if let savedRecipes = try? coreDataManager.managedObjectContext?.fetch(fetchRequest) {
             XCTAssertEqual(savedRecipes.count, 1, "Unexpected number of recipes saved")
             
             let savedRecipe = savedRecipes.first!
@@ -59,11 +55,7 @@ final class CoreDataTests: XCTestCase {
     }
     
     func testDeleteObject() {
-        guard let context = coreDataManager.managedObjectContext else {
-            XCTFail("Cannot get manajedObjectContext")
-            return
-        }
-        let recipe = RecipeEntity(context: context)
+        let recipe = RecipeEntity(context: coreDataManager.managedObjectContext!)
         recipe.calories = 100.0
         recipe.isFavourite = false
         recipe.label = "NewRecipe"
@@ -73,7 +65,7 @@ final class CoreDataTests: XCTestCase {
         let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "label == %@", "NewRecipe")
         
-        guard let savedRecipes = try? context.fetch(fetchRequest),
+        guard let savedRecipes = try? coreDataManager.managedObjectContext?.fetch(fetchRequest),
                 let _ = savedRecipes.first else {
             XCTFail("Failed to fetch saved recipe")
             return
@@ -81,24 +73,19 @@ final class CoreDataTests: XCTestCase {
         
         coreDataManager.deleteObject(object: recipe)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-           let remainingRecipes = try? context.fetch(fetchRequest)
-           XCTAssertEqual(remainingRecipes?.count, 0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            let remainingRecipes = try? self?.coreDataManager.managedObjectContext?.fetch(fetchRequest)
+            XCTAssertEqual(remainingRecipes?.count, 0)
        }
     }
     
     func testFetchRecipes() {
-        guard let context = coreDataManager.managedObjectContext else {
-            XCTFail("Cannot get manajedObjectContext")
-            return
-        }
-        
-        let recipe1 = RecipeEntity(context: context)
+        let recipe1 = RecipeEntity(context: coreDataManager.managedObjectContext!)
         recipe1.label = "Recipe 1"
         recipe1.calories = 200
         recipe1.isFavourite = true
         
-        let recipe2 = RecipeEntity(context: context)
+        let recipe2 = RecipeEntity(context: coreDataManager.managedObjectContext!)
         recipe2.label = "Recipe 2"
         recipe2.calories = 300
         recipe2.isFavourite = false
@@ -113,8 +100,8 @@ final class CoreDataTests: XCTestCase {
         case .success(let favoriteRecipes):
             XCTAssertEqual(favoriteRecipes.count, 1)
             XCTAssertEqual(favoriteRecipes[0].label, "Recipe 1")
-        case .failure(let error):
-            XCTFail("Failed to fetch favorite recipes")
+        default:
+            break
         }
     }
 

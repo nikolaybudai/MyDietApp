@@ -40,7 +40,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
     var managedObjectContext: NSManagedObjectContext?
 
     init() {
-        setupManagedObjectContexts()
+        setupManagedObjectContext()
     }
 
     //MARK: Methods
@@ -63,7 +63,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
     }
     
     //MARK: Private Methods
-    private func setupManagedObjectContexts() {
+    private func setupManagedObjectContext() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             print("Unable to access AppDelegate")
             return
