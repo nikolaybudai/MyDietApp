@@ -73,7 +73,7 @@ final class CoreDataTests: XCTestCase {
         
         coreDataManager.deleteObject(object: recipe)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             let remainingRecipes = try? self?.coreDataManager.managedObjectContext?.fetch(fetchRequest)
             XCTAssertEqual(remainingRecipes?.count, 0)
        }

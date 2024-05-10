@@ -32,11 +32,11 @@ struct Next: Decodable {
 
 // MARK: - Recipe
 struct Recipe: Decodable, Hashable {
-    let image: String
-    let label: String
-    let calories: Double
-    let cuisineType: [String]
-    let mealType: [String]
+    var image: String
+    var label: String
+    var calories: Double
+    var cuisineType: [String]
+    var mealType: [String]
     var isFavourite: Bool
     
     enum CodingKeys: String, CodingKey {

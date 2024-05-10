@@ -58,6 +58,9 @@
 		EDB242992BEA831300B9E835 /* UserInfoStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB242982BEA831300B9E835 /* UserInfoStorageTests.swift */; };
 		EDB2429B2BEA8C8B00B9E835 /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB2429A2BEA8C8B00B9E835 /* ProfileViewModelTests.swift */; };
 		EDB2429E2BEA8FFF00B9E835 /* UserInfoStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB2429D2BEA8FFF00B9E835 /* UserInfoStorageMock.swift */; };
+		EDB9EF932BEE95760004262E /* RecipesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9EF922BEE95760004262E /* RecipesViewModelTests.swift */; };
+		EDB9EF952BEE9ECF0004262E /* MockRecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9EF942BEE9ECF0004262E /* MockRecipesService.swift */; };
+		EDB9EF9A2BEEA6D90004262E /* CoreDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9EF992BEEA6D90004262E /* CoreDataManagerMock.swift */; };
 		EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */; };
 		EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */; };
 		EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */; };
@@ -148,6 +151,9 @@
 		EDB242982BEA831300B9E835 /* UserInfoStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorageTests.swift; sourceTree = "<group>"; };
 		EDB2429A2BEA8C8B00B9E835 /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		EDB2429D2BEA8FFF00B9E835 /* UserInfoStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorageMock.swift; sourceTree = "<group>"; };
+		EDB9EF922BEE95760004262E /* RecipesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModelTests.swift; sourceTree = "<group>"; };
+		EDB9EF942BEE9ECF0004262E /* MockRecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipesService.swift; sourceTree = "<group>"; };
+		EDB9EF992BEEA6D90004262E /* CoreDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMock.swift; sourceTree = "<group>"; };
 		EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesCoordinator.swift; sourceTree = "<group>"; };
 		EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipiesCoordinator.swift; sourceTree = "<group>"; };
 		EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
@@ -403,6 +409,7 @@
 				ED61C5532BE94DDA00D6410F /* CoreDataTests.swift */,
 				EDB242982BEA831300B9E835 /* UserInfoStorageTests.swift */,
 				EDB2429A2BEA8C8B00B9E835 /* ProfileViewModelTests.swift */,
+				EDB9EF922BEE95760004262E /* RecipesViewModelTests.swift */,
 				ED61C55A2BE9505100D6410F /* MyDietAppTests-Bridging-Header.h */,
 			);
 			path = MyDietAppTests;
@@ -421,6 +428,8 @@
 			isa = PBXGroup;
 			children = (
 				EDB2429D2BEA8FFF00B9E835 /* UserInfoStorageMock.swift */,
+				EDB9EF942BEE9ECF0004262E /* MockRecipesService.swift */,
+				EDB9EF992BEEA6D90004262E /* CoreDataManagerMock.swift */,
 			);
 			path = MockObjects;
 			sourceTree = "<group>";
@@ -789,9 +798,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB242992BEA831300B9E835 /* UserInfoStorageTests.swift in Sources */,
+				EDB9EF932BEE95760004262E /* RecipesViewModelTests.swift in Sources */,
 				EDB2429B2BEA8C8B00B9E835 /* ProfileViewModelTests.swift in Sources */,
 				EDB2429E2BEA8FFF00B9E835 /* UserInfoStorageMock.swift in Sources */,
 				ED61C5542BE94DDA00D6410F /* CoreDataTests.swift in Sources */,
+				EDB9EF9A2BEEA6D90004262E /* CoreDataManagerMock.swift in Sources */,
+				EDB9EF952BEE9ECF0004262E /* MockRecipesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
