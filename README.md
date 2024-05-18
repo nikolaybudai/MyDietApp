@@ -9,3 +9,4 @@ The user can add recipes to favourites and also filter them by meal type or cuis
 - CoreData
 - Async/await
 - Coordinator
+- Unit Tests
