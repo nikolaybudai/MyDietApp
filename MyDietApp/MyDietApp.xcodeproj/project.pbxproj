@@ -1,0 +1,1171 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED03211B2BC30D6F00FD8D5A /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */; };
+		ED03211D2BC30D8B00FD8D5A /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03211C2BC30D8B00FD8D5A /* RecipesViewModel.swift */; };
+		ED114C912BC04BD300026F18 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C902BC04BD300026F18 /* Endpoint.swift */; };
+		ED114C932BC04BFE00026F18 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C922BC04BFE00026F18 /* NetworkClient.swift */; };
+		ED114C952BC04C1E00026F18 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C942BC04C1E00026F18 /* RequestMethod.swift */; };
+		ED114C972BC04C2A00026F18 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C962BC04C2A00026F18 /* RequestError.swift */; };
+		ED114C9A2BC0638400026F18 /* RecipesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C992BC0638400026F18 /* RecipesEndpoint.swift */; };
+		ED114C9D2BC0662A00026F18 /* RecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114C9C2BC0662A00026F18 /* RecipesService.swift */; };
+		ED114CA22BC079DC00026F18 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED114CA12BC079DC00026F18 /* Model.swift */; };
+		ED164EDF2BD9080F003302A3 /* RecipeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED164EDE2BD9080F003302A3 /* RecipeCellViewModel.swift */; };
+		ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BED02BB58BB8000DF11F /* AppDelegate.swift */; };
+		ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */; };
+		ED23BEDA2BB58BBA000DF11F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED23BED92BB58BBA000DF11F /* Assets.xcassets */; };
+		ED23BEDD2BB58BBA000DF11F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED23BEDB2BB58BBA000DF11F /* LaunchScreen.storyboard */; };
+		ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF1E2BB59F72000DF11F /* UIFont+Extension.swift */; };
+		ED23BF2E2BB5A14B000DF11F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF212BB5A14B000DF11F /* Roboto-Medium.ttf */; };
+		ED23BF2F2BB5A14B000DF11F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF222BB5A14B000DF11F /* Roboto-Light.ttf */; };
+		ED23BF302BB5A14B000DF11F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF232BB5A14B000DF11F /* Roboto-Regular.ttf */; };
+		ED23BF312BB5A14B000DF11F /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF242BB5A14B000DF11F /* Roboto-MediumItalic.ttf */; };
+		ED23BF322BB5A14B000DF11F /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF252BB5A14B000DF11F /* Roboto-ThinItalic.ttf */; };
+		ED23BF332BB5A14B000DF11F /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF262BB5A14B000DF11F /* Roboto-BoldItalic.ttf */; };
+		ED23BF342BB5A14B000DF11F /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF272BB5A14B000DF11F /* Roboto-LightItalic.ttf */; };
+		ED23BF352BB5A14B000DF11F /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF282BB5A14B000DF11F /* Roboto-Italic.ttf */; };
+		ED23BF362BB5A14B000DF11F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF292BB5A14B000DF11F /* LICENSE.txt */; };
+		ED23BF372BB5A14B000DF11F /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF2A2BB5A14B000DF11F /* Roboto-BlackItalic.ttf */; };
+		ED23BF382BB5A14B000DF11F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF2B2BB5A14B000DF11F /* Roboto-Bold.ttf */; };
+		ED23BF392BB5A14B000DF11F /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF2C2BB5A14B000DF11F /* Roboto-Thin.ttf */; };
+		ED23BF3A2BB5A14B000DF11F /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED23BF2D2BB5A14B000DF11F /* Roboto-Black.ttf */; };
+		ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF3B2BB5AA20000DF11F /* UIColor+Extension.swift */; };
+		ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */; };
+		ED23BF432BB5E2D3000DF11F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF422BB5E2D3000DF11F /* Coordinator.swift */; };
+		ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */; };
+		ED3053232BC85E50005A9899 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3053222BC85E50005A9899 /* CustomImageView.swift */; };
+		ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */; };
+		ED47A40A2BBCA6EF00C7F84B /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47A4092BBCA6EF00C7F84B /* Tab.swift */; };
+		ED55951D2BD123C600305ED4 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */; };
+		ED5595212BD1244B00305ED4 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */; };
+		ED5595232BD128AB00305ED4 /* RecipesViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */; };
+		ED573AEF2BD6BB2F0063334A /* RecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED573AED2BD6BB2F0063334A /* RecipeModel.xcdatamodeld */; };
+		ED573AF22BD6C3EE0063334A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED573AF12BD6C3EE0063334A /* CoreDataManager.swift */; };
+		ED61C5542BE94DDA00D6410F /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61C5532BE94DDA00D6410F /* CoreDataTests.swift */; };
+		ED61C5582BE94E5600D6410F /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61C5572BE94E5600D6410F /* UITests.swift */; };
+		ED622AEB2BCAC462000EFF13 /* RecipesTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */; };
+		ED9514642BC172BD00B5A8B0 /* CuisineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9514632BC172BD00B5A8B0 /* CuisineType.swift */; };
+		ED9514662BC172CD00B5A8B0 /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9514652BC172CD00B5A8B0 /* MealType.swift */; };
+		EDAE97652BB7FC160056B33D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97642BB7FC160056B33D /* ProfileViewController.swift */; };
+		EDAE97672BB7FCB80056B33D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97662BB7FCB80056B33D /* ProfileViewModel.swift */; };
+		EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE97682BB84DEE0056B33D /* DietOptions.swift */; };
+		EDB242992BEA831300B9E835 /* UserInfoStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB242982BEA831300B9E835 /* UserInfoStorageTests.swift */; };
+		EDB2429B2BEA8C8B00B9E835 /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB2429A2BEA8C8B00B9E835 /* ProfileViewModelTests.swift */; };
+		EDB2429E2BEA8FFF00B9E835 /* UserInfoStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB2429D2BEA8FFF00B9E835 /* UserInfoStorageMock.swift */; };
+		EDB9EF932BEE95760004262E /* RecipesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9EF922BEE95760004262E /* RecipesViewModelTests.swift */; };
+		EDB9EF952BEE9ECF0004262E /* MockRecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9EF942BEE9ECF0004262E /* MockRecipesService.swift */; };
+		EDB9EF9A2BEEA6D90004262E /* CoreDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9EF992BEEA6D90004262E /* CoreDataManagerMock.swift */; };
+		EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */; };
+		EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */; };
+		EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */; };
+		EDC100A22BD277C700DC5721 /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC100A12BD277C700DC5721 /* MyRecipesViewController.swift */; };
+		EDC100A62BD2782C00DC5721 /* MyRecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC100A52BD2782C00DC5721 /* MyRecipesViewModel.swift */; };
+		EDD17DED2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD17DEC2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift */; };
+		EDD17DEF2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD17DEE2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift */; };
+		EDD4477D2BC456C1008B7EEF /* CuisineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */; };
+		EDD4477F2BC45989008B7EEF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */; };
+		EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD860362BBABF3100505209 /* UIViewController+Extension.swift */; };
+		EDFB32A42BDEB7E90032CD02 /* DataBaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB32A32BDEB7E90032CD02 /* DataBaseError.swift */; };
+		EDFB32A62BDEB9220032CD02 /* MyRecipesViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB32A52BDEB9220032CD02 /* MyRecipesViewController+TableView.swift */; };
+		EDFC51FE2BC542E4009A57C1 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFC51FD2BC542E4009A57C1 /* RecipeTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED23BEE42BB58BBA000DF11F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED23BEC52BB58BB8000DF11F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED23BECC2BB58BB8000DF11F;
+			remoteInfo = MyDietApp;
+		};
+		ED23BEEE2BB58BBA000DF11F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED23BEC52BB58BB8000DF11F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED23BECC2BB58BB8000DF11F;
+			remoteInfo = MyDietApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
+		ED03211C2BC30D8B00FD8D5A /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
+		ED114C902BC04BD300026F18 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		ED114C922BC04BFE00026F18 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		ED114C942BC04C1E00026F18 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		ED114C962BC04C2A00026F18 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		ED114C992BC0638400026F18 /* RecipesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesEndpoint.swift; sourceTree = "<group>"; };
+		ED114C9C2BC0662A00026F18 /* RecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesService.swift; sourceTree = "<group>"; };
+		ED114CA12BC079DC00026F18 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		ED164EDE2BD9080F003302A3 /* RecipeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellViewModel.swift; sourceTree = "<group>"; };
+		ED23BECD2BB58BB8000DF11F /* MyDietApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDietApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED23BED02BB58BB8000DF11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ED23BED92BB58BBA000DF11F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED23BEDC2BB58BBA000DF11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ED23BEDE2BB58BBA000DF11F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED23BEE32BB58BBA000DF11F /* MyDietAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDietAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED23BEED2BB58BBA000DF11F /* MyDietAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDietAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED23BF1E2BB59F72000DF11F /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		ED23BF212BB5A14B000DF11F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		ED23BF222BB5A14B000DF11F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		ED23BF232BB5A14B000DF11F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		ED23BF242BB5A14B000DF11F /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		ED23BF252BB5A14B000DF11F /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		ED23BF262BB5A14B000DF11F /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		ED23BF272BB5A14B000DF11F /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		ED23BF282BB5A14B000DF11F /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		ED23BF292BB5A14B000DF11F /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		ED23BF2A2BB5A14B000DF11F /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		ED23BF2B2BB5A14B000DF11F /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		ED23BF2C2BB5A14B000DF11F /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		ED23BF2D2BB5A14B000DF11F /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		ED23BF3B2BB5AA20000DF11F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		ED23BF422BB5E2D3000DF11F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		ED3053222BC85E50005A9899 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorage.swift; sourceTree = "<group>"; };
+		ED47A4092BBCA6EF00C7F84B /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
+		ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesViewController+TableView.swift"; sourceTree = "<group>"; };
+		ED573AEE2BD6BB2F0063334A /* RecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeModel.xcdatamodel; sourceTree = "<group>"; };
+		ED573AF12BD6C3EE0063334A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		ED61C5532BE94DDA00D6410F /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		ED61C5572BE94E5600D6410F /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
+		ED61C5592BE9500D00D6410F /* MyDietAppUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDietAppUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED61C55A2BE9505100D6410F /* MyDietAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDietAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewFooter.swift; sourceTree = "<group>"; };
+		ED9514632BC172BD00B5A8B0 /* CuisineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineType.swift; sourceTree = "<group>"; };
+		ED9514652BC172CD00B5A8B0 /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
+		EDAE97642BB7FC160056B33D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EDAE97662BB7FCB80056B33D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		EDAE97682BB84DEE0056B33D /* DietOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietOptions.swift; sourceTree = "<group>"; };
+		EDB242982BEA831300B9E835 /* UserInfoStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorageTests.swift; sourceTree = "<group>"; };
+		EDB2429A2BEA8C8B00B9E835 /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
+		EDB2429D2BEA8FFF00B9E835 /* UserInfoStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoStorageMock.swift; sourceTree = "<group>"; };
+		EDB9EF922BEE95760004262E /* RecipesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModelTests.swift; sourceTree = "<group>"; };
+		EDB9EF942BEE9ECF0004262E /* MockRecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipesService.swift; sourceTree = "<group>"; };
+		EDB9EF992BEEA6D90004262E /* CoreDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMock.swift; sourceTree = "<group>"; };
+		EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesCoordinator.swift; sourceTree = "<group>"; };
+		EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipiesCoordinator.swift; sourceTree = "<group>"; };
+		EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		EDC100A12BD277C700DC5721 /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
+		EDC100A52BD2782C00DC5721 /* MyRecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewModel.swift; sourceTree = "<group>"; };
+		EDD17DEC2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		EDD17DEE2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeCellViewModel.swift; sourceTree = "<group>"; };
+		EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineSegmentedControl.swift; sourceTree = "<group>"; };
+		EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		EDD860362BBABF3100505209 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		EDFB32A32BDEB7E90032CD02 /* DataBaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseError.swift; sourceTree = "<group>"; };
+		EDFB32A52BDEB9220032CD02 /* MyRecipesViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyRecipesViewController+TableView.swift"; sourceTree = "<group>"; };
+		EDFC51FD2BC542E4009A57C1 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED23BECA2BB58BB8000DF11F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED23BEE02BB58BBA000DF11F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED23BEEA2BB58BBA000DF11F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED114C8D2BC04BA200026F18 /* UserDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				ED34C0962BB9C47C00897C94 /* UserInfoStorage.swift */,
+			);
+			path = UserDataStorage;
+			sourceTree = "<group>";
+		};
+		ED114C8E2BC04BB300026F18 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				ED114C9B2BC0661900026F18 /* Services */,
+				ED114C982BC0637000026F18 /* Endpoints */,
+				ED114C8F2BC04BBA00026F18 /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		ED114C8F2BC04BBA00026F18 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				ED114C902BC04BD300026F18 /* Endpoint.swift */,
+				ED114C922BC04BFE00026F18 /* NetworkClient.swift */,
+				ED114C942BC04C1E00026F18 /* RequestMethod.swift */,
+				ED114C962BC04C2A00026F18 /* RequestError.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		ED114C982BC0637000026F18 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				ED114C992BC0638400026F18 /* RecipesEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		ED114C9B2BC0661900026F18 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ED114C9C2BC0662A00026F18 /* RecipesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ED23BEC42BB58BB8000DF11F = {
+			isa = PBXGroup;
+			children = (
+				ED23BECF2BB58BB8000DF11F /* MyDietApp */,
+				ED61C5522BE94D7E00D6410F /* MyDietAppTests */,
+				ED61C5552BE94E3400D6410F /* MyDietAppUITests */,
+				ED23BECE2BB58BB8000DF11F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED23BECE2BB58BB8000DF11F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BECD2BB58BB8000DF11F /* MyDietApp.app */,
+				ED23BEE32BB58BBA000DF11F /* MyDietAppTests.xctest */,
+				ED23BEED2BB58BBA000DF11F /* MyDietAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED23BECF2BB58BB8000DF11F /* MyDietApp */ = {
+			isa = PBXGroup;
+			children = (
+				EDCEA0272BE4057100C53738 /* RecipeDetail */,
+				EDBD44FF2BB71D3E002F75A4 /* Application */,
+				ED23BF402BB5E288000DF11F /* NavigationLayer */,
+				EDBD45012BB71DAB002F75A4 /* ServiceLayer */,
+				EDBD45072BB71F33002F75A4 /* Model */,
+				EDBD45022BB71E48002F75A4 /* RecipesModule */,
+				EDBD45032BB71E52002F75A4 /* MyRecipesModule */,
+				EDBD45042BB71E66002F75A4 /* ProfileModule */,
+				ED23BF002BB59DCB000DF11F /* Resources */,
+				EDBD45002BB71D96002F75A4 /* SupportingFiles */,
+			);
+			path = MyDietApp;
+			sourceTree = "<group>";
+		};
+		ED23BF002BB59DCB000DF11F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED3053242BC85EDC005A9899 /* Helpers */,
+				ED23BED92BB58BBA000DF11F /* Assets.xcassets */,
+				ED23BF1D2BB59F5C000DF11F /* Extensions */,
+				ED23BF012BB59DD3000DF11F /* Fonts */,
+				ED23BF3D2BB5AA62000DF11F /* Colors */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ED23BF012BB59DD3000DF11F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BF202BB5A14B000DF11F /* Roboto */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		ED23BF1D2BB59F5C000DF11F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BF1E2BB59F72000DF11F /* UIFont+Extension.swift */,
+				ED23BF3B2BB5AA20000DF11F /* UIColor+Extension.swift */,
+				EDD860362BBABF3100505209 /* UIViewController+Extension.swift */,
+				EDD4477E2BC45989008B7EEF /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ED23BF202BB5A14B000DF11F /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BF212BB5A14B000DF11F /* Roboto-Medium.ttf */,
+				ED23BF222BB5A14B000DF11F /* Roboto-Light.ttf */,
+				ED23BF232BB5A14B000DF11F /* Roboto-Regular.ttf */,
+				ED23BF242BB5A14B000DF11F /* Roboto-MediumItalic.ttf */,
+				ED23BF252BB5A14B000DF11F /* Roboto-ThinItalic.ttf */,
+				ED23BF262BB5A14B000DF11F /* Roboto-BoldItalic.ttf */,
+				ED23BF272BB5A14B000DF11F /* Roboto-LightItalic.ttf */,
+				ED23BF282BB5A14B000DF11F /* Roboto-Italic.ttf */,
+				ED23BF292BB5A14B000DF11F /* LICENSE.txt */,
+				ED23BF2A2BB5A14B000DF11F /* Roboto-BlackItalic.ttf */,
+				ED23BF2B2BB5A14B000DF11F /* Roboto-Bold.ttf */,
+				ED23BF2C2BB5A14B000DF11F /* Roboto-Thin.ttf */,
+				ED23BF2D2BB5A14B000DF11F /* Roboto-Black.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
+		ED23BF3D2BB5AA62000DF11F /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BF3E2BB5AA6F000DF11F /* AppColors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		ED23BF402BB5E288000DF11F /* NavigationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				ED47A4092BBCA6EF00C7F84B /* Tab.swift */,
+				ED23BF412BB5E2B9000DF11F /* Coordinators */,
+			);
+			path = NavigationLayer;
+			sourceTree = "<group>";
+		};
+		ED23BF412BB5E2B9000DF11F /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BF422BB5E2D3000DF11F /* Coordinator.swift */,
+				ED23BF442BB5E5CB000DF11F /* AppCoordinator.swift */,
+				EDBD44F92BB6FB0F002F75A4 /* RecipiesCoordinator.swift */,
+				EDBD44FB2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift */,
+				EDBD44FD2BB6FCF2002F75A4 /* ProfileCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		ED3053242BC85EDC005A9899 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ED3053222BC85E50005A9899 /* CustomImageView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ED55951A2BD123A300305ED4 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				ED03211A2BC30D6F00FD8D5A /* RecipesViewController.swift */,
+				ED5595222BD128AB00305ED4 /* RecipesViewController+TableView.swift */,
+				EDFC51FD2BC542E4009A57C1 /* RecipeTableViewCell.swift */,
+				ED622AEA2BCAC462000EFF13 /* RecipesTableViewFooter.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		ED55951E2BD1243300305ED4 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				ED03211C2BC30D8B00FD8D5A /* RecipesViewModel.swift */,
+				ED164EDE2BD9080F003302A3 /* RecipeCellViewModel.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		ED573AE62BD6B9050063334A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EDFB32A32BDEB7E90032CD02 /* DataBaseError.swift */,
+				ED573AF12BD6C3EE0063334A /* CoreDataManager.swift */,
+				ED573AF02BD6BCFA0063334A /* Model */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		ED573AF02BD6BCFA0063334A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED573AED2BD6BB2F0063334A /* RecipeModel.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED61C5522BE94D7E00D6410F /* MyDietAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDB2429C2BEA8F7600B9E835 /* MockObjects */,
+				ED61C5532BE94DDA00D6410F /* CoreDataTests.swift */,
+				EDB242982BEA831300B9E835 /* UserInfoStorageTests.swift */,
+				EDB2429A2BEA8C8B00B9E835 /* ProfileViewModelTests.swift */,
+				EDB9EF922BEE95760004262E /* RecipesViewModelTests.swift */,
+				ED61C55A2BE9505100D6410F /* MyDietAppTests-Bridging-Header.h */,
+			);
+			path = MyDietAppTests;
+			sourceTree = "<group>";
+		};
+		ED61C5552BE94E3400D6410F /* MyDietAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ED61C5572BE94E5600D6410F /* UITests.swift */,
+				ED61C5592BE9500D00D6410F /* MyDietAppUITests-Bridging-Header.h */,
+			);
+			path = MyDietAppUITests;
+			sourceTree = "<group>";
+		};
+		EDB2429C2BEA8F7600B9E835 /* MockObjects */ = {
+			isa = PBXGroup;
+			children = (
+				EDB2429D2BEA8FFF00B9E835 /* UserInfoStorageMock.swift */,
+				EDB9EF942BEE9ECF0004262E /* MockRecipesService.swift */,
+				EDB9EF992BEEA6D90004262E /* CoreDataManagerMock.swift */,
+			);
+			path = MockObjects;
+			sourceTree = "<group>";
+		};
+		EDBD44FF2BB71D3E002F75A4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BED02BB58BB8000DF11F /* AppDelegate.swift */,
+				ED23BED22BB58BB8000DF11F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		EDBD45002BB71D96002F75A4 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				ED23BEDB2BB58BBA000DF11F /* LaunchScreen.storyboard */,
+				ED23BEDE2BB58BBA000DF11F /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		EDBD45012BB71DAB002F75A4 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				ED573AE62BD6B9050063334A /* CoreData */,
+				ED114C8E2BC04BB300026F18 /* Network */,
+				ED114C8D2BC04BA200026F18 /* UserDataStorage */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		EDBD45022BB71E48002F75A4 /* RecipesModule */ = {
+			isa = PBXGroup;
+			children = (
+				EDD447812BC4638D008B7EEF /* SecondaryViews */,
+				EDBD45062BB71F2D002F75A4 /* Views */,
+				EDBD45052BB71F15002F75A4 /* ViewModel */,
+			);
+			path = RecipesModule;
+			sourceTree = "<group>";
+		};
+		EDBD45032BB71E52002F75A4 /* MyRecipesModule */ = {
+			isa = PBXGroup;
+			children = (
+				EDBD45092BB71F42002F75A4 /* Views */,
+				EDBD45082BB71F3D002F75A4 /* ViewModel */,
+			);
+			path = MyRecipesModule;
+			sourceTree = "<group>";
+		};
+		EDBD45042BB71E66002F75A4 /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				EDBD450E2BB71F6E002F75A4 /* Views */,
+				EDBD450A2BB71F4D002F75A4 /* ViewModel */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		EDBD45052BB71F15002F75A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED55951E2BD1243300305ED4 /* Recipes */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EDBD45062BB71F2D002F75A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED55951A2BD123A300305ED4 /* Recipes */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDBD45072BB71F33002F75A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDAE97682BB84DEE0056B33D /* DietOptions.swift */,
+				ED114CA12BC079DC00026F18 /* Model.swift */,
+				ED9514632BC172BD00B5A8B0 /* CuisineType.swift */,
+				ED9514652BC172CD00B5A8B0 /* MealType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDBD45082BB71F3D002F75A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EDC100A42BD277E600DC5721 /* MyRecipes */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EDBD45092BB71F42002F75A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EDC100A32BD277D400DC5721 /* MyRecipes */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDBD450A2BB71F4D002F75A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EDAE97662BB7FCB80056B33D /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EDBD450E2BB71F6E002F75A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EDAE97642BB7FC160056B33D /* ProfileViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDC100A32BD277D400DC5721 /* MyRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				EDC100A12BD277C700DC5721 /* MyRecipesViewController.swift */,
+				EDFB32A52BDEB9220032CD02 /* MyRecipesViewController+TableView.swift */,
+				EDD17DEC2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift */,
+			);
+			path = MyRecipes;
+			sourceTree = "<group>";
+		};
+		EDC100A42BD277E600DC5721 /* MyRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				EDC100A52BD2782C00DC5721 /* MyRecipesViewModel.swift */,
+				EDD17DEE2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift */,
+			);
+			path = MyRecipes;
+			sourceTree = "<group>";
+		};
+		EDCEA0272BE4057100C53738 /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EDCEA0292BE4058900C53738 /* ViewModel */,
+				EDCEA0282BE4058000C53738 /* Views */,
+			);
+			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
+		EDCEA0282BE4058000C53738 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED55951C2BD123C600305ED4 /* RecipeDetailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDCEA0292BE4058900C53738 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ED5595202BD1244B00305ED4 /* RecipeDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EDD447812BC4638D008B7EEF /* SecondaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				EDD4477C2BC456C1008B7EEF /* CuisineSegmentedControl.swift */,
+			);
+			path = SecondaryViews;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED23BECC2BB58BB8000DF11F /* MyDietApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED23BEF72BB58BBA000DF11F /* Build configuration list for PBXNativeTarget "MyDietApp" */;
+			buildPhases = (
+				ED23BEC92BB58BB8000DF11F /* Sources */,
+				ED23BECA2BB58BB8000DF11F /* Frameworks */,
+				ED23BECB2BB58BB8000DF11F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyDietApp;
+			productName = MyDietApp;
+			productReference = ED23BECD2BB58BB8000DF11F /* MyDietApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED23BEE22BB58BBA000DF11F /* MyDietAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED23BEFA2BB58BBA000DF11F /* Build configuration list for PBXNativeTarget "MyDietAppTests" */;
+			buildPhases = (
+				ED23BEDF2BB58BBA000DF11F /* Sources */,
+				ED23BEE02BB58BBA000DF11F /* Frameworks */,
+				ED23BEE12BB58BBA000DF11F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED23BEE52BB58BBA000DF11F /* PBXTargetDependency */,
+			);
+			name = MyDietAppTests;
+			productName = MyDietAppTests;
+			productReference = ED23BEE32BB58BBA000DF11F /* MyDietAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ED23BEEC2BB58BBA000DF11F /* MyDietAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED23BEFD2BB58BBA000DF11F /* Build configuration list for PBXNativeTarget "MyDietAppUITests" */;
+			buildPhases = (
+				ED23BEE92BB58BBA000DF11F /* Sources */,
+				ED23BEEA2BB58BBA000DF11F /* Frameworks */,
+				ED23BEEB2BB58BBA000DF11F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED23BEEF2BB58BBA000DF11F /* PBXTargetDependency */,
+			);
+			name = MyDietAppUITests;
+			productName = MyDietAppUITests;
+			productReference = ED23BEED2BB58BBA000DF11F /* MyDietAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED23BEC52BB58BB8000DF11F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					ED23BECC2BB58BB8000DF11F = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					ED23BEE22BB58BBA000DF11F = {
+						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
+						TestTargetID = ED23BECC2BB58BB8000DF11F;
+					};
+					ED23BEEC2BB58BBA000DF11F = {
+						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
+						TestTargetID = ED23BECC2BB58BB8000DF11F;
+					};
+				};
+			};
+			buildConfigurationList = ED23BEC82BB58BB8000DF11F /* Build configuration list for PBXProject "MyDietApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED23BEC42BB58BB8000DF11F;
+			productRefGroup = ED23BECE2BB58BB8000DF11F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED23BECC2BB58BB8000DF11F /* MyDietApp */,
+				ED23BEE22BB58BBA000DF11F /* MyDietAppTests */,
+				ED23BEEC2BB58BBA000DF11F /* MyDietAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED23BECB2BB58BB8000DF11F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED23BF392BB5A14B000DF11F /* Roboto-Thin.ttf in Resources */,
+				ED23BF362BB5A14B000DF11F /* LICENSE.txt in Resources */,
+				ED23BF3A2BB5A14B000DF11F /* Roboto-Black.ttf in Resources */,
+				ED23BF382BB5A14B000DF11F /* Roboto-Bold.ttf in Resources */,
+				ED23BEDD2BB58BBA000DF11F /* LaunchScreen.storyboard in Resources */,
+				ED23BEDA2BB58BBA000DF11F /* Assets.xcassets in Resources */,
+				ED23BF332BB5A14B000DF11F /* Roboto-BoldItalic.ttf in Resources */,
+				ED23BF302BB5A14B000DF11F /* Roboto-Regular.ttf in Resources */,
+				ED23BF322BB5A14B000DF11F /* Roboto-ThinItalic.ttf in Resources */,
+				ED23BF342BB5A14B000DF11F /* Roboto-LightItalic.ttf in Resources */,
+				ED23BF372BB5A14B000DF11F /* Roboto-BlackItalic.ttf in Resources */,
+				ED23BF2F2BB5A14B000DF11F /* Roboto-Light.ttf in Resources */,
+				ED23BF352BB5A14B000DF11F /* Roboto-Italic.ttf in Resources */,
+				ED23BF312BB5A14B000DF11F /* Roboto-MediumItalic.ttf in Resources */,
+				ED23BF2E2BB5A14B000DF11F /* Roboto-Medium.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED23BEE12BB58BBA000DF11F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED23BEEB2BB58BBA000DF11F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED23BEC92BB58BB8000DF11F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED114C932BC04BFE00026F18 /* NetworkClient.swift in Sources */,
+				ED03211B2BC30D6F00FD8D5A /* RecipesViewController.swift in Sources */,
+				ED34C0972BB9C47C00897C94 /* UserInfoStorage.swift in Sources */,
+				ED573AEF2BD6BB2F0063334A /* RecipeModel.xcdatamodeld in Sources */,
+				EDFB32A42BDEB7E90032CD02 /* DataBaseError.swift in Sources */,
+				EDFC51FE2BC542E4009A57C1 /* RecipeTableViewCell.swift in Sources */,
+				EDBD44FA2BB6FB0F002F75A4 /* RecipiesCoordinator.swift in Sources */,
+				EDC100A22BD277C700DC5721 /* MyRecipesViewController.swift in Sources */,
+				ED622AEB2BCAC462000EFF13 /* RecipesTableViewFooter.swift in Sources */,
+				EDD4477D2BC456C1008B7EEF /* CuisineSegmentedControl.swift in Sources */,
+				ED5595212BD1244B00305ED4 /* RecipeDetailViewModel.swift in Sources */,
+				ED114C9A2BC0638400026F18 /* RecipesEndpoint.swift in Sources */,
+				EDAE97692BB84DEE0056B33D /* DietOptions.swift in Sources */,
+				EDD860372BBABF3100505209 /* UIViewController+Extension.swift in Sources */,
+				ED5595232BD128AB00305ED4 /* RecipesViewController+TableView.swift in Sources */,
+				ED9514642BC172BD00B5A8B0 /* CuisineType.swift in Sources */,
+				ED9514662BC172CD00B5A8B0 /* MealType.swift in Sources */,
+				ED47A40A2BBCA6EF00C7F84B /* Tab.swift in Sources */,
+				ED55951D2BD123C600305ED4 /* RecipeDetailViewController.swift in Sources */,
+				ED23BED12BB58BB8000DF11F /* AppDelegate.swift in Sources */,
+				EDD17DEF2BDFAA93006A70A3 /* MyRecipeCellViewModel.swift in Sources */,
+				ED03211D2BC30D8B00FD8D5A /* RecipesViewModel.swift in Sources */,
+				ED114C952BC04C1E00026F18 /* RequestMethod.swift in Sources */,
+				ED23BF1F2BB59F72000DF11F /* UIFont+Extension.swift in Sources */,
+				EDBD44FE2BB6FCF2002F75A4 /* ProfileCoordinator.swift in Sources */,
+				EDD17DED2BDFA8DD006A70A3 /* MyRecipeTableViewCell.swift in Sources */,
+				ED3053232BC85E50005A9899 /* CustomImageView.swift in Sources */,
+				EDBD44FC2BB6FBEF002F75A4 /* MyRecipiesCoordinator.swift in Sources */,
+				ED114C9D2BC0662A00026F18 /* RecipesService.swift in Sources */,
+				ED114C912BC04BD300026F18 /* Endpoint.swift in Sources */,
+				ED114CA22BC079DC00026F18 /* Model.swift in Sources */,
+				EDAE97672BB7FCB80056B33D /* ProfileViewModel.swift in Sources */,
+				ED114C972BC04C2A00026F18 /* RequestError.swift in Sources */,
+				ED23BF3F2BB5AA6F000DF11F /* AppColors.swift in Sources */,
+				ED23BF452BB5E5CB000DF11F /* AppCoordinator.swift in Sources */,
+				ED164EDF2BD9080F003302A3 /* RecipeCellViewModel.swift in Sources */,
+				EDD4477F2BC45989008B7EEF /* UIView+Extension.swift in Sources */,
+				ED573AF22BD6C3EE0063334A /* CoreDataManager.swift in Sources */,
+				ED23BED32BB58BB8000DF11F /* SceneDelegate.swift in Sources */,
+				EDAE97652BB7FC160056B33D /* ProfileViewController.swift in Sources */,
+				EDFB32A62BDEB9220032CD02 /* MyRecipesViewController+TableView.swift in Sources */,
+				ED23BF3C2BB5AA20000DF11F /* UIColor+Extension.swift in Sources */,
+				EDC100A62BD2782C00DC5721 /* MyRecipesViewModel.swift in Sources */,
+				ED23BF432BB5E2D3000DF11F /* Coordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED23BEDF2BB58BBA000DF11F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB242992BEA831300B9E835 /* UserInfoStorageTests.swift in Sources */,
+				EDB9EF932BEE95760004262E /* RecipesViewModelTests.swift in Sources */,
+				EDB2429B2BEA8C8B00B9E835 /* ProfileViewModelTests.swift in Sources */,
+				EDB2429E2BEA8FFF00B9E835 /* UserInfoStorageMock.swift in Sources */,
+				ED61C5542BE94DDA00D6410F /* CoreDataTests.swift in Sources */,
+				EDB9EF9A2BEEA6D90004262E /* CoreDataManagerMock.swift in Sources */,
+				EDB9EF952BEE9ECF0004262E /* MockRecipesService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED23BEE92BB58BBA000DF11F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED61C5582BE94E5600D6410F /* UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED23BEE52BB58BBA000DF11F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED23BECC2BB58BB8000DF11F /* MyDietApp */;
+			targetProxy = ED23BEE42BB58BBA000DF11F /* PBXContainerItemProxy */;
+		};
+		ED23BEEF2BB58BBA000DF11F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED23BECC2BB58BB8000DF11F /* MyDietApp */;
+			targetProxy = ED23BEEE2BB58BBA000DF11F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ED23BEDB2BB58BBA000DF11F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED23BEDC2BB58BBA000DF11F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED23BEF52BB58BBA000DF11F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ED23BEF62BB58BBA000DF11F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED23BEF82BB58BBA000DF11F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyDietApp/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ED23BEF92BB58BBA000DF11F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyDietApp/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ED23BEFB2BB58BBA000DF11F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDietAppTests/MyDietAppTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDietApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyDietApp";
+			};
+			name = Debug;
+		};
+		ED23BEFC2BB58BBA000DF11F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDietAppTests/MyDietAppTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDietApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyDietApp";
+			};
+			name = Release;
+		};
+		ED23BEFE2BB58BBA000DF11F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDietAppUITests/MyDietAppUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyDietApp;
+			};
+			name = Debug;
+		};
+		ED23BEFF2BB58BBA000DF11F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SK2K5ZL6TZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolayBudai.MyDietAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDietAppUITests/MyDietAppUITests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyDietApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED23BEC82BB58BB8000DF11F /* Build configuration list for PBXProject "MyDietApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED23BEF52BB58BBA000DF11F /* Debug */,
+				ED23BEF62BB58BBA000DF11F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED23BEF72BB58BBA000DF11F /* Build configuration list for PBXNativeTarget "MyDietApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED23BEF82BB58BBA000DF11F /* Debug */,
+				ED23BEF92BB58BBA000DF11F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED23BEFA2BB58BBA000DF11F /* Build configuration list for PBXNativeTarget "MyDietAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED23BEFB2BB58BBA000DF11F /* Debug */,
+				ED23BEFC2BB58BBA000DF11F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED23BEFD2BB58BBA000DF11F /* Build configuration list for PBXNativeTarget "MyDietAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED23BEFE2BB58BBA000DF11F /* Debug */,
+				ED23BEFF2BB58BBA000DF11F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED573AED2BD6BB2F0063334A /* RecipeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED573AEE2BD6BB2F0063334A /* RecipeModel.xcdatamodel */,
+			);
+			currentVersion = ED573AEE2BD6BB2F0063334A /* RecipeModel.xcdatamodel */;
+			path = RecipeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = ED23BEC52BB58BB8000DF11F /* Project object */;
+}
