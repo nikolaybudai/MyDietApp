@@ -23,6 +23,7 @@ protocol MyRecipesViewModelProtocol: AnyObject {
     var myRecipesDiffableDataSource: UITableViewDiffableDataSource<MyRecipesSection, Recipe>? { get set }
     var cuisineChosen: PassthroughSubject<String, Never> { get set }
     var mealChosen: PassthroughSubject<String, Never> { get set }
+    var editBarButtonHandler: () -> Void { get }
     
     func fetchInitialRecipes()
     func fetchRecipesWithMealType(_ mealType: String)
@@ -64,6 +65,10 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
     lazy var cuisineTypeChoiceHandler: (UIAction) -> Void = { [weak self] action in
         let cuisine = action.title
         self?.cuisineChosen.send(action.title)
+    }
+    
+    lazy var editBarButtonHandler: () -> Void = {
+        print("Edit button handler")
     }
     
     var cuisineChosen = PassthroughSubject<String, Never>()

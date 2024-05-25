@@ -110,6 +110,23 @@ private extension MyRecipesViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        setupRightBarButton()
+    }
+    
+    private func setupRightBarButton() {
+        let action = UIAction { [weak self] _ in
+            self?.viewModel.editBarButtonHandler()
+        }
+        
+        let button = UIButton(type: .system)
+        button.setTitle("Edit", for: .normal)
+        button.addAction(action, for: .touchUpInside)
+        button.tintColor = AppColors.secondaryDark
+        button.titleLabel?.font = UIFont.Roboto.regular.size(of: 18)
+           
+        let editBarButton = UIBarButtonItem(customView: button)
+        navigationItem.rightBarButtonItem = editBarButton
     }
     
     private func setupMealTypeChoiceButton() {
