@@ -19,6 +19,7 @@ final class MyRecipesViewController: UIViewController {
     private let cuisineTypeChoiceButton = UIButton()
     private let buttonsStackView = UIStackView()
     let myRecipesTableView = UITableView()
+    private let editButton = UIButton(type: .system)
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -115,18 +116,23 @@ private extension MyRecipesViewController {
     }
     
     private func setupRightBarButton() {
-        let action = UIAction { [weak self] _ in
-            self?.viewModel.editBarButtonHandler()
-        }
-        
-        let button = UIButton(type: .system)
-        button.setTitle("Edit", for: .normal)
-        button.addAction(action, for: .touchUpInside)
-        button.tintColor = AppColors.secondaryDark
-        button.titleLabel?.font = UIFont.Roboto.regular.size(of: 18)
+        editButton.setTitle("Edit", for: .normal)
+        editButton.addTarget(self, action: #selector(toggleEditMode), for: .touchUpInside)
+        editButton.tintColor = AppColors.secondaryDark
+        editButton.titleLabel?.font = UIFont.Roboto.regular.size(of: 18)
            
-        let editBarButton = UIBarButtonItem(customView: button)
+        let editBarButton = UIBarButtonItem(customView: editButton)
         navigationItem.rightBarButtonItem = editBarButton
+    }
+    
+    @objc func toggleEditMode() {
+        myRecipesTableView.setEditing(!myRecipesTableView.isEditing, animated: true)
+        if myRecipesTableView.isEditing {
+            editButton.setTitle("Done", for: .normal)
+        } else {
+            editButton.setTitle("Edit", for: .normal)
+        }
+        editButton.sizeToFit()
     }
     
     private func setupMealTypeChoiceButton() {
