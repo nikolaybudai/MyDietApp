@@ -79,7 +79,11 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let predicate = NSPredicate(format: "isFavourite == true")
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
-        case .success(let recipes):
+        case .success(let recipeEntities):
+            var recipes: [Recipe] = []
+            recipeEntities.forEach {
+                recipes.append(Recipe(from: $0))
+            }
             updateDataSource(with: recipes)
         case .failure(_):
             hasFailure.send(true)
@@ -90,7 +94,11 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let predicate = NSPredicate(format: "mealType CONTAINS %@", mealType.lowercased())
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
-        case .success(let recipes):
+        case .success(let recipeEntities):
+            var recipes: [Recipe] = []
+            recipeEntities.forEach {
+                recipes.append(Recipe(from: $0))
+            }
             updateDataSource(with: recipes)
         case .failure(_):
             hasFailure.send(true)
@@ -101,7 +109,11 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let predicate = NSPredicate(format: "cuisineType CONTAINS %@", cuisine.lowercased())
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
-        case .success(let recipes):
+        case .success(let recipeEntities):
+            var recipes: [Recipe] = []
+            recipeEntities.forEach {
+                recipes.append(Recipe(from: $0))
+            }
             updateDataSource(with: recipes)
         case .failure(_):
             hasFailure.send(true)

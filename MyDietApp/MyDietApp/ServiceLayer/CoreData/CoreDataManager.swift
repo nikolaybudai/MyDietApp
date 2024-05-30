@@ -16,7 +16,7 @@ protocol CoreDataManagerProtocol: AnyObject {
 }
 
 extension CoreDataManagerProtocol {
-    func fetchRecipes(with predicate: NSPredicate) -> Result<[Recipe], DataBaseError> {
+    func fetchRecipes(with predicate: NSPredicate) -> Result<[RecipeEntity], DataBaseError> {
         guard let context = managedObjectContext else {
             return .failure(.couldNotLoadFromDatabase)
         }
@@ -26,8 +26,8 @@ extension CoreDataManagerProtocol {
 
         do {
             let recipeEntities = try context.fetch(fetchRequest)
-            let recipes = recipeEntities.map { Recipe(from: $0) }
-            return .success(recipes)
+//            let recipes = recipeEntities.map { Recipe(from: $0) }
+            return .success(recipeEntities)
         } catch {
             return .failure(.couldNotLoadFromDatabase)
         }

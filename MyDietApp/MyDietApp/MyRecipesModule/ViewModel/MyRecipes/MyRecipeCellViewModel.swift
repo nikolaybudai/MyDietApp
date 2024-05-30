@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreData
 
 //MARK: - Protocol
 protocol MyRecipeCellViewModelProtocol: AnyObject {
@@ -39,5 +40,20 @@ final class MyRecipeCellViewModel: MyRecipeCellViewModelProtocol {
         mealType = recipe.mealType.joined(separator: ",")
         cuisineType = recipe.cuisineType.joined(separator: ",")
         image = recipe.image
+    }
+    
+    //MARK: Methods
+    func deleteRecipe(_ recipe: Recipe) {
+        let predicate = NSPredicate(format: "label == %@ AND calories == %f AND image == %@", recipe.label, recipe.calories, recipe.image)
+        let fetchResult = coreDataManager.fetchRecipes(with: predicate)
+
+        switch fetchResult {
+        case .success(let recipeEntities):
+            if let recipeEntity = recipeEntities.first {
+                coreDataManager.deleteObject(object: recipeEntity)
+            }
+        case .failure(let error):
+            print("Failed to fetch recipe for deletion: \(error)")
+        }
     }
 }

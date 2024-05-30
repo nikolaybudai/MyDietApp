@@ -131,7 +131,11 @@ final class RecipesViewModel: NSObject, RecipesViewModelProtocol {
         let predicate = NSPredicate(format: "isFavourite == true")
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
-        case .success(let recipes):
+        case .success(let recipeEntities):
+            var recipes: [Recipe] = []
+            recipeEntities.forEach {
+                recipes.append(Recipe(from: $0))
+            }
             return recipes
         case .failure(_):
             hasFailure.send(true)
