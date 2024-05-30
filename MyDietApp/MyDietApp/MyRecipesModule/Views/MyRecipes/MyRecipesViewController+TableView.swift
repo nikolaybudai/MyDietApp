@@ -27,4 +27,8 @@ extension MyRecipesViewController: UITableViewDelegate {
         guard let recipe = viewModel.myRecipesDiffableDataSource?.itemIdentifier(for: indexPath) else { return }
         coordinator?.showRecipeDetail(recipe: recipe)
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
 }

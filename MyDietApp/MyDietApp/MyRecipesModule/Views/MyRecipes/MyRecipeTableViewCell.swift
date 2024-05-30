@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class MyRecipeTableViewCell: UITableViewCell {
     
@@ -17,8 +18,11 @@ final class MyRecipeTableViewCell: UITableViewCell {
     private let mealTypeLabel = UILabel()
     private let cuisineTypeLabel = UILabel()
     private let labelsStackView = UIStackView()
+    private let deleteButton = UIButton()
     
     private var viewModel: MyRecipeCellViewModelProtocol?
+    
+    private var cancellables = Set<AnyCancellable>()
     
     //MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -33,7 +37,8 @@ final class MyRecipeTableViewCell: UITableViewCell {
     }
     
     //MARK: methods
-    func configure(with viewModel: MyRecipeCellViewModelProtocol) {
+    func configure(with viewModel: MyRecipeCellViewModelProtocol,
+                   _ isEditingPublisher: AnyPublisher<Bool, Never>) {
         backgroundColor = .clear
         self.viewModel = viewModel
         
@@ -45,6 +50,18 @@ final class MyRecipeTableViewCell: UITableViewCell {
         if let imageURL = URL(string: viewModel.image) {
             recipeImageView.loadImageWithUrl(imageURL)
         }
+        
+        bindIsEditing(isEditingPublisher)
+    }
+    
+    func bindIsEditing(_ publisher: AnyPublisher<Bool, Never>) {
+        publisher.sink { [weak self] isEditing in
+            self?.deleteButton.isHidden = !isEditing
+        }.store(in: &cancellables)
+    }
+    
+    @objc private func deleteButtonTapped() {
+        
     }
 }
 
@@ -56,6 +73,7 @@ private extension MyRecipeTableViewCell {
         setupMealTypelabel()
         setupCuisineTypeLabel()
         setupLabelsStackView()
+        setupDeleteButton()
     }
     
     func setupConstraints() {
@@ -69,6 +87,11 @@ private extension MyRecipeTableViewCell {
             labelsStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             labelsStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             labelsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            
+            deleteButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            deleteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            deleteButton.heightAnchor.constraint(equalToConstant: 50),
+            deleteButton.widthAnchor.constraint(equalToConstant: 50),
         ])
     }
     
@@ -106,5 +129,13 @@ private extension MyRecipeTableViewCell {
         labelsStackView.addArrangedSubview(mealTypeLabel)
         labelsStackView.addArrangedSubview(cuisineTypeLabel)
         addView(labelsStackView)
+    }
+    
+    private func setupDeleteButton() {
+        deleteButton.setImage(UIImage(systemName: "minus.circle"), for: .normal)
+        deleteButton.tintColor = .red
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        deleteButton.isHidden = true
+        addView(deleteButton)
     }
 }

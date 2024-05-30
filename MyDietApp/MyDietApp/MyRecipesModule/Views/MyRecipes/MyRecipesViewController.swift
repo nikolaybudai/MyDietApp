@@ -23,6 +23,8 @@ final class MyRecipesViewController: UIViewController {
     
     private var subscriptions = Set<AnyCancellable>()
     
+    private var isEditingSubject = PassthroughSubject<Bool, Never>()
+    
     //MARK: Init
     init(viewModel: MyRecipesViewModelProtocol) {
         self.viewModel = viewModel
@@ -62,14 +64,16 @@ final class MyRecipesViewController: UIViewController {
     }
     
     private func setupTableViewDataSource() {
-        viewModel.myRecipesDiffableDataSource = UITableViewDiffableDataSource(tableView: myRecipesTableView) { (tableView, indexPath, recipe) -> UITableViewCell? in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyRecipeTableViewCell.cellID,
+        viewModel.myRecipesDiffableDataSource = UITableViewDiffableDataSource(tableView: myRecipesTableView) { [weak self] (tableView, indexPath, recipe) -> UITableViewCell? in
+            guard let self = self,
+                  let cell = tableView.dequeueReusableCell(withIdentifier: MyRecipeTableViewCell.cellID,
                                                            for: indexPath) as? MyRecipeTableViewCell
             else { return UITableViewCell() }
             
             let coreDataManager = CoreDataManager()
             let cellViewModel = MyRecipeCellViewModel(recipe: recipe, coreDataManager: coreDataManager)
-            cell.configure(with: cellViewModel)
+            let publisher = self.isEditingSubject.eraseToAnyPublisher()
+            cell.configure(with: cellViewModel, publisher)
             return cell
         }
     }
@@ -126,13 +130,17 @@ private extension MyRecipesViewController {
     }
     
     @objc func toggleEditMode() {
-        myRecipesTableView.setEditing(!myRecipesTableView.isEditing, animated: true)
+        let isEditing = !myRecipesTableView.isEditing
+        myRecipesTableView.setEditing(isEditing, animated: false)
+        
         if myRecipesTableView.isEditing {
             editButton.setTitle("Done", for: .normal)
         } else {
             editButton.setTitle("Edit", for: .normal)
         }
         editButton.sizeToFit()
+        
+        isEditingSubject.send(isEditing)
     }
     
     private func setupMealTypeChoiceButton() {
