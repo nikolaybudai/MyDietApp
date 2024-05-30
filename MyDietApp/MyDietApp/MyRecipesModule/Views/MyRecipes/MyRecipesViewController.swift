@@ -24,6 +24,7 @@ final class MyRecipesViewController: UIViewController {
     private var subscriptions = Set<AnyCancellable>()
     
     private var isEditingSubject = PassthroughSubject<Bool, Never>()
+    private var isEditingTableView = false
     
     //MARK: Init
     init(viewModel: MyRecipesViewModelProtocol) {
@@ -77,6 +78,19 @@ final class MyRecipesViewController: UIViewController {
             return cell
         }
     }
+    
+    @objc func toggleEditMode() {
+        isEditingTableView = !isEditingTableView
+        
+        if isEditingTableView {
+            editButton.setTitle("Done", for: .normal)
+        } else {
+            editButton.setTitle("Edit", for: .normal)
+        }
+        editButton.sizeToFit()
+        
+        isEditingSubject.send(isEditingTableView)
+    }
 }
 
 //MARK: Setup UI
@@ -127,20 +141,6 @@ private extension MyRecipesViewController {
            
         let editBarButton = UIBarButtonItem(customView: editButton)
         navigationItem.rightBarButtonItem = editBarButton
-    }
-    
-    @objc func toggleEditMode() {
-        let isEditing = !myRecipesTableView.isEditing
-        myRecipesTableView.setEditing(isEditing, animated: false)
-        
-        if myRecipesTableView.isEditing {
-            editButton.setTitle("Done", for: .normal)
-        } else {
-            editButton.setTitle("Edit", for: .normal)
-        }
-        editButton.sizeToFit()
-        
-        isEditingSubject.send(isEditing)
     }
     
     private func setupMealTypeChoiceButton() {

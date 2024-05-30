@@ -61,7 +61,8 @@ final class MyRecipeTableViewCell: UITableViewCell {
     }
     
     @objc private func deleteButtonTapped() {
-        
+        print("button tapped")
+        viewModel?.deleteRecipe()
     }
 }
 
@@ -86,12 +87,12 @@ private extension MyRecipeTableViewCell {
             labelsStackView.leadingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: 10),
             labelsStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             labelsStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            labelsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            labelsStackView.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: -5),
             
             deleteButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             deleteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            deleteButton.heightAnchor.constraint(equalToConstant: 50),
-            deleteButton.widthAnchor.constraint(equalToConstant: 50),
+            deleteButton.heightAnchor.constraint(equalToConstant: 30),
+            deleteButton.widthAnchor.constraint(equalToConstant: 30),
         ])
     }
     
@@ -136,6 +137,6 @@ private extension MyRecipeTableViewCell {
         deleteButton.tintColor = .red
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         deleteButton.isHidden = true
-        addView(deleteButton)
+        contentView.addView(deleteButton)
     }
 }

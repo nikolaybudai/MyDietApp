@@ -15,6 +15,8 @@ protocol MyRecipeCellViewModelProtocol: AnyObject {
     var mealType: String { get }
     var cuisineType: String { get }
     var image: String { get }
+    
+    func deleteRecipe()
 }
 
 //MARK: - Implementation
@@ -43,7 +45,7 @@ final class MyRecipeCellViewModel: MyRecipeCellViewModelProtocol {
     }
     
     //MARK: Methods
-    func deleteRecipe(_ recipe: Recipe) {
+    func deleteRecipe() {
         let predicate = NSPredicate(format: "label == %@ AND calories == %f AND image == %@", recipe.label, recipe.calories, recipe.image)
         let fetchResult = coreDataManager.fetchRecipes(with: predicate)
 
