@@ -82,12 +82,9 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipeEntities):
-//            var recipes: [Recipe] = []
             recipeEntities.forEach {
-//                recipes.append(Recipe(from: $0))
                 currentRecipes.append(Recipe(from: $0))
             }
-//            updateDataSource(with: recipes)
             updateDataSource(with: currentRecipes)
         case .failure(_):
             hasFailure.send(true)
@@ -99,12 +96,9 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipeEntities):
-//            var recipes: [Recipe] = []
             recipeEntities.forEach {
-//                recipes.append(Recipe(from: $0))
                 currentRecipes.append(Recipe(from: $0))
             }
-//            updateDataSource(with: recipes)
             updateDataSource(with: currentRecipes)
         case .failure(_):
             hasFailure.send(true)
@@ -116,12 +110,9 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipeEntities):
-//            var recipes: [Recipe] = []
             recipeEntities.forEach {
-//                recipes.append(Recipe(from: $0))
                 currentRecipes.append(Recipe(from: $0))
             }
-//            updateDataSource(with: recipes)
             updateDataSource(with: currentRecipes)
         case .failure(_):
             hasFailure.send(true)
