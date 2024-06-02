@@ -46,11 +46,12 @@ final class MyRecipeCellViewModel: MyRecipeCellViewModelProtocol {
     
     //MARK: Methods
     func deleteRecipe() {
-        let predicate = NSPredicate(format: "label == %@ AND calories == %f AND image == %@", recipe.label, recipe.calories, recipe.image)
+        let predicate = NSPredicate(format: "label == %@", recipe.label)
         let fetchResult = coreDataManager.fetchRecipes(with: predicate)
 
         switch fetchResult {
         case .success(let recipeEntities):
+            print(recipeEntities)
             if let recipeEntity = recipeEntities.first {
                 coreDataManager.deleteObject(object: recipeEntity)
             }
