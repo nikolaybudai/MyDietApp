@@ -14,7 +14,7 @@ enum MyRecipesSection {
 }
 
 //MARK: - Protocol
-protocol MyRecipesViewModelProtocol: AnyObject {
+protocol MyRecipesViewModelProtocol: AnyObject, MyRecipesCellViewModelDelegate {
     var hasFailure: CurrentValueSubject<Bool, Never> { get }
     var mealTypeOptions: [String] { get }
     var mealTypeChoiceHandler: (UIAction) -> Void { get }
@@ -69,6 +69,8 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
     var cuisineChosen = PassthroughSubject<String, Never>()
     var mealChosen = PassthroughSubject<String, Never>()
     
+    var currentRecipes: [Recipe] = []
+    
     //MARK: Init
     init(coreDataManager: CoreDataManagerProtocol) {
         self.coreDataManager = coreDataManager
@@ -80,11 +82,13 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipeEntities):
-            var recipes: [Recipe] = []
+//            var recipes: [Recipe] = []
             recipeEntities.forEach {
-                recipes.append(Recipe(from: $0))
+//                recipes.append(Recipe(from: $0))
+                currentRecipes.append(Recipe(from: $0))
             }
-            updateDataSource(with: recipes)
+//            updateDataSource(with: recipes)
+            updateDataSource(with: currentRecipes)
         case .failure(_):
             hasFailure.send(true)
         }
@@ -95,11 +99,13 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipeEntities):
-            var recipes: [Recipe] = []
+//            var recipes: [Recipe] = []
             recipeEntities.forEach {
-                recipes.append(Recipe(from: $0))
+//                recipes.append(Recipe(from: $0))
+                currentRecipes.append(Recipe(from: $0))
             }
-            updateDataSource(with: recipes)
+//            updateDataSource(with: recipes)
+            updateDataSource(with: currentRecipes)
         case .failure(_):
             hasFailure.send(true)
         }
@@ -110,11 +116,13 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         let result = coreDataManager.fetchRecipes(with: predicate)
         switch result {
         case .success(let recipeEntities):
-            var recipes: [Recipe] = []
+//            var recipes: [Recipe] = []
             recipeEntities.forEach {
-                recipes.append(Recipe(from: $0))
+//                recipes.append(Recipe(from: $0))
+                currentRecipes.append(Recipe(from: $0))
             }
-            updateDataSource(with: recipes)
+//            updateDataSource(with: recipes)
+            updateDataSource(with: currentRecipes)
         case .failure(_):
             hasFailure.send(true)
         }
@@ -129,4 +137,12 @@ final class MyRecipesViewModel: MyRecipesViewModelProtocol {
         myRecipesDiffableDataSource?.apply(snapshot, animatingDifferences: false)
     }
     
+}
+
+//MARK: - MyRecipesCellViewModelDelegate
+extension MyRecipesViewModel {
+    func shouldUpdateDataSource(without recipe: Recipe) {
+        currentRecipes.removeAll { $0.label == recipe.label }
+        updateDataSource(with: currentRecipes)
+    }
 }

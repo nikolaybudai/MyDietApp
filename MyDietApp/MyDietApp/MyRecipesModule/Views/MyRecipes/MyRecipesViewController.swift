@@ -73,6 +73,7 @@ final class MyRecipesViewController: UIViewController {
             
             let coreDataManager = CoreDataManager()
             let cellViewModel = MyRecipeCellViewModel(recipe: recipe, coreDataManager: coreDataManager)
+            cellViewModel.delegate = viewModel
             let publisher = self.isEditingSubject.eraseToAnyPublisher()
             cell.configure(with: cellViewModel, publisher)
             return cell

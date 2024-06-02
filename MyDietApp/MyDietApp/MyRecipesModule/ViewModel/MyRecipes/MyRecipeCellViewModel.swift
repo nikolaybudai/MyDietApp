@@ -19,6 +19,10 @@ protocol MyRecipeCellViewModelProtocol: AnyObject {
     func deleteRecipe()
 }
 
+protocol MyRecipesCellViewModelDelegate: AnyObject {
+    func shouldUpdateDataSource(without recipe: Recipe)
+}
+
 //MARK: - Implementation
 final class MyRecipeCellViewModel: MyRecipeCellViewModelProtocol {
     
@@ -31,6 +35,8 @@ final class MyRecipeCellViewModel: MyRecipeCellViewModelProtocol {
     private let recipe: Recipe
     
     private let coreDataManager: CoreDataManagerProtocol
+    
+    weak var delegate: MyRecipesCellViewModelDelegate?
     
     //MARK: Init
     init(recipe: Recipe,
@@ -54,6 +60,7 @@ final class MyRecipeCellViewModel: MyRecipeCellViewModelProtocol {
             print(recipeEntities)
             if let recipeEntity = recipeEntities.first {
                 coreDataManager.deleteObject(object: recipeEntity)
+                delegate?.shouldUpdateDataSource(without: recipe)
             }
         case .failure(let error):
             print("Failed to fetch recipe for deletion: \(error)")
